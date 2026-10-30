@@ -1,8 +1,11 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.Page;
+namespace ConradSix.C4M.Endpoints.Page;
 
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Services;
 
 using FastEndpoints;
 
@@ -10,9 +13,6 @@ using FluentValidation;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Services;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class ListPages(IPageQueryService pageQueryService, ICmsPageReader reader, ILogger<ListPages> logger)

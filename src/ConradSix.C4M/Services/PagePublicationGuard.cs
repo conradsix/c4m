@@ -1,10 +1,10 @@
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Endpoints.Page;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Endpoints.Page;
 
 internal static class PagePublicationGuard
 {

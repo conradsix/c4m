@@ -1,13 +1,13 @@
-namespace Parapet.CMS.Engine.Endpoints.Menu;
+namespace ConradSix.C4M.Endpoints.Menu;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
 
 using FastEndpoints;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
 
 [CmsEndpoint(CmsEndpointKind.Delivery)]
 internal class GetFooterMenu(CmsEngineDbContext ctx) : EndpointWithoutRequest<GetMenuResponse>

@@ -1,10 +1,10 @@
 #pragma warning disable SA1402 // The read contracts are kept with the reader.
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
 
 // What a host can read about pages. Nothing here exposes the CMS's tables: hosts read through this and keep page and
 // version ids as plain values.

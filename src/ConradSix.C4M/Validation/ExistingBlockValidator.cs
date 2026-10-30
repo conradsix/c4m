@@ -1,13 +1,13 @@
-namespace Parapet.CMS.Engine.Validation;
+namespace ConradSix.C4M.Validation;
+
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Services.Model;
 
 using FastEndpoints;
 
 using FluentValidation;
 
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Services.Model;
-
-public class ExistingBlockValidator<T> : Validator<T>
+internal class ExistingBlockValidator<T> : Validator<T>
     where T : IExistingBlock
 {
     public ExistingBlockValidator()

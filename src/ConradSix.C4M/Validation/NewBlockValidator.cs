@@ -1,4 +1,7 @@
-namespace Parapet.CMS.Engine.Validation;
+namespace ConradSix.C4M.Validation;
+
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Services.Model;
 
 using FastEndpoints;
 
@@ -8,10 +11,7 @@ using Newtonsoft.Json;
 
 using NJsonSchema;
 
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Services.Model;
-
-public class NewBlockValidator<T> : Validator<T>
+internal class NewBlockValidator<T> : Validator<T>
     where T : INewBlock
 {
     public NewBlockValidator()

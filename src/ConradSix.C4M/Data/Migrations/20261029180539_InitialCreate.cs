@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Parapet.CMS.Engine.Data.Migrations
+namespace ConradSix.C4M.Data.Migrations
 {
     /// <inheritdoc />
     internal partial class InitialCreate : Migration

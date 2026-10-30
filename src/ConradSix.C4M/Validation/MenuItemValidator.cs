@@ -1,4 +1,7 @@
-namespace Parapet.CMS.Engine.Validation;
+namespace ConradSix.C4M.Validation;
+
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Model;
 
 using FastEndpoints;
 
@@ -8,10 +11,7 @@ using Newtonsoft.Json;
 
 using NJsonSchema;
 
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Model;
-
-public class MenuItemValidator : Validator<MenuItem>
+internal class MenuItemValidator : Validator<MenuItem>
 {
     public MenuItemValidator(int currentDepth = 1, string itemPath = "")
     {

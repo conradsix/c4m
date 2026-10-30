@@ -1,8 +1,8 @@
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 using Microsoft.Extensions.Options;
 
-public sealed class CmsPathPolicy(IOptions<CmsEngineOptions> options)
+public sealed class CmsPathPolicy(IOptions<C4MOptions> options)
 {
     public bool IsReserved(string path)
     {

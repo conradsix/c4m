@@ -1,13 +1,13 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.Page;
+namespace ConradSix.C4M.Endpoints.Page;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Services;
+using ConradSix.C4M.Services.Model;
 
 using FastEndpoints;
 
 using Microsoft.AspNetCore.Http;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Services;
-using Parapet.CMS.Engine.Services.Model;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class GetPageHistory(IPageQueryService pageQueryService)

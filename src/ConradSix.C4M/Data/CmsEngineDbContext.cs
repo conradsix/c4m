@@ -1,6 +1,8 @@
 // spell-checker: ignore mipr
 
-namespace Parapet.CMS.Engine.Data;
+namespace ConradSix.C4M.Data;
+
+using ConradSix.C4M.Data.Model;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -8,8 +10,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 using Npgsql;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
-
-using Parapet.CMS.Engine.Data.Model;
 
 // The engine's own tables, in their own schema. Hosts never see this context: they use the engine's services.
 internal sealed class CmsEngineDbContext(DbContextOptions<CmsEngineDbContext> options)

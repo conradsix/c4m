@@ -1,5 +1,5 @@
 #pragma warning disable SA1402 // The candidate contracts are kept with their selector.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 // Picks the image shown when another page links to this one.
 public interface ILinkedPageImageSelector

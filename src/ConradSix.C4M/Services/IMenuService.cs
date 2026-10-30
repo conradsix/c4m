@@ -1,8 +1,8 @@
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
 
-using Parapet.CMS.Engine.Model;
+using ConradSix.C4M.Model;
 
-public interface IMenuService
+internal interface IMenuService
 {
     Task<Guid> CreateMenuAsync(
         string name,

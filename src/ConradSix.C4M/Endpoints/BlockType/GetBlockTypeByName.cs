@@ -1,5 +1,9 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.BlockType;
+namespace ConradSix.C4M.Endpoints.BlockType;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Model;
 
 using FastEndpoints;
 
@@ -7,12 +11,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Model;
-
 [CmsEndpoint(CmsEndpointKind.Editor)]
-internal class GetBlockTypeByName(CmsEngineDbContext ctx, IOptions<CmsEngineOptions> options)
+internal class GetBlockTypeByName(CmsEngineDbContext ctx, IOptions<C4MOptions> options)
     : Endpoint<GetBlockTypeByNameRequest, CmsTypeDescriptor>
 {
     public override void Configure()

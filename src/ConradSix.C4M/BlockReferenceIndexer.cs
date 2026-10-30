@@ -1,5 +1,5 @@
 #pragma warning disable SA1402 // The indexed reference is kept with the indexer that produces it.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 using System.Text.Json;
 
@@ -61,7 +61,7 @@ internal sealed class BlockReferenceIndexer(IEnumerable<IReferenceExtractor> ext
     }
 }
 
-public sealed record IndexedReference(
+internal sealed record IndexedReference(
     string Kind,
     Guid TargetId,
     string JsonPath,

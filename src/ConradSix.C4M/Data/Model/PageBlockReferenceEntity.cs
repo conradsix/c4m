@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Data.Model;
+namespace ConradSix.C4M.Data.Model;
 
 using System.ComponentModel.DataAnnotations.Schema;
 

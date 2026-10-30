@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 // Extra checks a page version must pass before it can be published. Each returned string is one error.
 public interface IPublicationRule

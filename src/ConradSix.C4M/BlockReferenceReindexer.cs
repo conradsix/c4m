@@ -1,10 +1,10 @@
 #pragma warning disable SA1402 // The contract is kept with its implementation.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
+
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
 
 // Rebuilds every block's references from its data, for when the registered extractors change. Blocks never change, so
 // the result depends only on the data and the extractors, and a run can be repeated safely.

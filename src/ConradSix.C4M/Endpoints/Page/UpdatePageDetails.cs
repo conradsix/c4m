@@ -1,7 +1,12 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.Page;
+namespace ConradSix.C4M.Endpoints.Page;
 
 using System.Diagnostics;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Model;
+using ConradSix.C4M.Services;
 
 using FastEndpoints;
 
@@ -10,11 +15,6 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Model;
-using Parapet.CMS.Engine.Services;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class UpdatePageDetails(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, CmsPathPolicy pathPolicy, IPageQueryService pageQueryService, ILogger<UpdatePageDetails> logger)

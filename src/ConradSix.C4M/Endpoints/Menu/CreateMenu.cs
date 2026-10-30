@@ -1,7 +1,14 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.Menu;
+namespace ConradSix.C4M.Endpoints.Menu;
 
 using System.Diagnostics;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Exceptions;
+using ConradSix.C4M.Model;
+using ConradSix.C4M.Services;
+using ConradSix.C4M.Validation;
 
 using FastEndpoints;
 
@@ -10,13 +17,6 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Exceptions;
-using Parapet.CMS.Engine.Model;
-using Parapet.CMS.Engine.Services;
-using Parapet.CMS.Engine.Validation;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class CreateMenu(

@@ -1,0 +1,1826 @@
+#nullable enable
+abstract ConradSix.C4M.Services.CreatePageResult.<Clone>$() -> ConradSix.C4M.Services.CreatePageResult!
+abstract ConradSix.C4M.Services.Model.PageVersionWriteResult.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionWriteResult!
+ConradSix.C4M.BlockChangeDescriber
+ConradSix.C4M.BlockChangeDescriber.BlockChangeDescriber() -> void
+ConradSix.C4M.C4MBuilder
+ConradSix.C4M.C4MBuilder.AddBlockValidator<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.AddPublicationRule<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.AddReferenceExtractor<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.C4MBuilder(Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> void
+ConradSix.C4M.C4MBuilder.ConfigureOptions(System.Action<ConradSix.C4M.C4MOptions!>! configure) -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.Services.get -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+ConradSix.C4M.C4MBuilder.UseAssetResolver<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.UseBlockChangeDescriber<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.UseChangeHandler<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.UseLinkedPageImageSelector<T>() -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MBuilder.UsePostgres(System.Func<System.IServiceProvider!, string!>! connectionString) -> ConradSix.C4M.C4MBuilder!
+ConradSix.C4M.C4MEndpoints
+ConradSix.C4M.C4MOptions
+ConradSix.C4M.C4MOptions.C4MOptions() -> void
+ConradSix.C4M.C4MOptions.ReservedRootSegments.get -> System.Collections.Generic.ISet<string!>!
+ConradSix.C4M.C4MOptions.RetiredBlockTypes.get -> System.Collections.Generic.ISet<string!>!
+ConradSix.C4M.CmsEndpointAttribute
+ConradSix.C4M.CmsEndpointAttribute.CmsEndpointAttribute(ConradSix.C4M.CmsEndpointKind kind) -> void
+ConradSix.C4M.CmsEndpointAttribute.Kind.get -> ConradSix.C4M.CmsEndpointKind
+ConradSix.C4M.CmsEndpointDefinitionExtensions
+ConradSix.C4M.CmsEndpointKind
+ConradSix.C4M.CmsEndpointKind.Delivery = 1 -> ConradSix.C4M.CmsEndpointKind
+ConradSix.C4M.CmsEndpointKind.Editor = 0 -> ConradSix.C4M.CmsEndpointKind
+ConradSix.C4M.CmsImageAsset
+ConradSix.C4M.CmsImageAsset.<Clone>$() -> ConradSix.C4M.CmsImageAsset!
+ConradSix.C4M.CmsImageAsset.AltText.get -> string!
+ConradSix.C4M.CmsImageAsset.AltText.init -> void
+ConradSix.C4M.CmsImageAsset.CmsImageAsset(System.Guid Id, int? Width, int? Height, string! Url, string! AltText) -> void
+ConradSix.C4M.CmsImageAsset.Deconstruct(out System.Guid Id, out int? Width, out int? Height, out string! Url, out string! AltText) -> void
+ConradSix.C4M.CmsImageAsset.Equals(ConradSix.C4M.CmsImageAsset? other) -> bool
+ConradSix.C4M.CmsImageAsset.Height.get -> int?
+ConradSix.C4M.CmsImageAsset.Height.init -> void
+ConradSix.C4M.CmsImageAsset.Id.get -> System.Guid
+ConradSix.C4M.CmsImageAsset.Id.init -> void
+ConradSix.C4M.CmsImageAsset.Url.get -> string!
+ConradSix.C4M.CmsImageAsset.Url.init -> void
+ConradSix.C4M.CmsImageAsset.Width.get -> int?
+ConradSix.C4M.CmsImageAsset.Width.init -> void
+ConradSix.C4M.CmsPathPolicy
+ConradSix.C4M.CmsPathPolicy.CmsPathPolicy(Microsoft.Extensions.Options.IOptions<ConradSix.C4M.C4MOptions!>! options) -> void
+ConradSix.C4M.CmsPathPolicy.IsReserved(string! path) -> bool
+ConradSix.C4M.CmsReferenceKinds
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.CreateCmsTypeDescriptorRequest(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest! original) -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.CreateCmsTypeDescriptorRequest(string! Name, int Version, string! JsonSchema) -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Deconstruct(out string! Name, out int Version, out string! JsonSchema) -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.JsonSchema.get -> string!
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.JsonSchema.init -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Name.get -> string!
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Name.init -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Version.get -> int
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Version.init -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.CreateCmsTypeDescriptorResponse(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse! original) -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.CreateCmsTypeDescriptorResponse(System.Guid Id) -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.Deconstruct(out System.Guid Id) -> void
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.Id.init -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Deconstruct(out string! Name, out int? Version) -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.GetBlockTypeByNameRequest(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest! original) -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.GetBlockTypeByNameRequest(string! Name, int? Version = null) -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Name.get -> string!
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Name.init -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Version.get -> int?
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Version.init -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.Deconstruct(out System.Guid Id) -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.GetBlockTypeRequest(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest! original) -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.GetBlockTypeRequest(System.Guid Id) -> void
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.Id.init -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Deconstruct(out int Offset, out int Limit) -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Limit.get -> int
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Limit.init -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.ListBlockTypesRequest(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest! original) -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.ListBlockTypesRequest(int Offset = 0, int Limit = 50) -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Offset.get -> int
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Offset.init -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Deconstruct(out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.CmsTypeDescriptor!>! Items, out int Total, out int? NextOffset, out int Limit) -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Items.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.CmsTypeDescriptor!>!
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Items.init -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Limit.get -> int
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Limit.init -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.ListBlockTypesResponse(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse! original) -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.ListBlockTypesResponse(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.CmsTypeDescriptor!>! Items, int Total, int? NextOffset, int Limit) -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.NextOffset.get -> int?
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.NextOffset.init -> void
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Total.get -> int
+ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Total.init -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.CreateMenuRequest(ConradSix.C4M.Endpoints.Menu.CreateMenuRequest! original) -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.CreateMenuRequest(string! Name, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>? RootItems) -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.Deconstruct(out string! Name, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>? RootItems) -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.Name.get -> string!
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.Name.init -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.RootItems.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>?
+ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.RootItems.init -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuResponse
+ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.CreateMenuResponse(ConradSix.C4M.Endpoints.Menu.CreateMenuResponse! original) -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.CreateMenuResponse(System.Guid Id) -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.Deconstruct(out System.Guid Id) -> void
+ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.Id.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequest
+ConradSix.C4M.Endpoints.Menu.GetMenuRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.GetMenuRequest!
+ConradSix.C4M.Endpoints.Menu.GetMenuRequest.Equals(ConradSix.C4M.Endpoints.Menu.GetMenuRequest? other) -> bool
+ConradSix.C4M.Endpoints.Menu.GetMenuRequest.GetMenuRequest() -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequest.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.GetMenuRequest.Id.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ActionData.get -> string!
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ActionData.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ActionTypeName.get -> string!
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ActionTypeName.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ActionTypeVersion.get -> int
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ActionTypeVersion.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Children.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!>!
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Children.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Deconstruct(out System.Guid Id, out string! Title, out string! ActionTypeName, out int ActionTypeVersion, out string! ActionData, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!>! Children) -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Equals(ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem? other) -> bool
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.GetMenuRequestMenuItem(System.Guid Id, string! Title, string! ActionTypeName, int ActionTypeVersion, string! ActionData, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!>! Children) -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Id.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Title.get -> string!
+ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Title.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.GetMenuResponse!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.CreatedAt.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Deconstruct(out System.Guid Id, out string! Name, out uint Version, out System.DateTimeOffset CreatedAt, out System.DateTimeOffset UpdatedAt, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!>! RootItems, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage!>! Pages) -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Equals(ConradSix.C4M.Endpoints.Menu.GetMenuResponse? other) -> bool
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.GetMenuResponse(System.Guid Id, string! Name, uint Version, System.DateTimeOffset CreatedAt, System.DateTimeOffset UpdatedAt, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!>! RootItems, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage!>! Pages) -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Id.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Name.get -> string!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Name.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Pages.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage!>!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Pages.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.RootItems.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem!>!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.RootItems.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.UpdatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.UpdatedAt.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Version.get -> uint
+ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Version.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Deconstruct(out System.Guid Id, out string! Slug, out string! Path) -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Equals(ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage? other) -> bool
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.GetMenuResponsePage(System.Guid Id, string! Slug, string! Path) -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Id.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Path.get -> string!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Path.init -> void
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Slug.get -> string!
+ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Slug.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem!
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.CreatedAt.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Deconstruct(out System.Guid Id, out string! Name, out System.DateTimeOffset CreatedAt, out System.DateTimeOffset UpdatedAt) -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Equals(ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem? other) -> bool
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Id.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.ListMenusMenuItem(System.Guid Id, string! Name, System.DateTimeOffset CreatedAt, System.DateTimeOffset UpdatedAt) -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Name.get -> string!
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Name.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.UpdatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.UpdatedAt.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.ListMenusRequest!
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Deconstruct(out int Limit, out int Offset) -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Equals(ConradSix.C4M.Endpoints.Menu.ListMenusRequest? other) -> bool
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Limit.get -> int
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Limit.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.ListMenusRequest(int Limit = 20, int Offset = 0) -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Offset.get -> int
+ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Offset.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.ListMenusResponse!
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Deconstruct(out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem!>! Items, out int TotalCount, out int Limit, out int Offset) -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Equals(ConradSix.C4M.Endpoints.Menu.ListMenusResponse? other) -> bool
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Items.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem!>!
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Items.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Limit.get -> int
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Limit.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.ListMenusResponse(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem!>! Items, int TotalCount, int Limit, int Offset) -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Offset.get -> int
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Offset.init -> void
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.TotalCount.get -> int
+ConradSix.C4M.Endpoints.Menu.ListMenusResponse.TotalCount.init -> void
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.Deconstruct(out System.Guid MenuId, out uint Version, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>? RootItems) -> void
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.MenuId.get -> System.Guid
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.MenuId.init -> void
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.RootItems.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>?
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.RootItems.init -> void
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.UpdateMenuRequest(ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest! original) -> void
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.UpdateMenuRequest(System.Guid MenuId, uint Version, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>? RootItems) -> void
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.Version.get -> uint
+ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.Version.init -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Deconstruct(out string! Name, out int? Version) -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.GetMenuActionTypeByNameRequest(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest! original) -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.GetMenuActionTypeByNameRequest(string! Name, int? Version = null) -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Name.get -> string!
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Name.init -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Version.get -> int?
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Version.init -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.<Clone>$() -> ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest!
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.Deconstruct(out System.Guid Id) -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.Equals(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest? other) -> bool
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.GetMenuActionTypeRequest(System.Guid Id) -> void
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.Id.init -> void
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.<Clone>$() -> ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse!
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.Deconstruct(out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.CmsTypeDescriptor!>! Items) -> void
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.Equals(ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse? other) -> bool
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.Items.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.CmsTypeDescriptor!>!
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.Items.init -> void
+ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.ListMenuActionTypesResponse(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.CmsTypeDescriptor!>! Items) -> void
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.<Clone>$() -> ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse!
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.Deconstruct(out System.Guid? DefaultMenuId, out System.Guid? FooterMenuId, out uint Version) -> void
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.DefaultMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.DefaultMenuId.init -> void
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.Equals(ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse? other) -> bool
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.FooterMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.FooterMenuId.init -> void
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.NavigationSettingsResponse(System.Guid? DefaultMenuId, System.Guid? FooterMenuId, uint Version) -> void
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.Version.get -> uint
+ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.Version.init -> void
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.<Clone>$() -> ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest!
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.Deconstruct(out System.Guid? DefaultMenuId, out System.Guid? FooterMenuId, out uint Version) -> void
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.DefaultMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.DefaultMenuId.init -> void
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.Equals(ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest? other) -> bool
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.FooterMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.FooterMenuId.init -> void
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.UpdateNavigationSettingsRequest(System.Guid? DefaultMenuId, System.Guid? FooterMenuId, uint Version) -> void
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.Version.get -> uint
+ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.Version.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageBlock
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.BlockData.get -> string!
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.BlockData.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.BlockTypeId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.BlockTypeId.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.CreatePageBlock(ConradSix.C4M.Endpoints.Page.CreatePageBlock! original) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.CreatePageBlock(System.Guid BlockTypeId, string! BlockData, System.Guid? InstanceId = null) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.Deconstruct(out System.Guid BlockTypeId, out string! BlockData, out System.Guid? InstanceId) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.InstanceId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.CreatePageBlock.InstanceId.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Blocks.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.CreatePageBlock!>!
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Blocks.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.CreatePageRequest(ConradSix.C4M.Endpoints.Page.CreatePageRequest! original) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.CreatePageRequest(System.Guid? ParentId, string! Slug, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.CreatePageBlock!>! Blocks, ConradSix.C4M.Endpoints.Page.PageSeoRequest? Seo = null, bool Publish = true, System.Guid? NavigationMenuId = null) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Deconstruct(out System.Guid? ParentId, out string! Slug, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.CreatePageBlock!>! Blocks, out ConradSix.C4M.Endpoints.Page.PageSeoRequest? Seo, out bool Publish, out System.Guid? NavigationMenuId) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.NavigationMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.NavigationMenuId.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Publish.get -> bool
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Publish.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Seo.get -> ConradSix.C4M.Endpoints.Page.PageSeoRequest?
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Seo.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.CreatePageRequest.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.CreatePageResponse
+ConradSix.C4M.Endpoints.Page.CreatePageResponse.CreatePageResponse(ConradSix.C4M.Endpoints.Page.CreatePageResponse! original) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageResponse.CreatePageResponse(System.Guid Id) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageResponse.Deconstruct(out System.Guid Id) -> void
+ConradSix.C4M.Endpoints.Page.CreatePageResponse.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.CreatePageResponse.Id.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageByPathRequest!
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.Deconstruct(out string! Path) -> void
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.Equals(ConradSix.C4M.Endpoints.Page.GetPageByPathRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.GetPageByPathRequest(string! Path) -> void
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.Path.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest!
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.Deconstruct(out bool IncludeBreadcrumbs, out bool IncludeArchived) -> void
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.Equals(ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.GetPageByVersionRequest(bool IncludeBreadcrumbs = false, bool IncludeArchived = false) -> void
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.IncludeArchived.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.IncludeArchived.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.IncludeBreadcrumbs.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.IncludeBreadcrumbs.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest!
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.Deconstruct(out bool IncludeArchived) -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.Equals(ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.GetPageHistoryRequest(bool IncludeArchived = false) -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.IncludeArchived.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.IncludeArchived.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse!
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Deconstruct(out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem!>! Versions, out ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? Page) -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Equals(ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.GetPageHistoryResponse(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem!>! Versions, ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? Page = null) -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Page.get -> ConradSix.C4M.Endpoints.Page.PageHistoryMetadata?
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Page.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Versions.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem!>!
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Versions.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem!
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.ChangeSummary.get -> ConradSix.C4M.Services.Model.PageVersionChangeSummary!
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.ChangeSummary.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.CreatedAt.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.Deconstruct(out System.Guid PageVersionId, out bool IsCurrent, out ConradSix.C4M.Services.Model.PageVersionChangeSummary! ChangeSummary, out System.DateTimeOffset CreatedAt) -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.Equals(ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.GetPageHistoryResponseItem(System.Guid PageVersionId, bool IsCurrent, ConradSix.C4M.Services.Model.PageVersionChangeSummary! ChangeSummary, System.DateTimeOffset CreatedAt) -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.IsCurrent.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.IsCurrent.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.PageVersionId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.PageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest!
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.Deconstruct(out string! Slug, out System.Guid? ParentId, out System.Guid? PageId) -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.Equals(ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.GetPagePathAvailabilityRequest(string! Slug, System.Guid? ParentId = null, System.Guid? PageId = null) -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.PageId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse!
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Deconstruct(out string? Path, out ConradSix.C4M.Endpoints.Page.PagePathAvailability Status) -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Equals(ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.GetPagePathAvailabilityResponse(string? Path, ConradSix.C4M.Endpoints.Page.PagePathAvailability Status) -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Path.get -> string?
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Path.init -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Status.get -> ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Status.init -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPagePathResponse!
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse.Deconstruct(out string! Path) -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse.Equals(ConradSix.C4M.Endpoints.Page.GetPagePathResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse.GetPagePathResponse(string! Path) -> void
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPagePathResponse.Path.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageRequest
+ConradSix.C4M.Endpoints.Page.GetPageRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageRequest!
+ConradSix.C4M.Endpoints.Page.GetPageRequest.Deconstruct(out bool Latest, out bool IncludeBreadcrumbs, out bool IncludeArchived) -> void
+ConradSix.C4M.Endpoints.Page.GetPageRequest.Equals(ConradSix.C4M.Endpoints.Page.GetPageRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageRequest.GetPageRequest(bool Latest = false, bool IncludeBreadcrumbs = false, bool IncludeArchived = false) -> void
+ConradSix.C4M.Endpoints.Page.GetPageRequest.IncludeArchived.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageRequest.IncludeArchived.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageRequest.IncludeBreadcrumbs.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageRequest.IncludeBreadcrumbs.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageRequest.Latest.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageRequest.Latest.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse
+ConradSix.C4M.Endpoints.Page.GetPageResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageResponse!
+ConradSix.C4M.Endpoints.Page.GetPageResponse.ArchivedAt.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.ArchivedAt.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Blocks.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlock!>!
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Blocks.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Breadcrumbs.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem!>?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Breadcrumbs.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.GetPageResponse.CreatedAt.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.CurrentPageVersionId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.CurrentPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Deconstruct(out System.Guid PageId, out System.Guid PageVersionId, out System.Guid? ParentId, out System.Guid? NavigationMenuId, out System.Guid? EffectiveNavigationMenuId, out string! Slug, out string! Path, out uint Version, out ConradSix.C4M.Endpoints.Page.PageSeoResponse! Seo, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlock!>! Blocks, out System.DateTimeOffset CreatedAt, out System.DateTimeOffset UpdatedAt, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem!>? Breadcrumbs, out bool IsPublished, out System.Guid? CurrentPageVersionId, out System.Guid? LatestPageVersionId, out System.DateTimeOffset? ArchivedAt, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageReferenceResponse!>? References) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.EffectiveNavigationMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.EffectiveNavigationMenuId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Equals(ConradSix.C4M.Endpoints.Page.GetPageResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageResponse.GetPageResponse(System.Guid PageId, System.Guid PageVersionId, System.Guid? ParentId, System.Guid? NavigationMenuId, System.Guid? EffectiveNavigationMenuId, string! Slug, string! Path, uint Version, ConradSix.C4M.Endpoints.Page.PageSeoResponse! Seo, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlock!>! Blocks, System.DateTimeOffset CreatedAt, System.DateTimeOffset UpdatedAt, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem!>? Breadcrumbs = null, bool IsPublished = false, System.Guid? CurrentPageVersionId = null, System.Guid? LatestPageVersionId = null, System.DateTimeOffset? ArchivedAt = null, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageReferenceResponse!>? References = null) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.IsPublished.get -> bool
+ConradSix.C4M.Endpoints.Page.GetPageResponse.IsPublished.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.LatestPageVersionId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.LatestPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.NavigationMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.NavigationMenuId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponse.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.PageVersionId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponse.PageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Path.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.References.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageReferenceResponse!>?
+ConradSix.C4M.Endpoints.Page.GetPageResponse.References.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Seo.get -> ConradSix.C4M.Endpoints.Page.PageSeoResponse!
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Seo.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.UpdatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.GetPageResponse.UpdatedAt.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Version.get -> uint
+ConradSix.C4M.Endpoints.Page.GetPageResponse.Version.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageResponseBlock!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockData.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockData.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockName.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockName.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockTypeId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockTypeId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockVersion.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.BlockVersion.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Deconstruct(out System.Guid Id, out System.Guid BlockTypeId, out string! BlockName, out string! BlockVersion, out string! BlockData, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage!>! Images, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage!>! Pages, out System.Guid InstanceId) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Equals(ConradSix.C4M.Endpoints.Page.GetPageResponseBlock? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.GetPageResponseBlock(System.Guid Id, System.Guid BlockTypeId, string! BlockName, string! BlockVersion, string! BlockData, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage!>! Images, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage!>! Pages, System.Guid InstanceId = default(System.Guid)) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Id.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Images.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage!>!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Images.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.InstanceId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.InstanceId.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Pages.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage!>!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Pages.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.AltText.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.AltText.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Deconstruct(out System.Guid Id, out int Width, out int Height, out string! ImageUrl, out string! AltText) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Equals(ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.GetPageResponseBlockImage(System.Guid Id, int Width, int Height, string! ImageUrl, string! AltText) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Height.get -> int
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Height.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Id.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.ImageUrl.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.ImageUrl.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Width.get -> int
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Width.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.<Clone>$() -> ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Deconstruct(out System.Guid Id, out string! Slug, out string! Path, out string! Title, out ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? HeroImage) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Equals(ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage? other) -> bool
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.GetPageResponseBlockPage(System.Guid Id, string! Slug, string! Path, string! Title, ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? HeroImage) -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.HeroImage.get -> ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage?
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.HeroImage.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Id.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Id.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Path.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Title.get -> string!
+ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Title.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.CreatedAfter.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.CreatedAfter.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.CreatedBefore.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.CreatedBefore.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Deconstruct(out int Limit, out int Offset, out ConradSix.C4M.Endpoints.Page.ListPagesSort Sort, out string? SlugFilter, out ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType SlugFilterType, out string? PathFilter, out ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType PathFilterType, out System.DateTimeOffset? CreatedAfter, out System.DateTimeOffset? CreatedBefore, out System.DateTimeOffset? UpdatedAfter, out System.DateTimeOffset? UpdatedBefore, out string? Search, out System.Guid? ParentId, out bool PublishedOnly, out ConradSix.C4M.Endpoints.Page.ListPagesStatus Status) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Limit.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Limit.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.ListPagesRequest(ConradSix.C4M.Endpoints.Page.ListPagesRequest! original) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.ListPagesRequest(int Limit = 20, int Offset = 0, ConradSix.C4M.Endpoints.Page.ListPagesSort Sort = ConradSix.C4M.Endpoints.Page.ListPagesSort.SlugAsc, string? SlugFilter = null, ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType SlugFilterType = ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.Contains, string? PathFilter = null, ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType PathFilterType = ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.Contains, System.DateTimeOffset? CreatedAfter = null, System.DateTimeOffset? CreatedBefore = null, System.DateTimeOffset? UpdatedAfter = null, System.DateTimeOffset? UpdatedBefore = null, string? Search = null, System.Guid? ParentId = null, bool PublishedOnly = false, ConradSix.C4M.Endpoints.Page.ListPagesStatus Status = ConradSix.C4M.Endpoints.Page.ListPagesStatus.NotArchived) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Offset.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Offset.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.PathFilter.get -> string?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.PathFilter.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.PathFilterType.get -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.PathFilterType.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.PublishedOnly.get -> bool
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.PublishedOnly.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Search.get -> string?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Search.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.SlugFilter.get -> string?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.SlugFilter.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.SlugFilterType.get -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.SlugFilterType.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Sort.get -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Sort.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Status.get -> ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.Status.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.UpdatedAfter.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.UpdatedAfter.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.UpdatedBefore.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.ListPagesRequest.UpdatedBefore.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Deconstruct(out int Total, out int Limit, out int? NextOffset, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.ListPagesResponseItem!>! Pages) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Limit.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Limit.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.ListPagesResponse(ConradSix.C4M.Endpoints.Page.ListPagesResponse! original) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.ListPagesResponse(int Total, int Limit, int? NextOffset, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.ListPagesResponseItem!>! Pages) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.NextOffset.get -> int?
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.NextOffset.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Pages.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.ListPagesResponseItem!>!
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Pages.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Total.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesResponse.Total.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ArchivedAt.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ArchivedAt.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.CreatedAt.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.CurrentPageVersionId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.CurrentPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Deconstruct(out System.Guid PageId, out System.Guid? ParentPageId, out System.Guid? CurrentPageVersionId, out string! Slug, out string! Path, out int VersionCount, out System.DateTimeOffset CreatedAt, out System.DateTimeOffset UpdatedAt, out bool IsPublished, out string? SeoTitle, out System.DateTimeOffset? ArchivedAt, out int LinksFromPages, out int LinksFromMenus) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.IsPublished.get -> bool
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.IsPublished.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.LinksFromMenus.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.LinksFromMenus.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.LinksFromPages.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.LinksFromPages.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ListPagesResponseItem(ConradSix.C4M.Endpoints.Page.ListPagesResponseItem! original) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ListPagesResponseItem(System.Guid PageId, System.Guid? ParentPageId, System.Guid? CurrentPageVersionId, string! Slug, string! Path, int VersionCount, System.DateTimeOffset CreatedAt, System.DateTimeOffset UpdatedAt, bool IsPublished = false, string? SeoTitle = null, System.DateTimeOffset? ArchivedAt = null, int LinksFromPages = 0, int LinksFromMenus = 0) -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ParentPageId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ParentPageId.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Path.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.SeoTitle.get -> string?
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.SeoTitle.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.UpdatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.UpdatedAt.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.VersionCount.get -> int
+ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.VersionCount.init -> void
+ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.CreatedAtAsc = 4 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.CreatedAtDesc = 5 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.LinksInAsc = 14 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.LinksInDesc = 15 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.PathAsc = 2 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.PathDesc = 3 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.PublishedAsc = 10 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.PublishedDesc = 11 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.SeoTitleAsc = 8 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.SeoTitleDesc = 9 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.SlugAsc = 0 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.SlugDesc = 1 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.StatusAsc = 12 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.StatusDesc = 13 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.UpdatedAtAsc = 6 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesSort.UpdatedAtDesc = 7 -> ConradSix.C4M.Endpoints.Page.ListPagesSort
+ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesStatus.All = 4 -> ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesStatus.Archived = 3 -> ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesStatus.NotArchived = 0 -> ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesStatus.Published = 1 -> ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesStatus.Unpublished = 2 -> ConradSix.C4M.Endpoints.Page.ListPagesStatus
+ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.Contains = 0 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.EndsWith = 2 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.Regex = 3 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.StartsWith = 1 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem!
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Deconstruct(out System.Guid PageId, out string! Slug, out string! Path) -> void
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Equals(ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.PageBreadcrumbItem(System.Guid PageId, string! Slug, string! Path) -> void
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Path.init -> void
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.PageDraftConflict
+ConradSix.C4M.Endpoints.Page.PageDraftConflict.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageDraftConflict!
+ConradSix.C4M.Endpoints.Page.PageDraftConflict.Deconstruct(out System.Guid? LatestPageVersionId) -> void
+ConradSix.C4M.Endpoints.Page.PageDraftConflict.Equals(ConradSix.C4M.Endpoints.Page.PageDraftConflict? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageDraftConflict.LatestPageVersionId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.PageDraftConflict.LatestPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.PageDraftConflict.PageDraftConflict(System.Guid? LatestPageVersionId) -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageHistoryMetadata!
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.ArchivedAt.get -> System.DateTimeOffset?
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.ArchivedAt.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.CreatedAt.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Deconstruct(out System.Guid PageId, out System.Guid? ParentId, out string! Slug, out string! Path, out System.Guid? NavigationMenuId, out System.DateTimeOffset CreatedAt, out System.DateTimeOffset? ArchivedAt, out string? NavigationMenuName) -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Equals(ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.NavigationMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.NavigationMenuId.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.NavigationMenuName.get -> string?
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.NavigationMenuName.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.PageHistoryMetadata(System.Guid PageId, System.Guid? ParentId, string! Slug, string! Path, System.Guid? NavigationMenuId, System.DateTimeOffset CreatedAt, System.DateTimeOffset? ArchivedAt, string? NavigationMenuName = null) -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Path.init -> void
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageLifecycleConflict!
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Code.get -> string!
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Code.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Deconstruct(out string! Code, out string! Message, out int TotalPages, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage!>! Pages, out int TotalMenus, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!>? Menus) -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Equals(ConradSix.C4M.Endpoints.Page.PageLifecycleConflict? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Menus.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!>?
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Menus.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Message.get -> string!
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Message.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.PageLifecycleConflict(string! Code, string! Message, int TotalPages, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage!>! Pages, int TotalMenus = 0, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!>? Menus = null) -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Pages.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage!>!
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Pages.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.TotalMenus.get -> int
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.TotalMenus.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.TotalPages.get -> int
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.TotalPages.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage!
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.Deconstruct(out System.Guid PageId, out string! Path) -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.Equals(ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.PageLifecycleConflictPage(System.Guid PageId, string! Path) -> void
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.Path.init -> void
+ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.PagePathAvailability.Available = 0 -> ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.PagePathAvailability.CircularParent = 4 -> ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.PagePathAvailability.ParentNotFound = 3 -> ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.PagePathAvailability.Restricted = 2 -> ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.PagePathAvailability.Taken = 1 -> ConradSix.C4M.Endpoints.Page.PagePathAvailability
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PagePublicationRequest!
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.Deconstruct(out System.Guid? ExpectedCurrentPageVersionId, out bool ExpectedIsPublished) -> void
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.Equals(ConradSix.C4M.Endpoints.Page.PagePublicationRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.ExpectedCurrentPageVersionId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.ExpectedCurrentPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.ExpectedIsPublished.get -> bool
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.ExpectedIsPublished.init -> void
+ConradSix.C4M.Endpoints.Page.PagePublicationRequest.PagePublicationRequest(System.Guid? ExpectedCurrentPageVersionId, bool ExpectedIsPublished) -> void
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageReferenceResponse!
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.Deconstruct(out string! Kind, out System.Guid TargetId) -> void
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.Equals(ConradSix.C4M.Endpoints.Page.PageReferenceResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.Kind.get -> string!
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.Kind.init -> void
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.PageReferenceResponse(string! Kind, System.Guid TargetId) -> void
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.TargetId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.PageReferenceResponse.TargetId.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageSeoRequest!
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Deconstruct(out string? Title, out string? Description, out System.Guid? SocialImageId, out bool Index, out bool Follow) -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Description.get -> string?
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Description.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Equals(ConradSix.C4M.Endpoints.Page.PageSeoRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Follow.get -> bool
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Follow.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Index.get -> bool
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Index.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.PageSeoRequest(string? Title, string? Description, System.Guid? SocialImageId, bool Index = true, bool Follow = true) -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.SocialImageId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.SocialImageId.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Title.get -> string?
+ConradSix.C4M.Endpoints.Page.PageSeoRequest.Title.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageSeoResponse!
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Deconstruct(out string? Title, out string? Description, out ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? SocialImage, out bool Index, out bool Follow) -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Description.get -> string?
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Description.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Equals(ConradSix.C4M.Endpoints.Page.PageSeoResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Follow.get -> bool
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Follow.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Index.get -> bool
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Index.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.PageSeoResponse(string? Title, string? Description, ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? SocialImage, bool Index, bool Follow) -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.SocialImage.get -> ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage?
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.SocialImage.init -> void
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Title.get -> string?
+ConradSix.C4M.Endpoints.Page.PageSeoResponse.Title.init -> void
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest!
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.Deconstruct(out System.Guid? ParentId) -> void
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.Equals(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.ReparentPageChildrenRequest(System.Guid? ParentId) -> void
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse!
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.Deconstruct(out int MovedPages) -> void
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.Equals(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.MovedPages.get -> int
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.MovedPages.init -> void
+ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.ReparentPageChildrenResponse(int MovedPages) -> void
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.Deconstruct(out System.Guid MenuId, out string! Name, out string! ItemTitle) -> void
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.Equals(ConradSix.C4M.Endpoints.Page.UnpublishMenuReference? other) -> bool
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.ItemTitle.get -> string!
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.ItemTitle.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.MenuId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.MenuId.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.Name.get -> string!
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.Name.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.UnpublishMenuReference(System.Guid MenuId, string! Name, string! ItemTitle) -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UnpublishPageConflict!
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Code.get -> string!
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Code.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Deconstruct(out string! Code, out string! Message, out int TotalPages, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishPageReference!>! Pages, out int TotalMenus, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!>! Menus) -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Equals(ConradSix.C4M.Endpoints.Page.UnpublishPageConflict? other) -> bool
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Menus.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!>!
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Menus.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Message.get -> string!
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Message.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Pages.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishPageReference!>!
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Pages.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.TotalMenus.get -> int
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.TotalMenus.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.TotalPages.get -> int
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.TotalPages.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.UnpublishPageConflict(string! Code, string! Message, int TotalPages, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishPageReference!>! Pages, int TotalMenus, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UnpublishMenuReference!>! Menus) -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UnpublishPageReference!
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Deconstruct(out System.Guid PageId, out System.Guid PageVersionId, out string! Path, out string! Reason) -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Equals(ConradSix.C4M.Endpoints.Page.UnpublishPageReference? other) -> bool
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.PageVersionId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.PageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Path.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Reason.get -> string!
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Reason.init -> void
+ConradSix.C4M.Endpoints.Page.UnpublishPageReference.UnpublishPageReference(System.Guid PageId, System.Guid PageVersionId, string! Path, string! Reason) -> void
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse!
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.Deconstruct(out System.Guid PreviousPageVersionId) -> void
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.Equals(ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.PreviousPageVersionId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.PreviousPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.UpdateCurrentPageVersionResponse(System.Guid PreviousPageVersionId) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest!
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Deconstruct(out System.Guid? ParentId, out string! Slug, out uint Version, out System.Guid? NavigationMenuId) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Equals(ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.NavigationMenuId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.NavigationMenuId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.ParentId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.ParentId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Slug.get -> string!
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Slug.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.UpdatePageDetailsRequest(System.Guid? ParentId, string! Slug, uint Version, System.Guid? NavigationMenuId = null) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Version.get -> uint
+ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Version.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.BlockId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.BlockId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.Deconstruct(out System.Guid BlockId, out int SortOrder) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.SortOrder.get -> int
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.SortOrder.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.UpdatePageExistingBlock(ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock! original) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.UpdatePageExistingBlock(System.Guid BlockId, int SortOrder) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.BlockData.get -> string!
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.BlockData.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.BlockTypeId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.BlockTypeId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.Deconstruct(out System.Guid BlockTypeId, out int SortOrder, out string! BlockData, out System.Guid? InstanceId) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.InstanceId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.InstanceId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.SortOrder.get -> int
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.SortOrder.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.UpdatePageNewBlock(ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock! original) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.UpdatePageNewBlock(System.Guid BlockTypeId, int SortOrder, string! BlockData, System.Guid? InstanceId = null) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UpdatePageRequest!
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.Deconstruct(out System.Guid ExpectedLatestPageVersionId, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock!>! NewBlocks, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock!>! ExistingBlocks, out ConradSix.C4M.Endpoints.Page.PageSeoRequest? Seo) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.Equals(ConradSix.C4M.Endpoints.Page.UpdatePageRequest? other) -> bool
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.ExistingBlocks.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock!>!
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.ExistingBlocks.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.ExpectedLatestPageVersionId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.ExpectedLatestPageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.NewBlocks.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock!>!
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.NewBlocks.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.Seo.get -> ConradSix.C4M.Endpoints.Page.PageSeoRequest?
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.Seo.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageRequest.UpdatePageRequest(System.Guid ExpectedLatestPageVersionId, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock!>! NewBlocks, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock!>! ExistingBlocks, ConradSix.C4M.Endpoints.Page.PageSeoRequest? Seo = null) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageResponse
+ConradSix.C4M.Endpoints.Page.UpdatePageResponse.Deconstruct(out System.Guid PageVersionId) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageResponse.PageVersionId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.UpdatePageResponse.PageVersionId.init -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageResponse.UpdatePageResponse(ConradSix.C4M.Endpoints.Page.UpdatePageResponse! original) -> void
+ConradSix.C4M.Endpoints.Page.UpdatePageResponse.UpdatePageResponse(System.Guid PageVersionId) -> void
+ConradSix.C4M.ExtractedReference
+ConradSix.C4M.ExtractedReference.<Clone>$() -> ConradSix.C4M.ExtractedReference!
+ConradSix.C4M.ExtractedReference.Deconstruct(out string! Kind, out System.Guid TargetId, out string! JsonPath) -> void
+ConradSix.C4M.ExtractedReference.Equals(ConradSix.C4M.ExtractedReference? other) -> bool
+ConradSix.C4M.ExtractedReference.ExtractedReference(string! Kind, System.Guid TargetId, string! JsonPath) -> void
+ConradSix.C4M.ExtractedReference.JsonPath.get -> string!
+ConradSix.C4M.ExtractedReference.JsonPath.init -> void
+ConradSix.C4M.ExtractedReference.Kind.get -> string!
+ConradSix.C4M.ExtractedReference.Kind.init -> void
+ConradSix.C4M.ExtractedReference.TargetId.get -> System.Guid
+ConradSix.C4M.ExtractedReference.TargetId.init -> void
+ConradSix.C4M.IAssetResolver
+ConradSix.C4M.IAssetResolver.ResolveImagesAsync(System.Collections.Generic.IReadOnlyCollection<System.Guid>! ids, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, ConradSix.C4M.CmsImageAsset!>!>!
+ConradSix.C4M.IBlockChangeDescriber
+ConradSix.C4M.IBlockChangeDescriber.ChangedFields(string! blockType, System.Text.Json.JsonElement previous, System.Text.Json.JsonElement current) -> System.Collections.Generic.IReadOnlyList<string!>!
+ConradSix.C4M.IBlockChangeDescriber.DisplayName(string! blockType) -> string!
+ConradSix.C4M.IBlockChangeDescriber.Label(string! blockType, System.Text.Json.JsonElement block) -> string?
+ConradSix.C4M.IBlockReferenceQuery
+ConradSix.C4M.IBlockReferenceQuery.GetCurrentAsync(string! kind, System.Collections.Generic.IReadOnlyCollection<System.Guid>? pageIds, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, System.Collections.Generic.IReadOnlyList<System.Guid>!>!>!
+ConradSix.C4M.IBlockReferenceReindexer
+ConradSix.C4M.IBlockReferenceReindexer.ReindexAsync(System.Func<int, int, System.Threading.CancellationToken, System.Threading.Tasks.ValueTask>? progress, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<int>!
+ConradSix.C4M.IBlockValidator
+ConradSix.C4M.IBlockValidator.Validate(string! blockType, System.Text.Json.JsonElement block) -> void
+ConradSix.C4M.ICmsChangeHandler
+ConradSix.C4M.ICmsChangeHandler.ContentChangedAsync() -> System.Threading.Tasks.Task!
+ConradSix.C4M.ICmsChangeHandler.NavigationChangedAsync() -> System.Threading.Tasks.Task!
+ConradSix.C4M.ICmsChangeHandler.PageChangedAsync(string! path) -> System.Threading.Tasks.Task!
+ConradSix.C4M.ILinkedPageImageSelector
+ConradSix.C4M.ILinkedPageImageSelector.SelectImage(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.LinkedPageBlock!>! blocks) -> System.Guid?
+ConradSix.C4M.IPublicationRule
+ConradSix.C4M.IPublicationRule.ValidateAsync(System.Guid pageId, System.Guid pageVersionId, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<string!>!>!
+ConradSix.C4M.IReferenceExtractor
+ConradSix.C4M.IReferenceExtractor.Extract(ConradSix.C4M.ReferenceNode node) -> System.Collections.Generic.IEnumerable<ConradSix.C4M.ExtractedReference!>!
+ConradSix.C4M.LinkedPageBlock
+ConradSix.C4M.LinkedPageBlock.<Clone>$() -> ConradSix.C4M.LinkedPageBlock!
+ConradSix.C4M.LinkedPageBlock.BlockType.get -> string!
+ConradSix.C4M.LinkedPageBlock.BlockType.init -> void
+ConradSix.C4M.LinkedPageBlock.Deconstruct(out string! BlockType, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.LinkedPageImageReference!>! Images) -> void
+ConradSix.C4M.LinkedPageBlock.Equals(ConradSix.C4M.LinkedPageBlock? other) -> bool
+ConradSix.C4M.LinkedPageBlock.Images.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.LinkedPageImageReference!>!
+ConradSix.C4M.LinkedPageBlock.Images.init -> void
+ConradSix.C4M.LinkedPageBlock.LinkedPageBlock(string! BlockType, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.LinkedPageImageReference!>! Images) -> void
+ConradSix.C4M.LinkedPageImageReference
+ConradSix.C4M.LinkedPageImageReference.<Clone>$() -> ConradSix.C4M.LinkedPageImageReference!
+ConradSix.C4M.LinkedPageImageReference.Deconstruct(out string! JsonPath, out System.Guid ImageId) -> void
+ConradSix.C4M.LinkedPageImageReference.Equals(ConradSix.C4M.LinkedPageImageReference? other) -> bool
+ConradSix.C4M.LinkedPageImageReference.ImageId.get -> System.Guid
+ConradSix.C4M.LinkedPageImageReference.ImageId.init -> void
+ConradSix.C4M.LinkedPageImageReference.JsonPath.get -> string!
+ConradSix.C4M.LinkedPageImageReference.JsonPath.init -> void
+ConradSix.C4M.LinkedPageImageReference.LinkedPageImageReference(string! JsonPath, System.Guid ImageId) -> void
+ConradSix.C4M.Model.CmsTypeDescriptor
+ConradSix.C4M.Model.CmsTypeDescriptor.<Clone>$() -> ConradSix.C4M.Model.CmsTypeDescriptor!
+ConradSix.C4M.Model.CmsTypeDescriptor.CmsTypeDescriptor(System.Guid Id, string! Name, int Version, string! JsonSchema, System.DateTimeOffset CreatedAt, bool IsRetired = false) -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Model.CmsTypeDescriptor.CreatedAt.init -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.Deconstruct(out System.Guid Id, out string! Name, out int Version, out string! JsonSchema, out System.DateTimeOffset CreatedAt, out bool IsRetired) -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.Equals(ConradSix.C4M.Model.CmsTypeDescriptor? other) -> bool
+ConradSix.C4M.Model.CmsTypeDescriptor.Id.get -> System.Guid
+ConradSix.C4M.Model.CmsTypeDescriptor.Id.init -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.IsRetired.get -> bool
+ConradSix.C4M.Model.CmsTypeDescriptor.IsRetired.init -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.JsonSchema.get -> string!
+ConradSix.C4M.Model.CmsTypeDescriptor.JsonSchema.init -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.Name.get -> string!
+ConradSix.C4M.Model.CmsTypeDescriptor.Name.init -> void
+ConradSix.C4M.Model.CmsTypeDescriptor.Version.get -> int
+ConradSix.C4M.Model.CmsTypeDescriptor.Version.init -> void
+ConradSix.C4M.Model.ConflictResponse
+ConradSix.C4M.Model.ConflictResponse.ConflictResponse(ConradSix.C4M.Model.ConflictResponse! original) -> void
+ConradSix.C4M.Model.ConflictResponse.ConflictResponse(System.Guid Id, uint Version, System.DateTimeOffset UpdatedAt) -> void
+ConradSix.C4M.Model.ConflictResponse.Deconstruct(out System.Guid Id, out uint Version, out System.DateTimeOffset UpdatedAt) -> void
+ConradSix.C4M.Model.ConflictResponse.Id.get -> System.Guid
+ConradSix.C4M.Model.ConflictResponse.Id.init -> void
+ConradSix.C4M.Model.ConflictResponse.UpdatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Model.ConflictResponse.UpdatedAt.init -> void
+ConradSix.C4M.Model.ConflictResponse.Version.get -> uint
+ConradSix.C4M.Model.ConflictResponse.Version.init -> void
+ConradSix.C4M.Model.MenuItem
+ConradSix.C4M.Model.MenuItem.ActionData.get -> string!
+ConradSix.C4M.Model.MenuItem.ActionData.init -> void
+ConradSix.C4M.Model.MenuItem.ActionTypeId.get -> System.Guid
+ConradSix.C4M.Model.MenuItem.ActionTypeId.init -> void
+ConradSix.C4M.Model.MenuItem.Children.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>?
+ConradSix.C4M.Model.MenuItem.Children.init -> void
+ConradSix.C4M.Model.MenuItem.Deconstruct(out string! Title, out System.Guid ActionTypeId, out string! ActionData, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>? Children) -> void
+ConradSix.C4M.Model.MenuItem.MenuItem(ConradSix.C4M.Model.MenuItem! original) -> void
+ConradSix.C4M.Model.MenuItem.MenuItem(string! Title, System.Guid ActionTypeId, string! ActionData, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Model.MenuItem!>? Children) -> void
+ConradSix.C4M.Model.MenuItem.Title.get -> string!
+ConradSix.C4M.Model.MenuItem.Title.init -> void
+ConradSix.C4M.NullAssetResolver
+ConradSix.C4M.NullAssetResolver.NullAssetResolver() -> void
+ConradSix.C4M.NullAssetResolver.ResolveImagesAsync(System.Collections.Generic.IReadOnlyCollection<System.Guid>! ids, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, ConradSix.C4M.CmsImageAsset!>!>!
+ConradSix.C4M.NullCmsChangeHandler
+ConradSix.C4M.NullCmsChangeHandler.ContentChangedAsync() -> System.Threading.Tasks.Task!
+ConradSix.C4M.NullCmsChangeHandler.NavigationChangedAsync() -> System.Threading.Tasks.Task!
+ConradSix.C4M.NullCmsChangeHandler.NullCmsChangeHandler() -> void
+ConradSix.C4M.NullCmsChangeHandler.PageChangedAsync(string! path) -> System.Threading.Tasks.Task!
+ConradSix.C4M.NullLinkedPageImageSelector
+ConradSix.C4M.NullLinkedPageImageSelector.NullLinkedPageImageSelector() -> void
+ConradSix.C4M.NullLinkedPageImageSelector.SelectImage(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.LinkedPageBlock!>! blocks) -> System.Guid?
+ConradSix.C4M.ReferenceNode
+ConradSix.C4M.ReferenceNode.Deconstruct(out System.Text.Json.JsonElement Element, out string! JsonPath, out string? PropertyName) -> void
+ConradSix.C4M.ReferenceNode.Element.get -> System.Text.Json.JsonElement
+ConradSix.C4M.ReferenceNode.Element.init -> void
+ConradSix.C4M.ReferenceNode.Equals(ConradSix.C4M.ReferenceNode other) -> bool
+ConradSix.C4M.ReferenceNode.JsonPath.get -> string!
+ConradSix.C4M.ReferenceNode.JsonPath.init -> void
+ConradSix.C4M.ReferenceNode.PropertyName.get -> string?
+ConradSix.C4M.ReferenceNode.PropertyName.init -> void
+ConradSix.C4M.ReferenceNode.ReferenceNode() -> void
+ConradSix.C4M.ReferenceNode.ReferenceNode(System.Text.Json.JsonElement Element, string! JsonPath, string? PropertyName) -> void
+ConradSix.C4M.Services.CmsBlockReference
+ConradSix.C4M.Services.CmsBlockReference.<Clone>$() -> ConradSix.C4M.Services.CmsBlockReference!
+ConradSix.C4M.Services.CmsBlockReference.CmsBlockReference(string! Kind, System.Guid TargetId, string! JsonPath) -> void
+ConradSix.C4M.Services.CmsBlockReference.Deconstruct(out string! Kind, out System.Guid TargetId, out string! JsonPath) -> void
+ConradSix.C4M.Services.CmsBlockReference.Equals(ConradSix.C4M.Services.CmsBlockReference? other) -> bool
+ConradSix.C4M.Services.CmsBlockReference.JsonPath.get -> string!
+ConradSix.C4M.Services.CmsBlockReference.JsonPath.init -> void
+ConradSix.C4M.Services.CmsBlockReference.Kind.get -> string!
+ConradSix.C4M.Services.CmsBlockReference.Kind.init -> void
+ConradSix.C4M.Services.CmsBlockReference.TargetId.get -> System.Guid
+ConradSix.C4M.Services.CmsBlockReference.TargetId.init -> void
+ConradSix.C4M.Services.CmsBlockRetiredException
+ConradSix.C4M.Services.CmsBlockRetiredException.CmsBlockRetiredException(string! name) -> void
+ConradSix.C4M.Services.CmsBlockType
+ConradSix.C4M.Services.CmsBlockType.<Clone>$() -> ConradSix.C4M.Services.CmsBlockType!
+ConradSix.C4M.Services.CmsBlockType.CmsBlockType(System.Guid Id, string! Name, int Version, string! JsonSchema) -> void
+ConradSix.C4M.Services.CmsBlockType.Deconstruct(out System.Guid Id, out string! Name, out int Version, out string! JsonSchema) -> void
+ConradSix.C4M.Services.CmsBlockType.Equals(ConradSix.C4M.Services.CmsBlockType? other) -> bool
+ConradSix.C4M.Services.CmsBlockType.Id.get -> System.Guid
+ConradSix.C4M.Services.CmsBlockType.Id.init -> void
+ConradSix.C4M.Services.CmsBlockType.JsonSchema.get -> string!
+ConradSix.C4M.Services.CmsBlockType.JsonSchema.init -> void
+ConradSix.C4M.Services.CmsBlockType.Name.get -> string!
+ConradSix.C4M.Services.CmsBlockType.Name.init -> void
+ConradSix.C4M.Services.CmsBlockType.Version.get -> int
+ConradSix.C4M.Services.CmsBlockType.Version.init -> void
+ConradSix.C4M.Services.CmsBlockValidationException
+ConradSix.C4M.Services.CmsBlockValidationException.CmsBlockValidationException(string! message) -> void
+ConradSix.C4M.Services.CmsCurrentVersion
+ConradSix.C4M.Services.CmsCurrentVersion.<Clone>$() -> ConradSix.C4M.Services.CmsCurrentVersion!
+ConradSix.C4M.Services.CmsCurrentVersion.BlockTypes.get -> System.Collections.Generic.IReadOnlyList<string!>!
+ConradSix.C4M.Services.CmsCurrentVersion.BlockTypes.init -> void
+ConradSix.C4M.Services.CmsCurrentVersion.CmsCurrentVersion(System.Guid PageId, System.Guid PageVersionId, string? SeoTitle, bool RobotsIndex, System.Collections.Generic.IReadOnlyList<string!>! BlockTypes) -> void
+ConradSix.C4M.Services.CmsCurrentVersion.Deconstruct(out System.Guid PageId, out System.Guid PageVersionId, out string? SeoTitle, out bool RobotsIndex, out System.Collections.Generic.IReadOnlyList<string!>! BlockTypes) -> void
+ConradSix.C4M.Services.CmsCurrentVersion.Equals(ConradSix.C4M.Services.CmsCurrentVersion? other) -> bool
+ConradSix.C4M.Services.CmsCurrentVersion.PageId.get -> System.Guid
+ConradSix.C4M.Services.CmsCurrentVersion.PageId.init -> void
+ConradSix.C4M.Services.CmsCurrentVersion.PageVersionId.get -> System.Guid
+ConradSix.C4M.Services.CmsCurrentVersion.PageVersionId.init -> void
+ConradSix.C4M.Services.CmsCurrentVersion.RobotsIndex.get -> bool
+ConradSix.C4M.Services.CmsCurrentVersion.RobotsIndex.init -> void
+ConradSix.C4M.Services.CmsCurrentVersion.SeoTitle.get -> string?
+ConradSix.C4M.Services.CmsCurrentVersion.SeoTitle.init -> void
+ConradSix.C4M.Services.CmsLinkCounts
+ConradSix.C4M.Services.CmsLinkCounts.<Clone>$() -> ConradSix.C4M.Services.CmsLinkCounts!
+ConradSix.C4M.Services.CmsLinkCounts.CmsLinkCounts(int FromPages, int FromMenus) -> void
+ConradSix.C4M.Services.CmsLinkCounts.Deconstruct(out int FromPages, out int FromMenus) -> void
+ConradSix.C4M.Services.CmsLinkCounts.Equals(ConradSix.C4M.Services.CmsLinkCounts? other) -> bool
+ConradSix.C4M.Services.CmsLinkCounts.FromMenus.get -> int
+ConradSix.C4M.Services.CmsLinkCounts.FromMenus.init -> void
+ConradSix.C4M.Services.CmsLinkCounts.FromPages.get -> int
+ConradSix.C4M.Services.CmsLinkCounts.FromPages.init -> void
+ConradSix.C4M.Services.CmsPage
+ConradSix.C4M.Services.CmsPage.<Clone>$() -> ConradSix.C4M.Services.CmsPage!
+ConradSix.C4M.Services.CmsPage.ArchivedAt.get -> System.DateTimeOffset?
+ConradSix.C4M.Services.CmsPage.ArchivedAt.init -> void
+ConradSix.C4M.Services.CmsPage.CmsPage(System.Guid Id, System.Guid? ParentId, string! Slug, string! Path, bool IsPublished, System.DateTimeOffset? ArchivedAt) -> void
+ConradSix.C4M.Services.CmsPage.Deconstruct(out System.Guid Id, out System.Guid? ParentId, out string! Slug, out string! Path, out bool IsPublished, out System.DateTimeOffset? ArchivedAt) -> void
+ConradSix.C4M.Services.CmsPage.Equals(ConradSix.C4M.Services.CmsPage? other) -> bool
+ConradSix.C4M.Services.CmsPage.Id.get -> System.Guid
+ConradSix.C4M.Services.CmsPage.Id.init -> void
+ConradSix.C4M.Services.CmsPage.IsPublished.get -> bool
+ConradSix.C4M.Services.CmsPage.IsPublished.init -> void
+ConradSix.C4M.Services.CmsPage.ParentId.get -> System.Guid?
+ConradSix.C4M.Services.CmsPage.ParentId.init -> void
+ConradSix.C4M.Services.CmsPage.Path.get -> string!
+ConradSix.C4M.Services.CmsPage.Path.init -> void
+ConradSix.C4M.Services.CmsPage.Slug.get -> string!
+ConradSix.C4M.Services.CmsPage.Slug.init -> void
+ConradSix.C4M.Services.CmsVersion
+ConradSix.C4M.Services.CmsVersion.<Clone>$() -> ConradSix.C4M.Services.CmsVersion!
+ConradSix.C4M.Services.CmsVersion.Blocks.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsVersionBlock!>!
+ConradSix.C4M.Services.CmsVersion.Blocks.init -> void
+ConradSix.C4M.Services.CmsVersion.CmsVersion(System.Guid Id, System.Guid PageId, bool IsCurrent, System.DateTimeOffset CreatedAt, string? SeoTitle, string? SeoDescription, System.Guid? SeoImageId, bool RobotsIndex, bool RobotsFollow, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsVersionBlock!>! Blocks) -> void
+ConradSix.C4M.Services.CmsVersion.CreatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Services.CmsVersion.CreatedAt.init -> void
+ConradSix.C4M.Services.CmsVersion.Deconstruct(out System.Guid Id, out System.Guid PageId, out bool IsCurrent, out System.DateTimeOffset CreatedAt, out string? SeoTitle, out string? SeoDescription, out System.Guid? SeoImageId, out bool RobotsIndex, out bool RobotsFollow, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsVersionBlock!>! Blocks) -> void
+ConradSix.C4M.Services.CmsVersion.Equals(ConradSix.C4M.Services.CmsVersion? other) -> bool
+ConradSix.C4M.Services.CmsVersion.Id.get -> System.Guid
+ConradSix.C4M.Services.CmsVersion.Id.init -> void
+ConradSix.C4M.Services.CmsVersion.IsCurrent.get -> bool
+ConradSix.C4M.Services.CmsVersion.IsCurrent.init -> void
+ConradSix.C4M.Services.CmsVersion.PageId.get -> System.Guid
+ConradSix.C4M.Services.CmsVersion.PageId.init -> void
+ConradSix.C4M.Services.CmsVersion.RobotsFollow.get -> bool
+ConradSix.C4M.Services.CmsVersion.RobotsFollow.init -> void
+ConradSix.C4M.Services.CmsVersion.RobotsIndex.get -> bool
+ConradSix.C4M.Services.CmsVersion.RobotsIndex.init -> void
+ConradSix.C4M.Services.CmsVersion.SeoDescription.get -> string?
+ConradSix.C4M.Services.CmsVersion.SeoDescription.init -> void
+ConradSix.C4M.Services.CmsVersion.SeoImageId.get -> System.Guid?
+ConradSix.C4M.Services.CmsVersion.SeoImageId.init -> void
+ConradSix.C4M.Services.CmsVersion.SeoTitle.get -> string?
+ConradSix.C4M.Services.CmsVersion.SeoTitle.init -> void
+ConradSix.C4M.Services.CmsVersionBlock
+ConradSix.C4M.Services.CmsVersionBlock.<Clone>$() -> ConradSix.C4M.Services.CmsVersionBlock!
+ConradSix.C4M.Services.CmsVersionBlock.BlockData.get -> string!
+ConradSix.C4M.Services.CmsVersionBlock.BlockData.init -> void
+ConradSix.C4M.Services.CmsVersionBlock.BlockType.get -> string!
+ConradSix.C4M.Services.CmsVersionBlock.BlockType.init -> void
+ConradSix.C4M.Services.CmsVersionBlock.BlockTypeId.get -> System.Guid
+ConradSix.C4M.Services.CmsVersionBlock.BlockTypeId.init -> void
+ConradSix.C4M.Services.CmsVersionBlock.BlockTypeVersion.get -> int
+ConradSix.C4M.Services.CmsVersionBlock.BlockTypeVersion.init -> void
+ConradSix.C4M.Services.CmsVersionBlock.CmsVersionBlock(System.Guid Id, System.Guid InstanceId, System.Guid BlockTypeId, string! BlockType, int BlockTypeVersion, string! BlockData, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsBlockReference!>! References) -> void
+ConradSix.C4M.Services.CmsVersionBlock.Deconstruct(out System.Guid Id, out System.Guid InstanceId, out System.Guid BlockTypeId, out string! BlockType, out int BlockTypeVersion, out string! BlockData, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsBlockReference!>! References) -> void
+ConradSix.C4M.Services.CmsVersionBlock.Equals(ConradSix.C4M.Services.CmsVersionBlock? other) -> bool
+ConradSix.C4M.Services.CmsVersionBlock.Id.get -> System.Guid
+ConradSix.C4M.Services.CmsVersionBlock.Id.init -> void
+ConradSix.C4M.Services.CmsVersionBlock.InstanceId.get -> System.Guid
+ConradSix.C4M.Services.CmsVersionBlock.InstanceId.init -> void
+ConradSix.C4M.Services.CmsVersionBlock.References.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsBlockReference!>!
+ConradSix.C4M.Services.CmsVersionBlock.References.init -> void
+ConradSix.C4M.Services.CmsVersionHeads
+ConradSix.C4M.Services.CmsVersionHeads.<Clone>$() -> ConradSix.C4M.Services.CmsVersionHeads!
+ConradSix.C4M.Services.CmsVersionHeads.CmsVersionHeads(System.Guid? CurrentPageVersionId, System.Guid? LatestPageVersionId) -> void
+ConradSix.C4M.Services.CmsVersionHeads.CurrentPageVersionId.get -> System.Guid?
+ConradSix.C4M.Services.CmsVersionHeads.CurrentPageVersionId.init -> void
+ConradSix.C4M.Services.CmsVersionHeads.Deconstruct(out System.Guid? CurrentPageVersionId, out System.Guid? LatestPageVersionId) -> void
+ConradSix.C4M.Services.CmsVersionHeads.Equals(ConradSix.C4M.Services.CmsVersionHeads? other) -> bool
+ConradSix.C4M.Services.CmsVersionHeads.LatestPageVersionId.get -> System.Guid?
+ConradSix.C4M.Services.CmsVersionHeads.LatestPageVersionId.init -> void
+ConradSix.C4M.Services.CmsVersionHeads.WorkingPageVersionId.get -> System.Guid?
+ConradSix.C4M.Services.CreatePageIdTaken
+ConradSix.C4M.Services.CreatePageIdTaken.CreatePageIdTaken() -> void
+ConradSix.C4M.Services.CreatePageIdTaken.Equals(ConradSix.C4M.Services.CreatePageIdTaken? other) -> bool
+ConradSix.C4M.Services.CreatePageInvalid
+ConradSix.C4M.Services.CreatePageInvalid.CreatePageInvalid(System.Collections.Generic.IReadOnlyList<string!>! Errors) -> void
+ConradSix.C4M.Services.CreatePageInvalid.Deconstruct(out System.Collections.Generic.IReadOnlyList<string!>! Errors) -> void
+ConradSix.C4M.Services.CreatePageInvalid.Equals(ConradSix.C4M.Services.CreatePageInvalid? other) -> bool
+ConradSix.C4M.Services.CreatePageInvalid.Errors.get -> System.Collections.Generic.IReadOnlyList<string!>!
+ConradSix.C4M.Services.CreatePageInvalid.Errors.init -> void
+ConradSix.C4M.Services.CreatePageMenuMissing
+ConradSix.C4M.Services.CreatePageMenuMissing.CreatePageMenuMissing() -> void
+ConradSix.C4M.Services.CreatePageMenuMissing.Equals(ConradSix.C4M.Services.CreatePageMenuMissing? other) -> bool
+ConradSix.C4M.Services.CreatePageParentMissing
+ConradSix.C4M.Services.CreatePageParentMissing.CreatePageParentMissing() -> void
+ConradSix.C4M.Services.CreatePageParentMissing.Equals(ConradSix.C4M.Services.CreatePageParentMissing? other) -> bool
+ConradSix.C4M.Services.CreatePagePathTaken
+ConradSix.C4M.Services.CreatePagePathTaken.CreatePagePathTaken() -> void
+ConradSix.C4M.Services.CreatePagePathTaken.Equals(ConradSix.C4M.Services.CreatePagePathTaken? other) -> bool
+ConradSix.C4M.Services.CreatePageReserved
+ConradSix.C4M.Services.CreatePageReserved.CreatePageReserved(string! Path) -> void
+ConradSix.C4M.Services.CreatePageReserved.Deconstruct(out string! Path) -> void
+ConradSix.C4M.Services.CreatePageReserved.Equals(ConradSix.C4M.Services.CreatePageReserved? other) -> bool
+ConradSix.C4M.Services.CreatePageReserved.Path.get -> string!
+ConradSix.C4M.Services.CreatePageReserved.Path.init -> void
+ConradSix.C4M.Services.CreatePageResult
+ConradSix.C4M.Services.CreatePageResult.CreatePageResult() -> void
+ConradSix.C4M.Services.CreatePageResult.CreatePageResult(ConradSix.C4M.Services.CreatePageResult! original) -> void
+ConradSix.C4M.Services.ICmsPageReader
+ConradSix.C4M.Services.ICmsPageReader.GetBlockTypesAsync(System.Collections.Generic.IReadOnlyCollection<string!>? names, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsBlockType!>!>!
+ConradSix.C4M.Services.ICmsPageReader.GetCurrentVersionsAsync(System.Collections.Generic.IReadOnlyCollection<System.Guid>? pageIds, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, ConradSix.C4M.Services.CmsCurrentVersion!>!>!
+ConradSix.C4M.Services.ICmsPageReader.GetLinkCountsAsync(System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, ConradSix.C4M.Services.CmsLinkCounts!>!>!
+ConradSix.C4M.Services.ICmsPageReader.GetLinkedPageImagesAsync(System.Collections.Generic.IReadOnlyCollection<System.Guid>! pageIds, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, System.Guid>!>!
+ConradSix.C4M.Services.ICmsPageReader.GetPageAsync(System.Guid pageId, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<ConradSix.C4M.Services.CmsPage?>!
+ConradSix.C4M.Services.ICmsPageReader.GetPagesAsync(System.Collections.Generic.IReadOnlyCollection<System.Guid>! pageIds, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, ConradSix.C4M.Services.CmsPage!>!>!
+ConradSix.C4M.Services.ICmsPageReader.GetVersionAsync(System.Guid pageVersionId, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<ConradSix.C4M.Services.CmsVersion?>!
+ConradSix.C4M.Services.ICmsPageReader.GetVersionHeadsAsync(System.Guid pageId, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<ConradSix.C4M.Services.CmsVersionHeads!>!
+ConradSix.C4M.Services.ICmsPageReader.ListPagesAsync(bool publishedOnly, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.CmsPage!>!>!
+ConradSix.C4M.Services.IPageService
+ConradSix.C4M.Services.IPageService.CreatePageAsync(ConradSix.C4M.Services.NewPage! page, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<ConradSix.C4M.Services.CreatePageResult!>!
+ConradSix.C4M.Services.IPageVersionServices
+ConradSix.C4M.Services.IPageVersionServices.CreatePageVersionAsync(System.Guid pageId, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.Model.PageBlock!>! blocks, ConradSix.C4M.Services.Model.PageVersionMetadata! metadata, ConradSix.C4M.Services.Model.PageVersionWrite! write, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<ConradSix.C4M.Services.Model.PageVersionWriteResult!>!
+ConradSix.C4M.Services.IPageVersionServices.CreatePageVersionAsync(System.Guid pageId, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.Model.PageBlock!>! blocks, ConradSix.C4M.Services.Model.PageVersionMetadata! metadata, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Guid>!
+ConradSix.C4M.Services.IPageVersionServices.CreatePageVersionAsync(System.Guid pageId, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.Model.PageBlock!>! blocks, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Guid>!
+ConradSix.C4M.Services.IPageVersionServices.SetCurrentPageVersionAsync(System.Guid pageVersionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Guid>!
+ConradSix.C4M.Services.IPageVersionServices.ValidateForPublicationAsync(System.Guid pageVersionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<string!>!>!
+ConradSix.C4M.Services.Model.ExistingBlock
+ConradSix.C4M.Services.Model.ExistingBlock.BlockId.get -> System.Guid
+ConradSix.C4M.Services.Model.ExistingBlock.BlockId.init -> void
+ConradSix.C4M.Services.Model.ExistingBlock.Deconstruct(out System.Guid BlockId) -> void
+ConradSix.C4M.Services.Model.ExistingBlock.ExistingBlock(ConradSix.C4M.Services.Model.ExistingBlock! original) -> void
+ConradSix.C4M.Services.Model.ExistingBlock.ExistingBlock(System.Guid BlockId) -> void
+ConradSix.C4M.Services.Model.IExistingBlock
+ConradSix.C4M.Services.Model.IExistingBlock.BlockId.get -> System.Guid
+ConradSix.C4M.Services.Model.INewBlock
+ConradSix.C4M.Services.Model.INewBlock.BlockData.get -> string!
+ConradSix.C4M.Services.Model.INewBlock.BlockTypeId.get -> System.Guid
+ConradSix.C4M.Services.Model.NewBlock
+ConradSix.C4M.Services.Model.NewBlock.BlockData.get -> string!
+ConradSix.C4M.Services.Model.NewBlock.BlockData.init -> void
+ConradSix.C4M.Services.Model.NewBlock.BlockTypeId.get -> System.Guid
+ConradSix.C4M.Services.Model.NewBlock.BlockTypeId.init -> void
+ConradSix.C4M.Services.Model.NewBlock.Deconstruct(out System.Guid BlockTypeId, out string! BlockData) -> void
+ConradSix.C4M.Services.Model.NewBlock.NewBlock(ConradSix.C4M.Services.Model.NewBlock! original) -> void
+ConradSix.C4M.Services.Model.NewBlock.NewBlock(System.Guid BlockTypeId, string! BlockData) -> void
+ConradSix.C4M.Services.Model.PageBlock
+ConradSix.C4M.Services.Model.PageBlock.BlockData.get -> string?
+ConradSix.C4M.Services.Model.PageBlock.BlockData.init -> void
+ConradSix.C4M.Services.Model.PageBlock.BlockId.get -> System.Guid?
+ConradSix.C4M.Services.Model.PageBlock.BlockId.init -> void
+ConradSix.C4M.Services.Model.PageBlock.BlockTypeId.get -> System.Guid?
+ConradSix.C4M.Services.Model.PageBlock.BlockTypeId.init -> void
+ConradSix.C4M.Services.Model.PageBlock.Deconstruct(out System.Guid? BlockId, out System.Guid? BlockTypeId, out string? BlockData, out System.Guid? InstanceId) -> void
+ConradSix.C4M.Services.Model.PageBlock.InstanceId.get -> System.Guid?
+ConradSix.C4M.Services.Model.PageBlock.InstanceId.init -> void
+ConradSix.C4M.Services.Model.PageBlock.IsExisting.get -> bool
+ConradSix.C4M.Services.Model.PageBlock.IsNew.get -> bool
+ConradSix.C4M.Services.Model.PageBlock.PageBlock(ConradSix.C4M.Services.Model.PageBlock! original) -> void
+ConradSix.C4M.Services.Model.PageBlock.PageBlock(System.Guid? BlockId, System.Guid? BlockTypeId, string? BlockData, System.Guid? InstanceId = null) -> void
+ConradSix.C4M.Services.Model.PageBlock.ToExistingBlock() -> ConradSix.C4M.Services.Model.IExistingBlock!
+ConradSix.C4M.Services.Model.PageBlock.ToNewBlock() -> ConradSix.C4M.Services.Model.INewBlock!
+ConradSix.C4M.Services.Model.PageVersionChangeSummary
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionChangeSummary!
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.Changes.get -> System.Collections.Generic.IReadOnlyList<string!>!
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.Changes.init -> void
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.Deconstruct(out int SchemaVersion, out string! Headline, out System.Collections.Generic.IReadOnlyList<string!>! Changes) -> void
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.Equals(ConradSix.C4M.Services.Model.PageVersionChangeSummary? other) -> bool
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.Headline.get -> string!
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.Headline.init -> void
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.PageVersionChangeSummary(int SchemaVersion, string! Headline, System.Collections.Generic.IReadOnlyList<string!>! Changes) -> void
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.SchemaVersion.get -> int
+ConradSix.C4M.Services.Model.PageVersionChangeSummary.SchemaVersion.init -> void
+ConradSix.C4M.Services.Model.PageVersionConflict
+ConradSix.C4M.Services.Model.PageVersionConflict.Deconstruct(out System.Guid? LatestPageVersionId) -> void
+ConradSix.C4M.Services.Model.PageVersionConflict.Equals(ConradSix.C4M.Services.Model.PageVersionConflict? other) -> bool
+ConradSix.C4M.Services.Model.PageVersionConflict.LatestPageVersionId.get -> System.Guid?
+ConradSix.C4M.Services.Model.PageVersionConflict.LatestPageVersionId.init -> void
+ConradSix.C4M.Services.Model.PageVersionConflict.PageVersionConflict(System.Guid? LatestPageVersionId) -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata
+ConradSix.C4M.Services.Model.PageVersionMetadata.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionMetadata!
+ConradSix.C4M.Services.Model.PageVersionMetadata.Deconstruct(out string? SeoTitle, out string? SeoDescription, out System.Guid? SeoImageId, out bool RobotsIndex, out bool RobotsFollow) -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata.Equals(ConradSix.C4M.Services.Model.PageVersionMetadata? other) -> bool
+ConradSix.C4M.Services.Model.PageVersionMetadata.PageVersionMetadata(string? SeoTitle, string? SeoDescription, System.Guid? SeoImageId, bool RobotsIndex, bool RobotsFollow) -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata.RobotsFollow.get -> bool
+ConradSix.C4M.Services.Model.PageVersionMetadata.RobotsFollow.init -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata.RobotsIndex.get -> bool
+ConradSix.C4M.Services.Model.PageVersionMetadata.RobotsIndex.init -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata.SeoDescription.get -> string?
+ConradSix.C4M.Services.Model.PageVersionMetadata.SeoDescription.init -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata.SeoImageId.get -> System.Guid?
+ConradSix.C4M.Services.Model.PageVersionMetadata.SeoImageId.init -> void
+ConradSix.C4M.Services.Model.PageVersionMetadata.SeoTitle.get -> string?
+ConradSix.C4M.Services.Model.PageVersionMetadata.SeoTitle.init -> void
+ConradSix.C4M.Services.Model.PageVersionPageMissing
+ConradSix.C4M.Services.Model.PageVersionPageMissing.Equals(ConradSix.C4M.Services.Model.PageVersionPageMissing? other) -> bool
+ConradSix.C4M.Services.Model.PageVersionPageMissing.PageVersionPageMissing() -> void
+ConradSix.C4M.Services.Model.PageVersionSaved
+ConradSix.C4M.Services.Model.PageVersionSaved.Deconstruct(out System.Guid PageVersionId, out bool Replayed) -> void
+ConradSix.C4M.Services.Model.PageVersionSaved.Equals(ConradSix.C4M.Services.Model.PageVersionSaved? other) -> bool
+ConradSix.C4M.Services.Model.PageVersionSaved.PageVersionId.get -> System.Guid
+ConradSix.C4M.Services.Model.PageVersionSaved.PageVersionId.init -> void
+ConradSix.C4M.Services.Model.PageVersionSaved.PageVersionSaved(System.Guid PageVersionId, bool Replayed) -> void
+ConradSix.C4M.Services.Model.PageVersionSaved.Replayed.get -> bool
+ConradSix.C4M.Services.Model.PageVersionSaved.Replayed.init -> void
+ConradSix.C4M.Services.Model.PageVersionWrite
+ConradSix.C4M.Services.Model.PageVersionWrite.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionWrite!
+ConradSix.C4M.Services.Model.PageVersionWrite.Deconstruct(out System.Guid? ExpectedLatestPageVersionId, out string? IdempotencyKey) -> void
+ConradSix.C4M.Services.Model.PageVersionWrite.Equals(ConradSix.C4M.Services.Model.PageVersionWrite? other) -> bool
+ConradSix.C4M.Services.Model.PageVersionWrite.ExpectedLatestPageVersionId.get -> System.Guid?
+ConradSix.C4M.Services.Model.PageVersionWrite.ExpectedLatestPageVersionId.init -> void
+ConradSix.C4M.Services.Model.PageVersionWrite.IdempotencyKey.get -> string?
+ConradSix.C4M.Services.Model.PageVersionWrite.IdempotencyKey.init -> void
+ConradSix.C4M.Services.Model.PageVersionWrite.PageVersionWrite(System.Guid? ExpectedLatestPageVersionId = null, string? IdempotencyKey = null) -> void
+ConradSix.C4M.Services.Model.PageVersionWriteResult
+ConradSix.C4M.Services.Model.PageVersionWriteResult.PageVersionWriteResult() -> void
+ConradSix.C4M.Services.Model.PageVersionWriteResult.PageVersionWriteResult(ConradSix.C4M.Services.Model.PageVersionWriteResult! original) -> void
+ConradSix.C4M.Services.NewPage
+ConradSix.C4M.Services.NewPage.<Clone>$() -> ConradSix.C4M.Services.NewPage!
+ConradSix.C4M.Services.NewPage.Blocks.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.Model.PageBlock!>!
+ConradSix.C4M.Services.NewPage.Blocks.init -> void
+ConradSix.C4M.Services.NewPage.Deconstruct(out System.Guid? PageId, out System.Guid? ParentId, out System.Guid? NavigationMenuId, out string! Slug, out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.Model.PageBlock!>! Blocks, out ConradSix.C4M.Services.Model.PageVersionMetadata! Metadata, out bool Publish, out string? IdempotencyKey) -> void
+ConradSix.C4M.Services.NewPage.Equals(ConradSix.C4M.Services.NewPage? other) -> bool
+ConradSix.C4M.Services.NewPage.IdempotencyKey.get -> string?
+ConradSix.C4M.Services.NewPage.IdempotencyKey.init -> void
+ConradSix.C4M.Services.NewPage.Metadata.get -> ConradSix.C4M.Services.Model.PageVersionMetadata!
+ConradSix.C4M.Services.NewPage.Metadata.init -> void
+ConradSix.C4M.Services.NewPage.NavigationMenuId.get -> System.Guid?
+ConradSix.C4M.Services.NewPage.NavigationMenuId.init -> void
+ConradSix.C4M.Services.NewPage.NewPage(System.Guid? PageId, System.Guid? ParentId, System.Guid? NavigationMenuId, string! Slug, System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Services.Model.PageBlock!>! Blocks, ConradSix.C4M.Services.Model.PageVersionMetadata! Metadata, bool Publish, string? IdempotencyKey = null) -> void
+ConradSix.C4M.Services.NewPage.PageId.get -> System.Guid?
+ConradSix.C4M.Services.NewPage.PageId.init -> void
+ConradSix.C4M.Services.NewPage.ParentId.get -> System.Guid?
+ConradSix.C4M.Services.NewPage.ParentId.init -> void
+ConradSix.C4M.Services.NewPage.Publish.get -> bool
+ConradSix.C4M.Services.NewPage.Publish.init -> void
+ConradSix.C4M.Services.NewPage.Slug.get -> string!
+ConradSix.C4M.Services.NewPage.Slug.init -> void
+ConradSix.C4M.Services.PageCreated
+ConradSix.C4M.Services.PageCreated.Deconstruct(out System.Guid PageId, out System.Guid PageVersionId, out string! Path, out bool Replayed) -> void
+ConradSix.C4M.Services.PageCreated.Equals(ConradSix.C4M.Services.PageCreated? other) -> bool
+ConradSix.C4M.Services.PageCreated.PageCreated(System.Guid PageId, System.Guid PageVersionId, string! Path, bool Replayed) -> void
+ConradSix.C4M.Services.PageCreated.PageId.get -> System.Guid
+ConradSix.C4M.Services.PageCreated.PageId.init -> void
+ConradSix.C4M.Services.PageCreated.PageVersionId.get -> System.Guid
+ConradSix.C4M.Services.PageCreated.PageVersionId.init -> void
+ConradSix.C4M.Services.PageCreated.Path.get -> string!
+ConradSix.C4M.Services.PageCreated.Path.init -> void
+ConradSix.C4M.Services.PageCreated.Replayed.get -> bool
+ConradSix.C4M.Services.PageCreated.Replayed.init -> void
+ConradSix.C4M.TypedReferenceExtractor
+ConradSix.C4M.TypedReferenceExtractor.Extract(ConradSix.C4M.ReferenceNode node) -> System.Collections.Generic.IEnumerable<ConradSix.C4M.ExtractedReference!>!
+ConradSix.C4M.TypedReferenceExtractor.TypedReferenceExtractor() -> void
+ConradSix.C4M.Validation.SlugPropertyValidator<T>
+ConradSix.C4M.Validation.SlugPropertyValidator<T>.GetDefaultMessageTemplate(string! errorCode) -> string!
+ConradSix.C4M.Validation.SlugPropertyValidator<T>.IsValid(FluentValidation.ValidationContext<T>! context, string! value) -> bool
+ConradSix.C4M.Validation.SlugPropertyValidator<T>.Name.get -> string!
+ConradSix.C4M.Validation.SlugPropertyValidator<T>.SlugPropertyValidator() -> void
+const ConradSix.C4M.CmsReferenceKinds.Image = "image-ref" -> string!
+const ConradSix.C4M.CmsReferenceKinds.Page = "page-ref" -> string!
+const ConradSix.C4M.Services.Model.PageVersionChangeSummary.CurrentSchemaVersion = 1 -> int
+const ConradSix.C4M.Services.Model.PageVersionWrite.IdempotencyKeyMaxLength = 200 -> int
+FluentValidation.CmsEngineValidationExtensions
+Microsoft.Extensions.DependencyInjection.C4MServiceCollectionExtensions
+Microsoft.Extensions.Hosting.C4MHostExtensions
+override ConradSix.C4M.CmsImageAsset.Equals(object? obj) -> bool
+override ConradSix.C4M.CmsImageAsset.GetHashCode() -> int
+override ConradSix.C4M.CmsImageAsset.ToString() -> string!
+override ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.GetMenuRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.GetMenuRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.GetMenuRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.GetMenuResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.GetMenuResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.GetMenuResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.ListMenusRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.ListMenusRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.ListMenusRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.ListMenusResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.ListMenusResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.ListMenusResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.CreatePageBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.CreatePageBlock.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.CreatePageBlock.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.CreatePageRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.CreatePageRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.CreatePageRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.CreatePageResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.CreatePageResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.CreatePageResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPagePathResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPagePathResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPagePathResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.ListPagesRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.ListPagesRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.ListPagesRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.ListPagesResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.ListPagesResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.ListPagesResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageDraftConflict.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageDraftConflict.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageDraftConflict.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PagePublicationRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PagePublicationRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PagePublicationRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageReferenceResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageReferenceResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageReferenceResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageSeoRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageSeoRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageSeoRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PageSeoResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PageSeoResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PageSeoResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UnpublishPageReference.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UnpublishPageReference.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UnpublishPageReference.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UpdatePageRequest.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UpdatePageRequest.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UpdatePageRequest.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.UpdatePageResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.UpdatePageResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.UpdatePageResponse.ToString() -> string!
+override ConradSix.C4M.ExtractedReference.Equals(object? obj) -> bool
+override ConradSix.C4M.ExtractedReference.GetHashCode() -> int
+override ConradSix.C4M.ExtractedReference.ToString() -> string!
+override ConradSix.C4M.LinkedPageBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.LinkedPageBlock.GetHashCode() -> int
+override ConradSix.C4M.LinkedPageBlock.ToString() -> string!
+override ConradSix.C4M.LinkedPageImageReference.Equals(object? obj) -> bool
+override ConradSix.C4M.LinkedPageImageReference.GetHashCode() -> int
+override ConradSix.C4M.LinkedPageImageReference.ToString() -> string!
+override ConradSix.C4M.Model.CmsTypeDescriptor.Equals(object? obj) -> bool
+override ConradSix.C4M.Model.CmsTypeDescriptor.GetHashCode() -> int
+override ConradSix.C4M.Model.CmsTypeDescriptor.ToString() -> string!
+override ConradSix.C4M.Model.ConflictResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Model.ConflictResponse.GetHashCode() -> int
+override ConradSix.C4M.Model.ConflictResponse.ToString() -> string!
+override ConradSix.C4M.Model.MenuItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Model.MenuItem.GetHashCode() -> int
+override ConradSix.C4M.Model.MenuItem.ToString() -> string!
+override ConradSix.C4M.ReferenceNode.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsBlockReference.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsBlockReference.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsBlockReference.ToString() -> string!
+override ConradSix.C4M.Services.CmsBlockType.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsBlockType.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsBlockType.ToString() -> string!
+override ConradSix.C4M.Services.CmsCurrentVersion.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsCurrentVersion.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsCurrentVersion.ToString() -> string!
+override ConradSix.C4M.Services.CmsLinkCounts.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsLinkCounts.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsLinkCounts.ToString() -> string!
+override ConradSix.C4M.Services.CmsPage.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsPage.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsPage.ToString() -> string!
+override ConradSix.C4M.Services.CmsVersion.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsVersion.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsVersion.ToString() -> string!
+override ConradSix.C4M.Services.CmsVersionBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsVersionBlock.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsVersionBlock.ToString() -> string!
+override ConradSix.C4M.Services.CmsVersionHeads.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CmsVersionHeads.GetHashCode() -> int
+override ConradSix.C4M.Services.CmsVersionHeads.ToString() -> string!
+override ConradSix.C4M.Services.CreatePageIdTaken.<Clone>$() -> ConradSix.C4M.Services.CreatePageIdTaken!
+override ConradSix.C4M.Services.CreatePageIdTaken.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePageIdTaken.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePageIdTaken.ToString() -> string!
+override ConradSix.C4M.Services.CreatePageInvalid.<Clone>$() -> ConradSix.C4M.Services.CreatePageInvalid!
+override ConradSix.C4M.Services.CreatePageInvalid.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePageInvalid.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePageInvalid.ToString() -> string!
+override ConradSix.C4M.Services.CreatePageMenuMissing.<Clone>$() -> ConradSix.C4M.Services.CreatePageMenuMissing!
+override ConradSix.C4M.Services.CreatePageMenuMissing.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePageMenuMissing.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePageMenuMissing.ToString() -> string!
+override ConradSix.C4M.Services.CreatePageParentMissing.<Clone>$() -> ConradSix.C4M.Services.CreatePageParentMissing!
+override ConradSix.C4M.Services.CreatePageParentMissing.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePageParentMissing.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePageParentMissing.ToString() -> string!
+override ConradSix.C4M.Services.CreatePagePathTaken.<Clone>$() -> ConradSix.C4M.Services.CreatePagePathTaken!
+override ConradSix.C4M.Services.CreatePagePathTaken.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePagePathTaken.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePagePathTaken.ToString() -> string!
+override ConradSix.C4M.Services.CreatePageReserved.<Clone>$() -> ConradSix.C4M.Services.CreatePageReserved!
+override ConradSix.C4M.Services.CreatePageReserved.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePageReserved.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePageReserved.ToString() -> string!
+override ConradSix.C4M.Services.CreatePageResult.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.CreatePageResult.GetHashCode() -> int
+override ConradSix.C4M.Services.CreatePageResult.ToString() -> string!
+override ConradSix.C4M.Services.Model.ExistingBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.ExistingBlock.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.ExistingBlock.ToString() -> string!
+override ConradSix.C4M.Services.Model.NewBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.NewBlock.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.NewBlock.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageBlock.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageBlock.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageBlock.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionChangeSummary.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionChangeSummary.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionChangeSummary.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionConflict.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionConflict!
+override ConradSix.C4M.Services.Model.PageVersionConflict.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionConflict.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionConflict.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionMetadata.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionMetadata.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionMetadata.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionPageMissing.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionPageMissing!
+override ConradSix.C4M.Services.Model.PageVersionPageMissing.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionPageMissing.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionPageMissing.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionSaved.<Clone>$() -> ConradSix.C4M.Services.Model.PageVersionSaved!
+override ConradSix.C4M.Services.Model.PageVersionSaved.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionSaved.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionSaved.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionWrite.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionWrite.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionWrite.ToString() -> string!
+override ConradSix.C4M.Services.Model.PageVersionWriteResult.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.Model.PageVersionWriteResult.GetHashCode() -> int
+override ConradSix.C4M.Services.Model.PageVersionWriteResult.ToString() -> string!
+override ConradSix.C4M.Services.NewPage.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.NewPage.GetHashCode() -> int
+override ConradSix.C4M.Services.NewPage.ToString() -> string!
+override ConradSix.C4M.Services.PageCreated.<Clone>$() -> ConradSix.C4M.Services.PageCreated!
+override ConradSix.C4M.Services.PageCreated.Equals(object? obj) -> bool
+override ConradSix.C4M.Services.PageCreated.GetHashCode() -> int
+override ConradSix.C4M.Services.PageCreated.ToString() -> string!
+override sealed ConradSix.C4M.Services.CreatePageIdTaken.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+override sealed ConradSix.C4M.Services.CreatePageInvalid.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+override sealed ConradSix.C4M.Services.CreatePageMenuMissing.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+override sealed ConradSix.C4M.Services.CreatePageParentMissing.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+override sealed ConradSix.C4M.Services.CreatePagePathTaken.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+override sealed ConradSix.C4M.Services.CreatePageReserved.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+override sealed ConradSix.C4M.Services.Model.PageVersionConflict.Equals(ConradSix.C4M.Services.Model.PageVersionWriteResult? other) -> bool
+override sealed ConradSix.C4M.Services.Model.PageVersionPageMissing.Equals(ConradSix.C4M.Services.Model.PageVersionWriteResult? other) -> bool
+override sealed ConradSix.C4M.Services.Model.PageVersionSaved.Equals(ConradSix.C4M.Services.Model.PageVersionWriteResult? other) -> bool
+override sealed ConradSix.C4M.Services.PageCreated.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+static ConradSix.C4M.BlockChangeDescriber.GetString(System.Text.Json.JsonElement element, string! property) -> string?
+static ConradSix.C4M.BlockChangeDescriber.PropertyChanged(System.Text.Json.JsonElement previous, System.Text.Json.JsonElement current, string! property) -> bool
+static ConradSix.C4M.C4MEndpoints.Assembly.get -> System.Reflection.Assembly!
+static ConradSix.C4M.CmsEndpointDefinitionExtensions.ConfigureCmsEndpoint(this FastEndpoints.EndpointDefinition! endpoint, System.Action<FastEndpoints.EndpointDefinition!>! editor, System.Action<FastEndpoints.EndpointDefinition!>! delivery) -> bool
+static ConradSix.C4M.CmsImageAsset.operator !=(ConradSix.C4M.CmsImageAsset? left, ConradSix.C4M.CmsImageAsset? right) -> bool
+static ConradSix.C4M.CmsImageAsset.operator ==(ConradSix.C4M.CmsImageAsset? left, ConradSix.C4M.CmsImageAsset? right) -> bool
+static ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.operator !=(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest? left, ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.operator ==(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest? left, ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.operator !=(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse? left, ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.operator ==(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse? left, ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.operator !=(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest? left, ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.operator ==(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest? left, ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.operator !=(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest? left, ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.operator ==(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest? left, ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.operator !=(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest? left, ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.operator ==(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest? left, ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.operator !=(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse? left, ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.operator ==(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse? left, ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.operator !=(ConradSix.C4M.Endpoints.Menu.CreateMenuRequest? left, ConradSix.C4M.Endpoints.Menu.CreateMenuRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.operator ==(ConradSix.C4M.Endpoints.Menu.CreateMenuRequest? left, ConradSix.C4M.Endpoints.Menu.CreateMenuRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.operator !=(ConradSix.C4M.Endpoints.Menu.CreateMenuResponse? left, ConradSix.C4M.Endpoints.Menu.CreateMenuResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.operator ==(ConradSix.C4M.Endpoints.Menu.CreateMenuResponse? left, ConradSix.C4M.Endpoints.Menu.CreateMenuResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuRequest.operator !=(ConradSix.C4M.Endpoints.Menu.GetMenuRequest? left, ConradSix.C4M.Endpoints.Menu.GetMenuRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuRequest.operator ==(ConradSix.C4M.Endpoints.Menu.GetMenuRequest? left, ConradSix.C4M.Endpoints.Menu.GetMenuRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.operator !=(ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem? left, ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem.operator ==(ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem? left, ConradSix.C4M.Endpoints.Menu.GetMenuRequestMenuItem? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuResponse.operator !=(ConradSix.C4M.Endpoints.Menu.GetMenuResponse? left, ConradSix.C4M.Endpoints.Menu.GetMenuResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuResponse.operator ==(ConradSix.C4M.Endpoints.Menu.GetMenuResponse? left, ConradSix.C4M.Endpoints.Menu.GetMenuResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.operator !=(ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage? left, ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage.operator ==(ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage? left, ConradSix.C4M.Endpoints.Menu.GetMenuResponsePage? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.operator !=(ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem? left, ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem.operator ==(ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem? left, ConradSix.C4M.Endpoints.Menu.ListMenusMenuItem? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.ListMenusRequest.operator !=(ConradSix.C4M.Endpoints.Menu.ListMenusRequest? left, ConradSix.C4M.Endpoints.Menu.ListMenusRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.ListMenusRequest.operator ==(ConradSix.C4M.Endpoints.Menu.ListMenusRequest? left, ConradSix.C4M.Endpoints.Menu.ListMenusRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.ListMenusResponse.operator !=(ConradSix.C4M.Endpoints.Menu.ListMenusResponse? left, ConradSix.C4M.Endpoints.Menu.ListMenusResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.ListMenusResponse.operator ==(ConradSix.C4M.Endpoints.Menu.ListMenusResponse? left, ConradSix.C4M.Endpoints.Menu.ListMenusResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.operator !=(ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest? left, ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.operator ==(ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest? left, ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest? right) -> bool
+static ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.operator !=(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest? left, ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest? right) -> bool
+static ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.operator ==(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest? left, ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest? right) -> bool
+static ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.operator !=(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest? left, ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest? right) -> bool
+static ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest.operator ==(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest? left, ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeRequest? right) -> bool
+static ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.operator !=(ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse? left, ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse.operator ==(ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse? left, ConradSix.C4M.Endpoints.MenuActionType.ListMenuActionTypesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.operator !=(ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse? left, ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse? right) -> bool
+static ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse.operator ==(ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse? left, ConradSix.C4M.Endpoints.NavigationSettings.NavigationSettingsResponse? right) -> bool
+static ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.operator !=(ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest? left, ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest? right) -> bool
+static ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest.operator ==(ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest? left, ConradSix.C4M.Endpoints.NavigationSettings.UpdateNavigationSettingsRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.CreatePageBlock.operator !=(ConradSix.C4M.Endpoints.Page.CreatePageBlock? left, ConradSix.C4M.Endpoints.Page.CreatePageBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.CreatePageBlock.operator ==(ConradSix.C4M.Endpoints.Page.CreatePageBlock? left, ConradSix.C4M.Endpoints.Page.CreatePageBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.CreatePageRequest.operator !=(ConradSix.C4M.Endpoints.Page.CreatePageRequest? left, ConradSix.C4M.Endpoints.Page.CreatePageRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.CreatePageRequest.operator ==(ConradSix.C4M.Endpoints.Page.CreatePageRequest? left, ConradSix.C4M.Endpoints.Page.CreatePageRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.CreatePageResponse.operator !=(ConradSix.C4M.Endpoints.Page.CreatePageResponse? left, ConradSix.C4M.Endpoints.Page.CreatePageResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.CreatePageResponse.operator ==(ConradSix.C4M.Endpoints.Page.CreatePageResponse? left, ConradSix.C4M.Endpoints.Page.CreatePageResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.operator !=(ConradSix.C4M.Endpoints.Page.GetPageByPathRequest? left, ConradSix.C4M.Endpoints.Page.GetPageByPathRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageByPathRequest.operator ==(ConradSix.C4M.Endpoints.Page.GetPageByPathRequest? left, ConradSix.C4M.Endpoints.Page.GetPageByPathRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.operator !=(ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest? left, ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest.operator ==(ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest? left, ConradSix.C4M.Endpoints.Page.GetPageByVersionRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.operator !=(ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest? left, ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest.operator ==(ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest? left, ConradSix.C4M.Endpoints.Page.GetPageHistoryRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.operator !=(ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse? left, ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse.operator ==(ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse? left, ConradSix.C4M.Endpoints.Page.GetPageHistoryResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.operator !=(ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem? left, ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem.operator ==(ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem? left, ConradSix.C4M.Endpoints.Page.GetPageHistoryResponseItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.operator !=(ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest? left, ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest.operator ==(ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest? left, ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.operator !=(ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse? left, ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse.operator ==(ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse? left, ConradSix.C4M.Endpoints.Page.GetPagePathAvailabilityResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPagePathResponse.operator !=(ConradSix.C4M.Endpoints.Page.GetPagePathResponse? left, ConradSix.C4M.Endpoints.Page.GetPagePathResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPagePathResponse.operator ==(ConradSix.C4M.Endpoints.Page.GetPagePathResponse? left, ConradSix.C4M.Endpoints.Page.GetPagePathResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageRequest.operator !=(ConradSix.C4M.Endpoints.Page.GetPageRequest? left, ConradSix.C4M.Endpoints.Page.GetPageRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageRequest.operator ==(ConradSix.C4M.Endpoints.Page.GetPageRequest? left, ConradSix.C4M.Endpoints.Page.GetPageRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponse.operator !=(ConradSix.C4M.Endpoints.Page.GetPageResponse? left, ConradSix.C4M.Endpoints.Page.GetPageResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponse.operator ==(ConradSix.C4M.Endpoints.Page.GetPageResponse? left, ConradSix.C4M.Endpoints.Page.GetPageResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.operator !=(ConradSix.C4M.Endpoints.Page.GetPageResponseBlock? left, ConradSix.C4M.Endpoints.Page.GetPageResponseBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponseBlock.operator ==(ConradSix.C4M.Endpoints.Page.GetPageResponseBlock? left, ConradSix.C4M.Endpoints.Page.GetPageResponseBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.operator !=(ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? left, ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage.operator ==(ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? left, ConradSix.C4M.Endpoints.Page.GetPageResponseBlockImage? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.operator !=(ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage? left, ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage? right) -> bool
+static ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage.operator ==(ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage? left, ConradSix.C4M.Endpoints.Page.GetPageResponseBlockPage? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPagesRequest.operator !=(ConradSix.C4M.Endpoints.Page.ListPagesRequest? left, ConradSix.C4M.Endpoints.Page.ListPagesRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPagesRequest.operator ==(ConradSix.C4M.Endpoints.Page.ListPagesRequest? left, ConradSix.C4M.Endpoints.Page.ListPagesRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPagesResponse.operator !=(ConradSix.C4M.Endpoints.Page.ListPagesResponse? left, ConradSix.C4M.Endpoints.Page.ListPagesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPagesResponse.operator ==(ConradSix.C4M.Endpoints.Page.ListPagesResponse? left, ConradSix.C4M.Endpoints.Page.ListPagesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.operator !=(ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? left, ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.operator ==(ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? left, ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.operator !=(ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? left, ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.operator ==(ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? left, ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageDraftConflict.operator !=(ConradSix.C4M.Endpoints.Page.PageDraftConflict? left, ConradSix.C4M.Endpoints.Page.PageDraftConflict? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageDraftConflict.operator ==(ConradSix.C4M.Endpoints.Page.PageDraftConflict? left, ConradSix.C4M.Endpoints.Page.PageDraftConflict? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.operator !=(ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? left, ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageHistoryMetadata.operator ==(ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? left, ConradSix.C4M.Endpoints.Page.PageHistoryMetadata? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.operator !=(ConradSix.C4M.Endpoints.Page.PageLifecycleConflict? left, ConradSix.C4M.Endpoints.Page.PageLifecycleConflict? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageLifecycleConflict.operator ==(ConradSix.C4M.Endpoints.Page.PageLifecycleConflict? left, ConradSix.C4M.Endpoints.Page.PageLifecycleConflict? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.operator !=(ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage? left, ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage.operator ==(ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage? left, ConradSix.C4M.Endpoints.Page.PageLifecycleConflictPage? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PagePublicationRequest.operator !=(ConradSix.C4M.Endpoints.Page.PagePublicationRequest? left, ConradSix.C4M.Endpoints.Page.PagePublicationRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PagePublicationRequest.operator ==(ConradSix.C4M.Endpoints.Page.PagePublicationRequest? left, ConradSix.C4M.Endpoints.Page.PagePublicationRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageReferenceResponse.operator !=(ConradSix.C4M.Endpoints.Page.PageReferenceResponse? left, ConradSix.C4M.Endpoints.Page.PageReferenceResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageReferenceResponse.operator ==(ConradSix.C4M.Endpoints.Page.PageReferenceResponse? left, ConradSix.C4M.Endpoints.Page.PageReferenceResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageSeoRequest.operator !=(ConradSix.C4M.Endpoints.Page.PageSeoRequest? left, ConradSix.C4M.Endpoints.Page.PageSeoRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageSeoRequest.operator ==(ConradSix.C4M.Endpoints.Page.PageSeoRequest? left, ConradSix.C4M.Endpoints.Page.PageSeoRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageSeoResponse.operator !=(ConradSix.C4M.Endpoints.Page.PageSeoResponse? left, ConradSix.C4M.Endpoints.Page.PageSeoResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PageSeoResponse.operator ==(ConradSix.C4M.Endpoints.Page.PageSeoResponse? left, ConradSix.C4M.Endpoints.Page.PageSeoResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.operator !=(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.operator ==(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.operator !=(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.operator ==(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.operator !=(ConradSix.C4M.Endpoints.Page.UnpublishMenuReference? left, ConradSix.C4M.Endpoints.Page.UnpublishMenuReference? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UnpublishMenuReference.operator ==(ConradSix.C4M.Endpoints.Page.UnpublishMenuReference? left, ConradSix.C4M.Endpoints.Page.UnpublishMenuReference? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.operator !=(ConradSix.C4M.Endpoints.Page.UnpublishPageConflict? left, ConradSix.C4M.Endpoints.Page.UnpublishPageConflict? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UnpublishPageConflict.operator ==(ConradSix.C4M.Endpoints.Page.UnpublishPageConflict? left, ConradSix.C4M.Endpoints.Page.UnpublishPageConflict? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UnpublishPageReference.operator !=(ConradSix.C4M.Endpoints.Page.UnpublishPageReference? left, ConradSix.C4M.Endpoints.Page.UnpublishPageReference? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UnpublishPageReference.operator ==(ConradSix.C4M.Endpoints.Page.UnpublishPageReference? left, ConradSix.C4M.Endpoints.Page.UnpublishPageReference? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.operator !=(ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse? left, ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse.operator ==(ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse? left, ConradSix.C4M.Endpoints.Page.UpdateCurrentPageVersionResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.operator !=(ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest? left, ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest.operator ==(ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest? left, ConradSix.C4M.Endpoints.Page.UpdatePageDetailsRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.operator !=(ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock? left, ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.operator ==(ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock? left, ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.operator !=(ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock? left, ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.operator ==(ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock? left, ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageRequest.operator !=(ConradSix.C4M.Endpoints.Page.UpdatePageRequest? left, ConradSix.C4M.Endpoints.Page.UpdatePageRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageRequest.operator ==(ConradSix.C4M.Endpoints.Page.UpdatePageRequest? left, ConradSix.C4M.Endpoints.Page.UpdatePageRequest? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageResponse.operator !=(ConradSix.C4M.Endpoints.Page.UpdatePageResponse? left, ConradSix.C4M.Endpoints.Page.UpdatePageResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.UpdatePageResponse.operator ==(ConradSix.C4M.Endpoints.Page.UpdatePageResponse? left, ConradSix.C4M.Endpoints.Page.UpdatePageResponse? right) -> bool
+static ConradSix.C4M.ExtractedReference.operator !=(ConradSix.C4M.ExtractedReference? left, ConradSix.C4M.ExtractedReference? right) -> bool
+static ConradSix.C4M.ExtractedReference.operator ==(ConradSix.C4M.ExtractedReference? left, ConradSix.C4M.ExtractedReference? right) -> bool
+static ConradSix.C4M.LinkedPageBlock.operator !=(ConradSix.C4M.LinkedPageBlock? left, ConradSix.C4M.LinkedPageBlock? right) -> bool
+static ConradSix.C4M.LinkedPageBlock.operator ==(ConradSix.C4M.LinkedPageBlock? left, ConradSix.C4M.LinkedPageBlock? right) -> bool
+static ConradSix.C4M.LinkedPageImageReference.operator !=(ConradSix.C4M.LinkedPageImageReference? left, ConradSix.C4M.LinkedPageImageReference? right) -> bool
+static ConradSix.C4M.LinkedPageImageReference.operator ==(ConradSix.C4M.LinkedPageImageReference? left, ConradSix.C4M.LinkedPageImageReference? right) -> bool
+static ConradSix.C4M.Model.CmsTypeDescriptor.operator !=(ConradSix.C4M.Model.CmsTypeDescriptor? left, ConradSix.C4M.Model.CmsTypeDescriptor? right) -> bool
+static ConradSix.C4M.Model.CmsTypeDescriptor.operator ==(ConradSix.C4M.Model.CmsTypeDescriptor? left, ConradSix.C4M.Model.CmsTypeDescriptor? right) -> bool
+static ConradSix.C4M.Model.ConflictResponse.operator !=(ConradSix.C4M.Model.ConflictResponse? left, ConradSix.C4M.Model.ConflictResponse? right) -> bool
+static ConradSix.C4M.Model.ConflictResponse.operator ==(ConradSix.C4M.Model.ConflictResponse? left, ConradSix.C4M.Model.ConflictResponse? right) -> bool
+static ConradSix.C4M.Model.MenuItem.operator !=(ConradSix.C4M.Model.MenuItem? left, ConradSix.C4M.Model.MenuItem? right) -> bool
+static ConradSix.C4M.Model.MenuItem.operator ==(ConradSix.C4M.Model.MenuItem? left, ConradSix.C4M.Model.MenuItem? right) -> bool
+static ConradSix.C4M.ReferenceNode.operator !=(ConradSix.C4M.ReferenceNode left, ConradSix.C4M.ReferenceNode right) -> bool
+static ConradSix.C4M.ReferenceNode.operator ==(ConradSix.C4M.ReferenceNode left, ConradSix.C4M.ReferenceNode right) -> bool
+static ConradSix.C4M.Services.CmsBlockReference.operator !=(ConradSix.C4M.Services.CmsBlockReference? left, ConradSix.C4M.Services.CmsBlockReference? right) -> bool
+static ConradSix.C4M.Services.CmsBlockReference.operator ==(ConradSix.C4M.Services.CmsBlockReference? left, ConradSix.C4M.Services.CmsBlockReference? right) -> bool
+static ConradSix.C4M.Services.CmsBlockType.operator !=(ConradSix.C4M.Services.CmsBlockType? left, ConradSix.C4M.Services.CmsBlockType? right) -> bool
+static ConradSix.C4M.Services.CmsBlockType.operator ==(ConradSix.C4M.Services.CmsBlockType? left, ConradSix.C4M.Services.CmsBlockType? right) -> bool
+static ConradSix.C4M.Services.CmsCurrentVersion.operator !=(ConradSix.C4M.Services.CmsCurrentVersion? left, ConradSix.C4M.Services.CmsCurrentVersion? right) -> bool
+static ConradSix.C4M.Services.CmsCurrentVersion.operator ==(ConradSix.C4M.Services.CmsCurrentVersion? left, ConradSix.C4M.Services.CmsCurrentVersion? right) -> bool
+static ConradSix.C4M.Services.CmsLinkCounts.operator !=(ConradSix.C4M.Services.CmsLinkCounts? left, ConradSix.C4M.Services.CmsLinkCounts? right) -> bool
+static ConradSix.C4M.Services.CmsLinkCounts.operator ==(ConradSix.C4M.Services.CmsLinkCounts? left, ConradSix.C4M.Services.CmsLinkCounts? right) -> bool
+static ConradSix.C4M.Services.CmsPage.operator !=(ConradSix.C4M.Services.CmsPage? left, ConradSix.C4M.Services.CmsPage? right) -> bool
+static ConradSix.C4M.Services.CmsPage.operator ==(ConradSix.C4M.Services.CmsPage? left, ConradSix.C4M.Services.CmsPage? right) -> bool
+static ConradSix.C4M.Services.CmsVersion.operator !=(ConradSix.C4M.Services.CmsVersion? left, ConradSix.C4M.Services.CmsVersion? right) -> bool
+static ConradSix.C4M.Services.CmsVersion.operator ==(ConradSix.C4M.Services.CmsVersion? left, ConradSix.C4M.Services.CmsVersion? right) -> bool
+static ConradSix.C4M.Services.CmsVersionBlock.operator !=(ConradSix.C4M.Services.CmsVersionBlock? left, ConradSix.C4M.Services.CmsVersionBlock? right) -> bool
+static ConradSix.C4M.Services.CmsVersionBlock.operator ==(ConradSix.C4M.Services.CmsVersionBlock? left, ConradSix.C4M.Services.CmsVersionBlock? right) -> bool
+static ConradSix.C4M.Services.CmsVersionHeads.operator !=(ConradSix.C4M.Services.CmsVersionHeads? left, ConradSix.C4M.Services.CmsVersionHeads? right) -> bool
+static ConradSix.C4M.Services.CmsVersionHeads.operator ==(ConradSix.C4M.Services.CmsVersionHeads? left, ConradSix.C4M.Services.CmsVersionHeads? right) -> bool
+static ConradSix.C4M.Services.CreatePageIdTaken.operator !=(ConradSix.C4M.Services.CreatePageIdTaken? left, ConradSix.C4M.Services.CreatePageIdTaken? right) -> bool
+static ConradSix.C4M.Services.CreatePageIdTaken.operator ==(ConradSix.C4M.Services.CreatePageIdTaken? left, ConradSix.C4M.Services.CreatePageIdTaken? right) -> bool
+static ConradSix.C4M.Services.CreatePageInvalid.operator !=(ConradSix.C4M.Services.CreatePageInvalid? left, ConradSix.C4M.Services.CreatePageInvalid? right) -> bool
+static ConradSix.C4M.Services.CreatePageInvalid.operator ==(ConradSix.C4M.Services.CreatePageInvalid? left, ConradSix.C4M.Services.CreatePageInvalid? right) -> bool
+static ConradSix.C4M.Services.CreatePageMenuMissing.operator !=(ConradSix.C4M.Services.CreatePageMenuMissing? left, ConradSix.C4M.Services.CreatePageMenuMissing? right) -> bool
+static ConradSix.C4M.Services.CreatePageMenuMissing.operator ==(ConradSix.C4M.Services.CreatePageMenuMissing? left, ConradSix.C4M.Services.CreatePageMenuMissing? right) -> bool
+static ConradSix.C4M.Services.CreatePageParentMissing.operator !=(ConradSix.C4M.Services.CreatePageParentMissing? left, ConradSix.C4M.Services.CreatePageParentMissing? right) -> bool
+static ConradSix.C4M.Services.CreatePageParentMissing.operator ==(ConradSix.C4M.Services.CreatePageParentMissing? left, ConradSix.C4M.Services.CreatePageParentMissing? right) -> bool
+static ConradSix.C4M.Services.CreatePagePathTaken.operator !=(ConradSix.C4M.Services.CreatePagePathTaken? left, ConradSix.C4M.Services.CreatePagePathTaken? right) -> bool
+static ConradSix.C4M.Services.CreatePagePathTaken.operator ==(ConradSix.C4M.Services.CreatePagePathTaken? left, ConradSix.C4M.Services.CreatePagePathTaken? right) -> bool
+static ConradSix.C4M.Services.CreatePageReserved.operator !=(ConradSix.C4M.Services.CreatePageReserved? left, ConradSix.C4M.Services.CreatePageReserved? right) -> bool
+static ConradSix.C4M.Services.CreatePageReserved.operator ==(ConradSix.C4M.Services.CreatePageReserved? left, ConradSix.C4M.Services.CreatePageReserved? right) -> bool
+static ConradSix.C4M.Services.CreatePageResult.operator !=(ConradSix.C4M.Services.CreatePageResult? left, ConradSix.C4M.Services.CreatePageResult? right) -> bool
+static ConradSix.C4M.Services.CreatePageResult.operator ==(ConradSix.C4M.Services.CreatePageResult? left, ConradSix.C4M.Services.CreatePageResult? right) -> bool
+static ConradSix.C4M.Services.Model.ExistingBlock.operator !=(ConradSix.C4M.Services.Model.ExistingBlock? left, ConradSix.C4M.Services.Model.ExistingBlock? right) -> bool
+static ConradSix.C4M.Services.Model.ExistingBlock.operator ==(ConradSix.C4M.Services.Model.ExistingBlock? left, ConradSix.C4M.Services.Model.ExistingBlock? right) -> bool
+static ConradSix.C4M.Services.Model.NewBlock.operator !=(ConradSix.C4M.Services.Model.NewBlock? left, ConradSix.C4M.Services.Model.NewBlock? right) -> bool
+static ConradSix.C4M.Services.Model.NewBlock.operator ==(ConradSix.C4M.Services.Model.NewBlock? left, ConradSix.C4M.Services.Model.NewBlock? right) -> bool
+static ConradSix.C4M.Services.Model.PageBlock.operator !=(ConradSix.C4M.Services.Model.PageBlock? left, ConradSix.C4M.Services.Model.PageBlock? right) -> bool
+static ConradSix.C4M.Services.Model.PageBlock.operator ==(ConradSix.C4M.Services.Model.PageBlock? left, ConradSix.C4M.Services.Model.PageBlock? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionChangeSummary.operator !=(ConradSix.C4M.Services.Model.PageVersionChangeSummary? left, ConradSix.C4M.Services.Model.PageVersionChangeSummary? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionChangeSummary.operator ==(ConradSix.C4M.Services.Model.PageVersionChangeSummary? left, ConradSix.C4M.Services.Model.PageVersionChangeSummary? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionChangeSummary.Unavailable.get -> ConradSix.C4M.Services.Model.PageVersionChangeSummary!
+static ConradSix.C4M.Services.Model.PageVersionConflict.operator !=(ConradSix.C4M.Services.Model.PageVersionConflict? left, ConradSix.C4M.Services.Model.PageVersionConflict? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionConflict.operator ==(ConradSix.C4M.Services.Model.PageVersionConflict? left, ConradSix.C4M.Services.Model.PageVersionConflict? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionMetadata.Empty.get -> ConradSix.C4M.Services.Model.PageVersionMetadata!
+static ConradSix.C4M.Services.Model.PageVersionMetadata.operator !=(ConradSix.C4M.Services.Model.PageVersionMetadata? left, ConradSix.C4M.Services.Model.PageVersionMetadata? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionMetadata.operator ==(ConradSix.C4M.Services.Model.PageVersionMetadata? left, ConradSix.C4M.Services.Model.PageVersionMetadata? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionPageMissing.operator !=(ConradSix.C4M.Services.Model.PageVersionPageMissing? left, ConradSix.C4M.Services.Model.PageVersionPageMissing? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionPageMissing.operator ==(ConradSix.C4M.Services.Model.PageVersionPageMissing? left, ConradSix.C4M.Services.Model.PageVersionPageMissing? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionSaved.operator !=(ConradSix.C4M.Services.Model.PageVersionSaved? left, ConradSix.C4M.Services.Model.PageVersionSaved? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionSaved.operator ==(ConradSix.C4M.Services.Model.PageVersionSaved? left, ConradSix.C4M.Services.Model.PageVersionSaved? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionWrite.operator !=(ConradSix.C4M.Services.Model.PageVersionWrite? left, ConradSix.C4M.Services.Model.PageVersionWrite? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionWrite.operator ==(ConradSix.C4M.Services.Model.PageVersionWrite? left, ConradSix.C4M.Services.Model.PageVersionWrite? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionWrite.Unconditional.get -> ConradSix.C4M.Services.Model.PageVersionWrite!
+static ConradSix.C4M.Services.Model.PageVersionWriteResult.operator !=(ConradSix.C4M.Services.Model.PageVersionWriteResult? left, ConradSix.C4M.Services.Model.PageVersionWriteResult? right) -> bool
+static ConradSix.C4M.Services.Model.PageVersionWriteResult.operator ==(ConradSix.C4M.Services.Model.PageVersionWriteResult? left, ConradSix.C4M.Services.Model.PageVersionWriteResult? right) -> bool
+static ConradSix.C4M.Services.NewPage.operator !=(ConradSix.C4M.Services.NewPage? left, ConradSix.C4M.Services.NewPage? right) -> bool
+static ConradSix.C4M.Services.NewPage.operator ==(ConradSix.C4M.Services.NewPage? left, ConradSix.C4M.Services.NewPage? right) -> bool
+static ConradSix.C4M.Services.PageCreated.operator !=(ConradSix.C4M.Services.PageCreated? left, ConradSix.C4M.Services.PageCreated? right) -> bool
+static ConradSix.C4M.Services.PageCreated.operator ==(ConradSix.C4M.Services.PageCreated? left, ConradSix.C4M.Services.PageCreated? right) -> bool
+static FluentValidation.CmsEngineValidationExtensions.Slug<T>(this FluentValidation.IRuleBuilder<T, string!>! ruleBuilder) -> FluentValidation.IRuleBuilderOptions<T, string!>!
+static Microsoft.Extensions.DependencyInjection.C4MServiceCollectionExtensions.AddC4M(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<ConradSix.C4M.C4MBuilder!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Microsoft.Extensions.Hosting.C4MHostExtensions.MigrateC4MAsync(this Microsoft.Extensions.Hosting.IHost! host, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+virtual ConradSix.C4M.BlockChangeDescriber.ChangedFields(string! blockType, System.Text.Json.JsonElement previous, System.Text.Json.JsonElement current) -> System.Collections.Generic.IReadOnlyList<string!>!
+virtual ConradSix.C4M.BlockChangeDescriber.DisplayName(string! blockType) -> string!
+virtual ConradSix.C4M.BlockChangeDescriber.Label(string! blockType, System.Text.Json.JsonElement block) -> string?
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest!
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.Equals(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse!
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.Equals(ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse? other) -> bool
+virtual ConradSix.C4M.Endpoints.Base.CreateCmsTypeDescriptorResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.<Clone>$() -> ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest!
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.Equals(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeByNameRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.<Clone>$() -> ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest!
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.Equals(ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.GetBlockTypeRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.<Clone>$() -> ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest!
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.Equals(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.<Clone>$() -> ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse!
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.Equals(ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse? other) -> bool
+virtual ConradSix.C4M.Endpoints.BlockType.ListBlockTypesResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.CreateMenuRequest!
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.Equals(ConradSix.C4M.Endpoints.Menu.CreateMenuRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.CreateMenuResponse!
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.Equals(ConradSix.C4M.Endpoints.Menu.CreateMenuResponse? other) -> bool
+virtual ConradSix.C4M.Endpoints.Menu.CreateMenuResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest!
+virtual ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.Equals(ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.Menu.UpdateMenuRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.<Clone>$() -> ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest!
+virtual ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.Equals(ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.MenuActionType.GetMenuActionTypeByNameRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.CreatePageBlock.<Clone>$() -> ConradSix.C4M.Endpoints.Page.CreatePageBlock!
+virtual ConradSix.C4M.Endpoints.Page.CreatePageBlock.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.CreatePageBlock.Equals(ConradSix.C4M.Endpoints.Page.CreatePageBlock? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.CreatePageBlock.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.CreatePageRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.CreatePageRequest!
+virtual ConradSix.C4M.Endpoints.Page.CreatePageRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.CreatePageRequest.Equals(ConradSix.C4M.Endpoints.Page.CreatePageRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.CreatePageRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.CreatePageResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.CreatePageResponse!
+virtual ConradSix.C4M.Endpoints.Page.CreatePageResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.CreatePageResponse.Equals(ConradSix.C4M.Endpoints.Page.CreatePageResponse? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.CreatePageResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.ListPagesRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ListPagesRequest!
+virtual ConradSix.C4M.Endpoints.Page.ListPagesRequest.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.ListPagesRequest.Equals(ConradSix.C4M.Endpoints.Page.ListPagesRequest? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.ListPagesRequest.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ListPagesResponse!
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponse.Equals(ConradSix.C4M.Endpoints.Page.ListPagesResponse? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ListPagesResponseItem!
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Equals(ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock!
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.Equals(ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageExistingBlock.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock!
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.Equals(ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageNewBlock.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.UpdatePageResponse!
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageResponse.Equals(ConradSix.C4M.Endpoints.Page.UpdatePageResponse? other) -> bool
+virtual ConradSix.C4M.Endpoints.Page.UpdatePageResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Model.ConflictResponse.<Clone>$() -> ConradSix.C4M.Model.ConflictResponse!
+virtual ConradSix.C4M.Model.ConflictResponse.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Model.ConflictResponse.Equals(ConradSix.C4M.Model.ConflictResponse? other) -> bool
+virtual ConradSix.C4M.Model.ConflictResponse.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Model.MenuItem.<Clone>$() -> ConradSix.C4M.Model.MenuItem!
+virtual ConradSix.C4M.Model.MenuItem.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Model.MenuItem.Equals(ConradSix.C4M.Model.MenuItem? other) -> bool
+virtual ConradSix.C4M.Model.MenuItem.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Services.CreatePageResult.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Services.CreatePageResult.Equals(ConradSix.C4M.Services.CreatePageResult? other) -> bool
+virtual ConradSix.C4M.Services.CreatePageResult.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Services.Model.ExistingBlock.<Clone>$() -> ConradSix.C4M.Services.Model.ExistingBlock!
+virtual ConradSix.C4M.Services.Model.ExistingBlock.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Services.Model.ExistingBlock.Equals(ConradSix.C4M.Services.Model.ExistingBlock? other) -> bool
+virtual ConradSix.C4M.Services.Model.ExistingBlock.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Services.Model.NewBlock.<Clone>$() -> ConradSix.C4M.Services.Model.NewBlock!
+virtual ConradSix.C4M.Services.Model.NewBlock.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Services.Model.NewBlock.Equals(ConradSix.C4M.Services.Model.NewBlock? other) -> bool
+virtual ConradSix.C4M.Services.Model.NewBlock.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Services.Model.PageBlock.<Clone>$() -> ConradSix.C4M.Services.Model.PageBlock!
+virtual ConradSix.C4M.Services.Model.PageBlock.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Services.Model.PageBlock.Equals(ConradSix.C4M.Services.Model.PageBlock? other) -> bool
+virtual ConradSix.C4M.Services.Model.PageBlock.PrintMembers(System.Text.StringBuilder! builder) -> bool
+virtual ConradSix.C4M.Services.Model.PageVersionWriteResult.EqualityContract.get -> System.Type!
+virtual ConradSix.C4M.Services.Model.PageVersionWriteResult.Equals(ConradSix.C4M.Services.Model.PageVersionWriteResult? other) -> bool
+virtual ConradSix.C4M.Services.Model.PageVersionWriteResult.PrintMembers(System.Text.StringBuilder! builder) -> bool
+~override ConradSix.C4M.ReferenceNode.Equals(object obj) -> bool
+~override ConradSix.C4M.ReferenceNode.ToString() -> string

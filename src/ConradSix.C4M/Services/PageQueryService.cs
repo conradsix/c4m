@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
 
 #pragma warning disable SA1204 // Response mapping helpers are kept beside the query mapper.
 
@@ -6,12 +6,12 @@ using System.Globalization;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
-using Microsoft.EntityFrameworkCore;
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Endpoints.Page;
 
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
-using Parapet.CMS.Engine.Endpoints.Page;
+using Microsoft.EntityFrameworkCore;
 
 internal class PageQueryService(
     CmsEngineDbContext ctx,

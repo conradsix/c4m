@@ -1,12 +1,12 @@
 #pragma warning disable SA1402 // The page creation contracts are kept with the service.
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Services.Model;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
-using Parapet.CMS.Engine.Services.Model;
 
 public interface IPageService
 {

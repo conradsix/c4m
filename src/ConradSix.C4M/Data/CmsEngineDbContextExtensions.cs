@@ -1,8 +1,8 @@
-namespace Parapet.CMS.Engine.Data;
+namespace ConradSix.C4M.Data;
+
+using ConradSix.C4M.Data.Model;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine.Data.Model;
 
 internal static class CmsEngineDbContextExtensions
 {

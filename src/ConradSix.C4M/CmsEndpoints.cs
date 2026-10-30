@@ -1,6 +1,6 @@
 #pragma warning disable SA1402 // The endpoint kinds are kept with the attribute and helper that use them.
 #pragma warning disable SA1649 // File name should match first type name
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 using System.Reflection;
 
@@ -15,10 +15,10 @@ public enum CmsEndpointKind
     Delivery,
 }
 
-public static class CmsEngineEndpoints
+public static class C4MEndpoints
 {
     // Add it to the host's FastEndpoints assemblies to serve the CMS's endpoints.
-    public static Assembly Assembly { get; } = typeof(CmsEngineEndpoints).Assembly;
+    public static Assembly Assembly { get; } = typeof(C4MEndpoints).Assembly;
 }
 
 public static class CmsEndpointDefinitionExtensions

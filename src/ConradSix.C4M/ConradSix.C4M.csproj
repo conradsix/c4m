@@ -6,7 +6,7 @@
     <PackageReference Include="FastEndpoints" />
     <PackageReference Include="FluentValidation" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" PrivateAssets="all" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,8 +16,15 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
   </ItemGroup>
 
+  <!-- The public API is recorded in PublicAPI.*.txt; an unrecorded change fails the build. -->
   <ItemGroup>
-    <EmbeddedResource Include="Data\Migrations\Sql\*.sql" LogicalName="Parapet.CMS.Engine.Sql.%(Filename).sql" />
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" PrivateAssets="all" />
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Migrations\Sql\*.sql" LogicalName="ConradSix.C4M.Sql.%(Filename).sql" />
   </ItemGroup>
 
 </Project>

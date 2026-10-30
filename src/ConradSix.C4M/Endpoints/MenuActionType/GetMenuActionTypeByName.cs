@@ -1,14 +1,14 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.MenuActionType;
+namespace ConradSix.C4M.Endpoints.MenuActionType;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Model;
 
 using FastEndpoints;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Model;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class GetMenuActionTypeByName(CmsEngineDbContext ctx)

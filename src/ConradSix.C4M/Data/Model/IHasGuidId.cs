@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Data.Model;
+namespace ConradSix.C4M.Data.Model;
 
 // The context gives an added entity without an id a new one.
 internal interface IHasGuidId

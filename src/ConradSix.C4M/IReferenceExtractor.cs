@@ -1,5 +1,5 @@
 #pragma warning disable SA1402 // The node and reference contracts are kept with their extractor.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 using System.Text.Json;
 

@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Validation;
+namespace ConradSix.C4M.Validation;
 
 using System.Text.RegularExpressions;
 

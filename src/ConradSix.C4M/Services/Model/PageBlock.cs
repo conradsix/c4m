@@ -1,6 +1,6 @@
 #pragma warning disable SA1201 // Elements should appear in the correct order
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Services.Model;
+namespace ConradSix.C4M.Services.Model;
 
 public record PageBlock(Guid? BlockId, Guid? BlockTypeId, string? BlockData, Guid? InstanceId = null)
 {

@@ -1,8 +1,8 @@
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
 
-using Parapet.CMS.Engine.Endpoints.Page;
+using ConradSix.C4M.Endpoints.Page;
 
-public interface IPageQueryService
+internal interface IPageQueryService
 {
     Task<GetPageResponse?> GetPageByIdCurrentAsync(Guid pageId, CancellationToken ct);
 

@@ -1,7 +1,10 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.Menu;
+namespace ConradSix.C4M.Endpoints.Menu;
 
 using System.Diagnostics;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
 
 using FastEndpoints;
 
@@ -10,9 +13,6 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class ListMenus(

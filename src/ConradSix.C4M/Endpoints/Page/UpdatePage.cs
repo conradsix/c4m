@@ -1,7 +1,12 @@
 #pragma warning disable SA1402 // Endpoint contracts are kept with their endpoint.
-namespace Parapet.CMS.Engine.Endpoints.Page;
+namespace ConradSix.C4M.Endpoints.Page;
 
 using System.Diagnostics;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Services;
+using ConradSix.C4M.Services.Model;
 
 using FastEndpoints;
 
@@ -9,11 +14,6 @@ using FluentValidation;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data.Model;
-using Parapet.CMS.Engine.Services;
-using Parapet.CMS.Engine.Services.Model;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class UpdatePage(IPageVersionServices pageVersionServices, ILogger<UpdatePage> logger)

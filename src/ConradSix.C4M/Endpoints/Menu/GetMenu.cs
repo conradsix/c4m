@@ -1,18 +1,18 @@
 #pragma warning disable SA1402 // File may only contain a single type
 #pragma warning disable SA1204 // Response query helper is kept beside the endpoint handler.
-namespace Parapet.CMS.Engine.Endpoints.Menu;
+namespace ConradSix.C4M.Endpoints.Menu;
 
 using System.Diagnostics;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
 
 using FastEndpoints;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
 
 [CmsEndpoint(CmsEndpointKind.Delivery)]
 internal class GetMenu(

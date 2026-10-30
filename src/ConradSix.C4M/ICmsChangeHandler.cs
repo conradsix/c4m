@@ -1,5 +1,5 @@
 #pragma warning disable SA1402 // The default handler is kept with its contract.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 // Called after a committed edit. Implementations must not throw: the edit has already been saved.
 public interface ICmsChangeHandler

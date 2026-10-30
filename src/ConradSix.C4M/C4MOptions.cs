@@ -1,6 +1,6 @@
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
-public sealed class CmsEngineOptions
+public sealed class C4MOptions
 {
     public ISet<string> ReservedRootSegments { get; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 

@@ -1,16 +1,16 @@
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
 
 #pragma warning disable SA1204 // Static summary helpers are kept after the service operations.
 
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-using Microsoft.EntityFrameworkCore;
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Services.Model;
 
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
-using Parapet.CMS.Engine.Services.Model;
+using Microsoft.EntityFrameworkCore;
 
 internal sealed partial class PageVersionChangeSummaryService(CmsEngineDbContext ctx, IBlockChangeDescriber describer)
 {

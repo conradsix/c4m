@@ -1,5 +1,5 @@
 #pragma warning disable SA1402 // The default describer is kept with its contract.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 using System.Text.Json;
 

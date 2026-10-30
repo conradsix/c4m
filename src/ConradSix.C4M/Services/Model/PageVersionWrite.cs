@@ -1,5 +1,5 @@
 #pragma warning disable SA1402 // The result is kept with the write it answers.
-namespace Parapet.CMS.Engine.Services.Model;
+namespace ConradSix.C4M.Services.Model;
 
 // How a new version is written. With an expected latest version, a page that has moved on is a conflict instead. With
 // an idempotency key, repeating a write that was already saved returns the saved version, so a caller can retry

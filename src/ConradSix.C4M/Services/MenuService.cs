@@ -1,12 +1,12 @@
-namespace Parapet.CMS.Engine.Services;
+namespace ConradSix.C4M.Services;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Exceptions;
+using ConradSix.C4M.Model;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
-using Parapet.CMS.Engine.Exceptions;
-using Parapet.CMS.Engine.Model;
 
 internal class MenuService(CmsEngineDbContext ctx, BlockReferenceIndexer referenceIndexer)
     : IMenuService

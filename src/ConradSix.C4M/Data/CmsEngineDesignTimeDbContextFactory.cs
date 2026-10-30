@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Data;
+namespace ConradSix.C4M.Data;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;

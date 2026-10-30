@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Data.Model;
+namespace ConradSix.C4M.Data.Model;
 
 // The context stamps these when it saves.
 internal interface IHasTimestamps : IHasCreatedAt, IHasUpdatedAt

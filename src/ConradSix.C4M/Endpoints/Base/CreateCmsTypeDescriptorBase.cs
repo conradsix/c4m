@@ -1,9 +1,11 @@
 #pragma warning disable SA1402 // File may only contain a single type
-namespace Parapet.CMS.Engine.Endpoints.Base;
+namespace ConradSix.C4M.Endpoints.Base;
 
 using System.Diagnostics;
-
 using System.Text.Json;
+
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
 
 using FastEndpoints;
 
@@ -12,9 +14,6 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
 
 internal abstract class CreateCmsTypeDescriptorBase<TEntity, TGetEndpoint>(
         CmsEngineDbContext ctx,

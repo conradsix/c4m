@@ -1,12 +1,12 @@
-namespace Parapet.CMS.Engine.Endpoints.MenuActionType;
+namespace ConradSix.C4M.Endpoints.MenuActionType;
+
+using ConradSix.C4M;
+using ConradSix.C4M.Data;
+using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Endpoints.Base;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
-using Parapet.CMS.Engine;
-using Parapet.CMS.Engine.Data;
-using Parapet.CMS.Engine.Data.Model;
-using Parapet.CMS.Engine.Endpoints.Base;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class CreateMenuActionType(CmsEngineDbContext ctx, ILogger<CreateMenuActionType> logger)

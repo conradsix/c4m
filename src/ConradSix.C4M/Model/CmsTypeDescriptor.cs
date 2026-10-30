@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Model;
+namespace ConradSix.C4M.Model;
 
 public sealed record CmsTypeDescriptor(
     Guid Id,

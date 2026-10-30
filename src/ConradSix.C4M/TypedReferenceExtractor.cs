@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
 
 using System.Text.Json;
 using System.Text.RegularExpressions;

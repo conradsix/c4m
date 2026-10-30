@@ -1,4 +1,4 @@
-namespace Parapet.CMS.Engine.Services.Model;
+namespace ConradSix.C4M.Services.Model;
 
 public sealed record PageVersionMetadata(
     string? SeoTitle,

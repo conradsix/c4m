@@ -1,9 +1,9 @@
 #pragma warning disable SA1402 // The query contract is kept with its implementation.
-namespace Parapet.CMS.Engine;
+namespace ConradSix.C4M;
+
+using ConradSix.C4M.Data;
 
 using Microsoft.EntityFrameworkCore;
-
-using Parapet.CMS.Engine.Data;
 
 public interface IBlockReferenceQuery
 {

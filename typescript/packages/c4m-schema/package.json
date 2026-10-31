@@ -1,5 +1,5 @@
 {
-  "name": "@repo/cms-schema",
+  "name": "@conradsix/c4m-schema",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -15,8 +15,8 @@
     "fix:lint": "oxlint --type-aware --fix .",
     "fix:format": "oxfmt --write ."
   },
-  "dependencies": {
-    "zod": "4.6.7"
+  "peerDependencies": {
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@repo/oxlint-config": "workspace:^",
@@ -26,6 +26,7 @@
     "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "typescript": "7.0.2",
-    "vitest": "5.0.5"
+    "vitest": "5.0.5",
+    "zod": "4.6.7"
   }
 }

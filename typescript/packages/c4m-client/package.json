@@ -1,0 +1,16 @@
+{
+  "name": "@conradsix/c4m-client",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "swagger": "sh ./swagger.sh"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:^",
+    "typescript": "7.0.2"
+  }
+}

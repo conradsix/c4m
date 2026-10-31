@@ -1,0 +1,36 @@
+{
+  "name": "@conradsix/c4m-preview",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "check:lint": "oxlint --type-aware .",
+    "check:circular": "oxlint --config ../../packages/oxlint-config/circular.json --disable-nested-config src",
+    "check:format": "oxfmt --check .",
+    "check:types": "tsc --noEmit",
+    "fix:lint": "oxlint --type-aware --fix .",
+    "fix:format": "oxfmt --write ."
+  },
+  "dependencies": {
+    "@conradsix/c4m-schema": "workspace:^"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@repo/oxlint-config": "workspace:^",
+    "@repo/tsconfig": "workspace:^",
+    "@types/node": "26.6.5",
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5",
+    "zod": "4.6.7"
+  }
+}

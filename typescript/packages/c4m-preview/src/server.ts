@@ -1,9 +1,9 @@
-import "server-only";
-
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 import { z } from "zod";
 
+// Preview tokens: the editor signs one to open the site's preview of an unsaved page or menu, and the site checks it.
+// They use node:crypto, so they belong on the server.
 const PagePreviewTokenClaimsSchema = z.object({
   kind: z.literal("page"),
   pageId: z.uuid(),

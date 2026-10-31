@@ -1,4 +1,4 @@
-import { PageRefSchema } from "./resourceRef";
+import { PageRefSchema } from "./references";
 
 const MARKDOWN_PAGE_REF_PREFIX = "page-ref:";
 

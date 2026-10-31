@@ -3,7 +3,10 @@ ConradSix.C4M.Testing.C4MTestData
 ConradSix.C4M.Testing.C4MTestData.AddBlockTypeAsync(string! name, int version = 1, string! jsonSchema = "{}", System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Guid>!
 ConradSix.C4M.Testing.C4MTestData.AddPageAsync(string! slug, System.Guid? parentId = null, bool published = false, System.DateTimeOffset? archivedAt = null, bool withVersion = false, System.Guid? id = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<ConradSix.C4M.Testing.C4MTestPage!>!
 ConradSix.C4M.Testing.C4MTestData.C4MTestData(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory! scopes) -> void
+ConradSix.C4M.Testing.C4MTestData.CountVersionsAsync(System.Guid pageId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<int>!
+ConradSix.C4M.Testing.C4MTestData.RemovePageAsync(System.Guid pageId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 ConradSix.C4M.Testing.C4MTestData.RenamePageAsync(System.Guid pageId, string! slug, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.C4MTestData.ReplaceBlockTypeSchemaAsync(string! name, int version, string! jsonSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 ConradSix.C4M.Testing.C4MTestData.ResetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 ConradSix.C4M.Testing.C4MTestData.SetArchivedAsync(System.Guid pageId, System.DateTimeOffset? archivedAt, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 ConradSix.C4M.Testing.C4MTestingBuilderExtensions

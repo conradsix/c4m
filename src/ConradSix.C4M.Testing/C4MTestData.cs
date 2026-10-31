@@ -43,8 +43,8 @@ public sealed class C4MTestData(IServiceScopeFactory scopes)
         return type.Id;
     }
 
-    // Adds a page directly, optionally with an empty current version. The page is published or archived as asked,
-    // whether or not the engine would allow it.
+    // Adds a page directly, optionally with an empty current version whose SEO title and description are the slug, so
+    // it can be published. The page is published or archived as asked, whether or not the engine would allow it.
     public async Task<C4MTestPage> AddPageAsync(
         string slug,
         Guid? parentId = null,
@@ -63,7 +63,7 @@ public sealed class C4MTestData(IServiceScopeFactory scopes)
         }
 
         ctx.Pages.Add(page);
-        var version = withVersion ? new PageVersionEntity { Page = page, IsCurrent = true } : null;
+        var version = withVersion ? new PageVersionEntity { Page = page, IsCurrent = true, SeoTitle = slug, SeoDescription = slug } : null;
         if (version is not null)
         {
             ctx.PageVersions.Add(version);
@@ -91,6 +91,33 @@ public sealed class C4MTestData(IServiceScopeFactory scopes)
         var page = await ctx.Pages.SingleAsync(item => item.Id == pageId, cancellationToken);
         page.ArchivedAt = archivedAt;
         page.IsPublished = page.IsPublished && archivedAt is null;
+        await ctx.SaveChangesAsync(cancellationToken);
+    }
+
+    // Removes a page that has no versions, children or references to it.
+    public async Task RemovePageAsync(Guid pageId, CancellationToken cancellationToken = default)
+    {
+        await using var scope = scopes.CreateAsyncScope();
+        await scope.ServiceProvider.GetRequiredService<CmsEngineDbContext>().Pages
+            .Where(page => page.Id == pageId)
+            .ExecuteDeleteAsync(cancellationToken);
+    }
+
+    public async Task<int> CountVersionsAsync(Guid pageId, CancellationToken cancellationToken = default)
+    {
+        await using var scope = scopes.CreateAsyncScope();
+        return await scope.ServiceProvider.GetRequiredService<CmsEngineDbContext>().PageVersions
+            .CountAsync(version => version.PageId == pageId, cancellationToken);
+    }
+
+    // Changes a registered block type's schema. The engine never does: this is for tests of a host that has to cope
+    // with a registry that changed under it.
+    public async Task ReplaceBlockTypeSchemaAsync(string name, int version, string jsonSchema, CancellationToken cancellationToken = default)
+    {
+        await using var scope = scopes.CreateAsyncScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<CmsEngineDbContext>();
+        var type = await ctx.BlockTypes.SingleAsync(item => item.Name == name && item.Version == version, cancellationToken);
+        type.JsonSchema = jsonSchema;
         await ctx.SaveChangesAsync(cancellationToken);
     }
 }

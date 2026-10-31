@@ -1,0 +1,18 @@
+{
+  "invalidGuid1": {
+    "__typename": "image-ref",
+    "id": "not-a-guid-at-all"
+  },
+  "invalidGuid2": {
+    "__typename": "image-ref",
+    "id": "550e8400-e29b-41d4-a716"
+  },
+  "invalidGuid3": {
+    "__typename": "image-ref",
+    "id": "550e8400-e29b-41d4-a716-446655440016-extra"
+  },
+  "validGuid": {
+    "__typename": "image-ref",
+    "id": "550e8400-e29b-41d4-a716-446655440016"
+  }
+}

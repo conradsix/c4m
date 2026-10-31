@@ -1,0 +1,20 @@
+{
+  "gallery": [
+    {
+      "__typename": "image-ref",
+      "id": "550e8400-e29b-41d4-a716-446655440003"
+    },
+    {
+      "__typename": "image-ref",
+      "id": "550e8400-e29b-41d4-a716-446655440004"
+    }
+  ],
+  "carousel": {
+    "images": [
+      {
+        "__typename": "image-ref",
+        "id": "550e8400-e29b-41d4-a716-446655440005"
+      }
+    ]
+  }
+}

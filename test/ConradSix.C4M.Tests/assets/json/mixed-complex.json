@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Complex Page",
+    "header": {
+      "__typename": "image-ref",
+      "id": "550e8400-e29b-41d4-a716-446655440006"
+    },
+    "sections": [
+      {
+        "type": "hero",
+        "background": {
+          "__typename": "image-ref",
+          "id": "550e8400-e29b-41d4-a716-446655440007"
+        },
+        "content": {
+          "images": [
+            {
+              "__typename": "image-ref",
+              "id": "550e8400-e29b-41d4-a716-446655440008"
+            }
+          ]
+        }
+      },
+      {
+        "type": "gallery",
+        "items": [
+          {
+            "image": {
+              "__typename": "document-ref",
+              "id": "550e8400-e29b-41d4-a716-446655440009"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

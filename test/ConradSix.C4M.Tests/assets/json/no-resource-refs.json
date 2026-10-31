@@ -1,0 +1,15 @@
+{
+  "title": "Regular Content",
+  "description": "This is just regular content with no resource references",
+  "metadata": {
+    "author": "John Doe",
+    "created": "2024-01-01",
+    "tags": ["content", "test"]
+  },
+  "sections": [
+    {
+      "type": "text",
+      "content": "Some text content"
+    }
+  ]
+}

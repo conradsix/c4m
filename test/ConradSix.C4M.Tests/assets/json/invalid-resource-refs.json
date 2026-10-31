@@ -1,0 +1,33 @@
+{
+  "validRef": {
+    "__typename": "image-ref",
+    "id": "550e8400-e29b-41d4-a716-446655440010"
+  },
+  "missingTypename": {
+    "id": "550e8400-e29b-41d4-a716-446655440011"
+  },
+  "missingId": {
+    "__typename": "image-ref"
+  },
+  "extraProperties": {
+    "__typename": "image-ref",
+    "id": "550e8400-e29b-41d4-a716-446655440012",
+    "extra": "property"
+  },
+  "emptyTypename": {
+    "__typename": "",
+    "id": "550e8400-e29b-41d4-a716-446655440013"
+  },
+  "nullTypename": {
+    "__typename": null,
+    "id": "550e8400-e29b-41d4-a716-446655440014"
+  },
+  "wrongIdType": {
+    "__typename": "image-ref",
+    "id": "not-a-guid"
+  },
+  "wrongIdFormat": {
+    "__typename": "image-ref",
+    "id": 12345
+  }
+}

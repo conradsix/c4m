@@ -46,17 +46,17 @@ internal class UpdateMenu(
                 Version: 15,
                 UpdatedAt: DateTimeOffset.Parse("2024-03-15T14:45:00Z", CultureInfo.InvariantCulture));
             s.ExampleRequest = new UpdateMenuRequest(
-                MenuId: Guid.NewGuid(),
+                MenuId: Guid.Parse("1f2e3d4c-5b6a-4798-8a7b-6c5d4e3f2a1b"),
                 Version: 1,
                 RootItems: [
                     new MenuItem(
                         Title: "Home",
-                        ActionTypeId: Guid.NewGuid(),
+                        ActionTypeId: Guid.Parse("0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6"),
                         ActionData: /*lang=json,strict*/ """{"pageId": "00000000-0000-0000-0000-000000000000"}""",
                         Children: [
                             new MenuItem(
                                 Title: "About",
-                                ActionTypeId: Guid.NewGuid(),
+                                ActionTypeId: Guid.Parse("0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6"),
                                 ActionData: /*lang=json,strict*/ """{"pageId": "00000000-0000-0000-0000-000000000001"}""",
                                 Children: null),
                         ]),

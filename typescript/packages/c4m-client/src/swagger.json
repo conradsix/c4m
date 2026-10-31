@@ -3,7 +3,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "C4M",
-    "description": "The C4M engine's pages, versions, blocks, menus and navigation settings.",
+    "description": "API for managing content-related operations in the Parapet system.",
     "version": "v1"
   },
   "servers": [
@@ -1389,7 +1389,7 @@
               "type": "string",
               "format": "uuid"
             },
-            "example": "4c24db84-bd79-44cc-bd6f-6bbcd2cf3225"
+            "example": "4a2fa4d2-f5fb-484a-8366-c18c8f7ab169"
           }
         ],
         "requestBody": {
@@ -2975,7 +2975,7 @@
           "rootItems": [
             {
               "title": "Home",
-              "actionTypeId": "75e46d25-adf9-49b2-86d4-f5c70470111f",
+              "actionTypeId": "466963d3-ffe3-4f9d-8368-5c0436f8ffe2",
               "actionData": "{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}",
               "children": null
             }
@@ -2999,7 +2999,7 @@
             "example": [
               {
                 "title": "Home",
-                "actionTypeId": "75e46d25-adf9-49b2-86d4-f5c70470111f",
+                "actionTypeId": "466963d3-ffe3-4f9d-8368-5c0436f8ffe2",
                 "actionData": "{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}",
                 "children": null
               }
@@ -3220,12 +3220,12 @@
           "rootItems": [
             {
               "title": "Home",
-              "actionTypeId": "529a799b-d897-460a-8190-fb6f3744afef",
+              "actionTypeId": "eab13195-20eb-48f2-a121-74d2901f0af7",
               "actionData": "{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}",
               "children": [
                 {
                   "title": "About",
-                  "actionTypeId": "8348659c-e47f-4687-9d31-386b741603e2",
+                  "actionTypeId": "93886a29-3ee6-4c74-b9e0-94d9074ca68a",
                   "actionData": "{\"pageId\": \"00000000-0000-0000-0000-000000000001\"}",
                   "children": null
                 }
@@ -3249,12 +3249,12 @@
             "example": [
               {
                 "title": "Home",
-                "actionTypeId": "529a799b-d897-460a-8190-fb6f3744afef",
+                "actionTypeId": "eab13195-20eb-48f2-a121-74d2901f0af7",
                 "actionData": "{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}",
                 "children": [
                   {
                     "title": "About",
-                    "actionTypeId": "8348659c-e47f-4687-9d31-386b741603e2",
+                    "actionTypeId": "93886a29-3ee6-4c74-b9e0-94d9074ca68a",
                     "actionData": "{\"pageId\": \"00000000-0000-0000-0000-000000000001\"}",
                     "children": null
                   }

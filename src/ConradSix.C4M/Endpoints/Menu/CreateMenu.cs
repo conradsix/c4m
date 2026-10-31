@@ -42,7 +42,7 @@ internal class CreateMenu(
                 RootItems: [
                     new MenuItem(
                         Title: "Home",
-                        ActionTypeId: Guid.NewGuid(),
+                        ActionTypeId: Guid.Parse("0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6"),
                         ActionData: /*lang=json,strict*/ """{"pageId": "00000000-0000-0000-0000-000000000000"}""",
                         Children: null),
                 ]);

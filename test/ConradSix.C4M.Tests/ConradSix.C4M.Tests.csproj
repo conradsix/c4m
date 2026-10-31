@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(CmsDirectory)\ConradSix.C4M\ConradSix.C4M.csproj" />
-    <ProjectReference Include="$(CmsDirectory)\ConradSix.C4M.Testing\ConradSix.C4M.Testing.csproj" />
+    <ProjectReference Include="$(SrcDirectory)\ConradSix.C4M\ConradSix.C4M.csproj" />
+    <ProjectReference Include="$(SrcDirectory)\ConradSix.C4M.Testing\ConradSix.C4M.Testing.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,20 +1,42 @@
 {
   "name": "@conradsix/c4m-preview",
   "version": "0.0.0",
-  "type": "module",
-  "private": true,
-  "exports": {
-    ".": "./src/index.ts",
-    "./server": "./src/server.ts"
+  "description": "Live preview for C4M: the editor-to-site postMessage protocol and signed preview tokens.",
+  "keywords": [
+    "c4m",
+    "cms",
+    "preview"
+  ],
+  "license": "MIT",
+  "author": "Brian Tyler",
+  "homepage": "https://github.com/conradsix/c4m#readme",
+  "bugs": "https://github.com/conradsix/c4m/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conradsix/c4m.git",
+    "directory": "typescript/packages/c4m-preview"
   },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.ts"
+  ],
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
-    "check:lint": "oxlint --type-aware .",
-    "check:circular": "oxlint --config ../../packages/oxlint-config/circular.json --disable-nested-config src",
-    "check:format": "oxfmt --check .",
-    "check:types": "tsc --noEmit",
-    "fix:lint": "oxlint --type-aware --fix .",
-    "fix:format": "oxfmt --write ."
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
     "@conradsix/c4m-schema": "workspace:^"
@@ -23,13 +45,9 @@
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@repo/oxlint-config": "workspace:^",
-    "@repo/tsconfig": "workspace:^",
     "@types/node": "26.6.5",
-    "oxfmt": "0.75.0",
-    "oxlint": "1.90.0",
-    "oxlint-tsgolint": "7.0.2005",
     "typescript": "7.0.2",
+    "vite": "8.3.5",
     "vitest": "5.0.5",
     "zod": "4.6.7"
   }

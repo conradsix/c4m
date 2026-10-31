@@ -1,1 +1,68 @@
 #nullable enable
+ConradSix.C4M.Testing.C4MTestData
+ConradSix.C4M.Testing.C4MTestData.AddBlockTypeAsync(string! name, int version = 1, string! jsonSchema = "{}", System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Guid>!
+ConradSix.C4M.Testing.C4MTestData.AddPageAsync(string! slug, System.Guid? parentId = null, bool published = false, System.DateTimeOffset? archivedAt = null, bool withVersion = false, System.Guid? id = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<ConradSix.C4M.Testing.C4MTestPage!>!
+ConradSix.C4M.Testing.C4MTestData.C4MTestData(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory! scopes) -> void
+ConradSix.C4M.Testing.C4MTestData.CountVersionsAsync(System.Guid pageId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<int>!
+ConradSix.C4M.Testing.C4MTestData.RemovePageAsync(System.Guid pageId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.C4MTestData.RenamePageAsync(System.Guid pageId, string! slug, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.C4MTestData.ReplaceBlockTypeSchemaAsync(string! name, int version, string! jsonSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.C4MTestData.ResetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.C4MTestData.SetArchivedAsync(System.Guid pageId, System.DateTimeOffset? archivedAt, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.C4MTestPage
+ConradSix.C4M.Testing.C4MTestPage.<Clone>$() -> ConradSix.C4M.Testing.C4MTestPage!
+ConradSix.C4M.Testing.C4MTestPage.C4MTestPage(System.Guid Id, string! Slug, string! Path, System.Guid? CurrentVersionId) -> void
+ConradSix.C4M.Testing.C4MTestPage.CurrentVersionId.get -> System.Guid?
+ConradSix.C4M.Testing.C4MTestPage.CurrentVersionId.init -> void
+ConradSix.C4M.Testing.C4MTestPage.Deconstruct(out System.Guid Id, out string! Slug, out string! Path, out System.Guid? CurrentVersionId) -> void
+ConradSix.C4M.Testing.C4MTestPage.Equals(ConradSix.C4M.Testing.C4MTestPage? other) -> bool
+ConradSix.C4M.Testing.C4MTestPage.Id.get -> System.Guid
+ConradSix.C4M.Testing.C4MTestPage.Id.init -> void
+ConradSix.C4M.Testing.C4MTestPage.Path.get -> string!
+ConradSix.C4M.Testing.C4MTestPage.Path.init -> void
+ConradSix.C4M.Testing.C4MTestPage.Slug.get -> string!
+ConradSix.C4M.Testing.C4MTestPage.Slug.init -> void
+ConradSix.C4M.Testing.C4MTestingBuilderExtensions
+ConradSix.C4M.Testing.CmsChange
+ConradSix.C4M.Testing.CmsChange.<Clone>$() -> ConradSix.C4M.Testing.CmsChange!
+ConradSix.C4M.Testing.CmsChange.CmsChange(ConradSix.C4M.Testing.CmsChangeKind Kind, string? Path = null) -> void
+ConradSix.C4M.Testing.CmsChange.Deconstruct(out ConradSix.C4M.Testing.CmsChangeKind Kind, out string? Path) -> void
+ConradSix.C4M.Testing.CmsChange.Equals(ConradSix.C4M.Testing.CmsChange? other) -> bool
+ConradSix.C4M.Testing.CmsChange.Kind.get -> ConradSix.C4M.Testing.CmsChangeKind
+ConradSix.C4M.Testing.CmsChange.Kind.init -> void
+ConradSix.C4M.Testing.CmsChange.Path.get -> string?
+ConradSix.C4M.Testing.CmsChange.Path.init -> void
+ConradSix.C4M.Testing.CmsChangeKind
+ConradSix.C4M.Testing.CmsChangeKind.Content = 1 -> ConradSix.C4M.Testing.CmsChangeKind
+ConradSix.C4M.Testing.CmsChangeKind.Navigation = 2 -> ConradSix.C4M.Testing.CmsChangeKind
+ConradSix.C4M.Testing.CmsChangeKind.Page = 0 -> ConradSix.C4M.Testing.CmsChangeKind
+ConradSix.C4M.Testing.FakeAssetResolver
+ConradSix.C4M.Testing.FakeAssetResolver.Add(ConradSix.C4M.CmsImageAsset! image) -> void
+ConradSix.C4M.Testing.FakeAssetResolver.Add(int width = 1200, int height = 800, string! altText = "An image") -> ConradSix.C4M.CmsImageAsset!
+ConradSix.C4M.Testing.FakeAssetResolver.Clear() -> void
+ConradSix.C4M.Testing.FakeAssetResolver.FakeAssetResolver() -> void
+ConradSix.C4M.Testing.FakeAssetResolver.ResolveImagesAsync(System.Collections.Generic.IReadOnlyCollection<System.Guid>! ids, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyDictionary<System.Guid, ConradSix.C4M.CmsImageAsset!>!>!
+ConradSix.C4M.Testing.RecordingChangeHandler
+ConradSix.C4M.Testing.RecordingChangeHandler.Changes.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Testing.CmsChange!>!
+ConradSix.C4M.Testing.RecordingChangeHandler.Clear() -> void
+ConradSix.C4M.Testing.RecordingChangeHandler.ContentChangedAsync() -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.RecordingChangeHandler.NavigationChangedAsync() -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.RecordingChangeHandler.PageChangedAsync(string! path) -> System.Threading.Tasks.Task!
+ConradSix.C4M.Testing.RecordingChangeHandler.RecordingChangeHandler() -> void
+Microsoft.Extensions.DependencyInjection.C4MTestingServiceCollectionExtensions
+override ConradSix.C4M.Testing.C4MTestPage.Equals(object? obj) -> bool
+override ConradSix.C4M.Testing.C4MTestPage.GetHashCode() -> int
+override ConradSix.C4M.Testing.C4MTestPage.ToString() -> string!
+override ConradSix.C4M.Testing.CmsChange.Equals(object? obj) -> bool
+override ConradSix.C4M.Testing.CmsChange.GetHashCode() -> int
+override ConradSix.C4M.Testing.CmsChange.ToString() -> string!
+static ConradSix.C4M.Testing.C4MTestPage.operator !=(ConradSix.C4M.Testing.C4MTestPage? left, ConradSix.C4M.Testing.C4MTestPage? right) -> bool
+static ConradSix.C4M.Testing.C4MTestPage.operator ==(ConradSix.C4M.Testing.C4MTestPage? left, ConradSix.C4M.Testing.C4MTestPage? right) -> bool
+static ConradSix.C4M.Testing.C4MTestingBuilderExtensions.UseFakeAssetResolver(this ConradSix.C4M.C4MBuilder! builder) -> ConradSix.C4M.C4MBuilder!
+static ConradSix.C4M.Testing.C4MTestingBuilderExtensions.UseRecordingChangeHandler(this ConradSix.C4M.C4MBuilder! builder) -> ConradSix.C4M.C4MBuilder!
+static ConradSix.C4M.Testing.CmsChange.Content.get -> ConradSix.C4M.Testing.CmsChange!
+static ConradSix.C4M.Testing.CmsChange.Navigation.get -> ConradSix.C4M.Testing.CmsChange!
+static ConradSix.C4M.Testing.CmsChange.Page(string! path) -> ConradSix.C4M.Testing.CmsChange!
+static ConradSix.C4M.Testing.CmsChange.operator !=(ConradSix.C4M.Testing.CmsChange? left, ConradSix.C4M.Testing.CmsChange? right) -> bool
+static ConradSix.C4M.Testing.CmsChange.operator ==(ConradSix.C4M.Testing.CmsChange? left, ConradSix.C4M.Testing.CmsChange? right) -> bool
+static Microsoft.Extensions.DependencyInjection.C4MTestingServiceCollectionExtensions.AddC4MTesting(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!

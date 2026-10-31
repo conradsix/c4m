@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 
-import { createPreviewProtocol, PREVIEW_PROTOCOL_VERSION } from "./protocol";
-import { signPreviewToken, verifyPreviewToken } from "./server";
+import { createPreviewProtocol, PREVIEW_PROTOCOL_VERSION } from "./protocol.js";
+import { signPreviewToken, verifyPreviewToken } from "./server.js";
 
 const secret = "a-preview-secret-of-at-least-32-characters";
 const pageId = "019a3a3c-0b8e-7c7d-9d1e-2f3a4b5c6d7e";

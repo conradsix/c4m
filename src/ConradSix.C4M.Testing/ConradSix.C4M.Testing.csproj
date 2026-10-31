@@ -1,15 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- Test helpers for C4M hosts: fakes for the engine's hooks, and seeding and clearing its tables. -->
+  <PropertyGroup>
+    <Description>Test helpers for C4M hosts: fakes for the engine's hooks, and seeding and clearing its tables.</Description>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\ConradSix.C4M\ConradSix.C4M.csproj" />
-  </ItemGroup>
-
-  <!-- The public API is recorded in PublicAPI.*.txt; an unrecorded change fails the build. -->
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" PrivateAssets="all" />
-    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
-    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
   </ItemGroup>
 
 </Project>

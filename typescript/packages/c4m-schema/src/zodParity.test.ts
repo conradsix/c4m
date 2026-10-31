@@ -3,15 +3,15 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 
-import { isJsonEqual } from "./isJsonEqual";
-import { standardMenuActions } from "./menuActions";
-import { ImageRefSchema, PageRefSchema } from "./references";
+import { isJsonEqual } from "./isJsonEqual.js";
+import { standardMenuActions } from "./menuActions.js";
+import { ImageRefSchema, PageRefSchema } from "./references.js";
 
 // The schemas zod emits, and which data zod takes as stored, for the engine's validator to agree with. Stored data is
 // zod's output, so a sample is valid when zod parses it and gives it back unchanged. The engine's tests read the
 // fixture this writes; run with UPDATE_ZOD_PARITY=1 to rewrite it after changing the cases or zod.
 const fixture = new URL(
-  "../../../../dotnet/test/ConradSix.C4M.Tests/assets/zod-parity.json",
+  "../../../../test/ConradSix.C4M.Tests/assets/zod-parity.json",
   import.meta.url,
 );
 

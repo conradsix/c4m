@@ -1,0 +1,28 @@
+{
+  "name": "c4m",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "yarn workspaces foreach -Apt run build",
+    "test": "yarn workspaces foreach -Apt run test",
+    "check:lint": "oxlint --type-aware --deny-warnings",
+    "check:circular": "oxlint --config oxlint/circular.json --disable-nested-config packages/*/src",
+    "check:format": "oxfmt --check .",
+    "check:types": "yarn workspaces foreach -Apt run check:types",
+    "check:all": "yarn build && yarn check:lint && yarn check:circular && yarn check:format && yarn check:types && yarn test",
+    "fix:lint": "oxlint --type-aware --fix",
+    "fix:format": "oxfmt --write ."
+  },
+  "devDependencies": {
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0",
+    "oxlint-tsgolint": "7.0.2005"
+  },
+  "engines": {
+    "node": "26.10.0"
+  },
+  "packageManager": "yarn@4.18.1",
+  "workspaces": [
+    "packages/*"
+  ]
+}

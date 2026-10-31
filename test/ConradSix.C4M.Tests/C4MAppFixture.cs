@@ -46,7 +46,8 @@ public sealed class C4MAppFixture : IAsyncLifetime
 
     public async ValueTask InitializeAsync()
     {
-        this._database = new PostgreSqlBuilder("postgres:18")
+        // CI runs the tests on each PostgreSQL version the engine supports.
+        this._database = new PostgreSqlBuilder(Environment.GetEnvironmentVariable("C4M_POSTGRES_IMAGE") ?? "postgres:18")
             .WithDatabase("c4m")
             .WithTmpfsMount("/var/lib/postgresql")
             .Build();

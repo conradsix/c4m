@@ -7,10 +7,6 @@ using FastEndpoints;
 
 using FluentValidation;
 
-using Newtonsoft.Json;
-
-using NJsonSchema;
-
 internal class NewBlockValidator<T> : Validator<T>
     where T : INewBlock
 {
@@ -34,20 +30,9 @@ internal class NewBlockValidator<T> : Validator<T>
                     return;
                 }
 
-                try
+                foreach (var error in this.Resolve<CmsJsonSchemaCache>().Check(blockType.Name, blockType.JsonSchema, block.BlockData))
                 {
-                    var schema = await JsonSchema.FromJsonAsync(blockType.JsonSchema, cancellation);
-                    var errors = schema.Validate(block.BlockData);
-
-                    foreach (var error in errors)
-                    {
-                        var path = $@"{blockType.Name}.{error.Path}";
-                        context.AddFailure(path, error.Kind.ToString());
-                    }
-                }
-                catch (JsonReaderException ex)
-                {
-                    context.AddFailure("BlockData", $"Schema validation failed for block type '{blockType.Name}': {ex.Message}");
+                    context.AddFailure(error.Path is null ? "BlockData" : $"{blockType.Name}.{error.Path}", error.Kind);
                 }
             });
     }

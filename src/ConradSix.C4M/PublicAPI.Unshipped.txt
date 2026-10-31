@@ -1717,6 +1717,7 @@ static ConradSix.C4M.Services.PageCreated.operator ==(ConradSix.C4M.Services.Pag
 static FluentValidation.CmsEngineValidationExtensions.Slug<T>(this FluentValidation.IRuleBuilder<T, string!>! ruleBuilder) -> FluentValidation.IRuleBuilderOptions<T, string!>!
 static Microsoft.Extensions.DependencyInjection.C4MServiceCollectionExtensions.AddC4M(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<ConradSix.C4M.C4MBuilder!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
 static Microsoft.Extensions.Hosting.C4MHostExtensions.MigrateC4MAsync(this Microsoft.Extensions.Hosting.IHost! host, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+static Microsoft.Extensions.Hosting.C4MHostExtensions.MigrateC4MAsync(this System.IServiceProvider! services, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
 virtual ConradSix.C4M.BlockChangeDescriber.ChangedFields(string! blockType, System.Text.Json.JsonElement previous, System.Text.Json.JsonElement current) -> System.Collections.Generic.IReadOnlyList<string!>!
 virtual ConradSix.C4M.BlockChangeDescriber.DisplayName(string! blockType) -> string!
 virtual ConradSix.C4M.BlockChangeDescriber.Label(string! blockType, System.Text.Json.JsonElement block) -> string?

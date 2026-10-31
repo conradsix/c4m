@@ -13,17 +13,6 @@ namespace ConradSix.C4M.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            // The engine began inside a host whose CMS tables lived in public. Such a host hands them to the cms schema,
-            // and records this migration, before the engine migrates; creating empty tables beside them would hide them.
-            migrationBuilder.Sql("""
-                DO $$
-                BEGIN
-                    IF to_regclass('public.page_version_blocks') IS NOT NULL THEN
-                        RAISE EXCEPTION 'The CMS tables are still in the public schema. Run the host migration that hands them to the cms schema first.';
-                    END IF;
-                END $$;
-                """);
-
             migrationBuilder.EnsureSchema(
                 name: "cms");
 

@@ -7,10 +7,6 @@ using FastEndpoints;
 
 using FluentValidation;
 
-using Newtonsoft.Json;
-
-using NJsonSchema;
-
 internal class MenuItemValidator : Validator<MenuItem>
 {
     public MenuItemValidator(int currentDepth = 1, string itemPath = "")
@@ -43,20 +39,9 @@ internal class MenuItemValidator : Validator<MenuItem>
                     context.AddFailure("Children", "A non-navigating menu item must contain at least one child");
                 }
 
-                try
+                foreach (var error in this.Resolve<CmsJsonSchemaCache>().Check(actionType.Name, actionType.JsonSchema, menuItem.ActionData))
                 {
-                    var schema = await JsonSchema.FromJsonAsync(actionType.JsonSchema, cancellation);
-                    var errors = schema.Validate(menuItem.ActionData);
-
-                    foreach (var error in errors)
-                    {
-                        var path = $@"{actionType.Name}.{error.Path}";
-                        context.AddFailure(path, error.Kind.ToString());
-                    }
-                }
-                catch (JsonReaderException ex)
-                {
-                    context.AddFailure("ActionData", $"Schema validation failed for action type '{actionType.Name}': {ex.Message}");
+                    context.AddFailure(error.Path is null ? "ActionData" : $"{actionType.Name}.{error.Path}", error.Kind);
                 }
             });
 

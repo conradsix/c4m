@@ -4,6 +4,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 using ConradSix.C4M;
 using ConradSix.C4M.Data;
 using ConradSix.C4M.Services;
+using ConradSix.C4M.Validation;
 
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -24,6 +25,7 @@ public static class C4MServiceCollectionExtensions
         services.TryAddSingleton<ILinkedPageImageSelector, NullLinkedPageImageSelector>();
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IReferenceExtractor, TypedReferenceExtractor>());
         services.TryAddSingleton<BlockReferenceIndexer>();
+        services.TryAddSingleton<CmsJsonSchemaCache>();
         services.TryAddScoped<IBlockReferenceQuery, BlockReferenceQuery>();
         services.TryAddScoped<IBlockReferenceReindexer, BlockReferenceReindexer>();
         services.TryAddScoped<PageVersionChangeSummaryService>();

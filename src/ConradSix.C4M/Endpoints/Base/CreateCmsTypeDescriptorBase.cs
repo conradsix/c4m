@@ -2,10 +2,10 @@
 namespace ConradSix.C4M.Endpoints.Base;
 
 using System.Diagnostics;
-using System.Text.Json;
 
 using ConradSix.C4M.Data;
 using ConradSix.C4M.Data.Model;
+using ConradSix.C4M.Validation;
 
 using FastEndpoints;
 
@@ -103,23 +103,17 @@ internal class CreateCmsTypeDescriptorRequestValidator
         this.RuleFor(r => r.Version)
             .GreaterThan(0)
             .WithMessage("Version must be greater than 0");
+
+        // A schema the engine can't check in full is refused, so stored data never skips a keyword.
         this.RuleFor(r => r.JsonSchema)
             .NotEmpty()
-            .Must(BeValidJson)
-            .WithMessage("JsonSchema must be valid JSON");
-    }
-
-    private static bool BeValidJson(string jsonSchema)
-    {
-        try
-        {
-            JsonDocument.Parse(jsonSchema);
-            return true;
-        }
-        catch (JsonException)
-        {
-            return false;
-        }
+            .Custom((jsonSchema, context) =>
+            {
+                if (!string.IsNullOrEmpty(jsonSchema) && !this.Resolve<CmsJsonSchemaCache>().TryGet(jsonSchema, out _, out var error))
+                {
+                    context.AddFailure(error);
+                }
+            });
     }
 }
 

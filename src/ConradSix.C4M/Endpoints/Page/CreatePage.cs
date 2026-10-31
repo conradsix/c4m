@@ -40,8 +40,8 @@ internal class CreatePage(IPageService pages, ILogger<CreatePage> logger)
                         BlockData: /*lang=json,strict*/ """{"title": "About Us", "content": "Welcome to our website"}"""),
                 ],
                 Seo: new PageSeoRequest(
-                    Title: "About Top Villas Realty",
-                    Description: "Learn about the experience behind Top Villas Realty.",
+                    Title: "About us",
+                    Description: "Learn who we are and what we do.",
                     SocialImageId: null),
                 Publish: true);
         });

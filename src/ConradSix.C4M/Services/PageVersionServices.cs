@@ -6,6 +6,7 @@ using ConradSix.C4M;
 using ConradSix.C4M.Data;
 using ConradSix.C4M.Data.Model;
 using ConradSix.C4M.Services.Model;
+using ConradSix.C4M.Validation;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -16,7 +17,8 @@ internal class PageVersionServices(
     PageVersionChangeSummaryService changeSummaryService,
     IOptions<C4MOptions> options,
     IEnumerable<IBlockValidator> blockValidators,
-    IEnumerable<IPublicationRule> publicationRules)
+    IEnumerable<IPublicationRule> publicationRules,
+    CmsJsonSchemaCache schemas)
     : IPageVersionServices
 {
     public async Task<Guid> CreatePageVersionAsync(
@@ -177,41 +179,7 @@ internal class PageVersionServices(
             metadata.SeoDescription,
             "SEO description",
             PageVersionEntity.SeoDescriptionMaxLength);
-        var typeIds = blocks.Where(block => block.IsNew && !block.IsExisting).Select(block => block.BlockTypeId!.Value).ToArray();
-        var existingIds = blocks.Where(block => block.IsExisting).Select(block => block.BlockId!.Value).ToArray();
-        var names = await ctx.BlockTypes.Where(type => typeIds.Contains(type.Id)).Select(type => type.Name)
-            .Concat(ctx.PageBlocks.Where(block => existingIds.Contains(block.Id)).Select(block => block.BlockType.Name))
-            .Distinct().ToArrayAsync(cancellationToken);
-        var retiredTypes = options.Value.RetiredBlockTypes;
-        if (names.FirstOrDefault(retiredTypes.Contains) is { } retired)
-        {
-            throw new CmsBlockRetiredException(retired);
-        }
-
-        var payloads = blocks.Where(block => block.IsNew && !block.IsExisting).Select(block => block.BlockData!)
-            .Concat(await ctx.PageBlocks.Where(block => existingIds.Contains(block.Id)).Select(block => block.BlockData).ToArrayAsync(cancellationToken));
-        var validators = blockValidators.ToArray();
-        foreach (var payload in payloads)
-        {
-            using var document = JsonDocument.Parse(payload);
-            if (document.RootElement.ValueKind != JsonValueKind.Object ||
-                !document.RootElement.TryGetProperty("__typename", out var name) ||
-                name.ValueKind != JsonValueKind.String)
-            {
-                continue;
-            }
-
-            var blockType = name.GetString()!;
-            foreach (var validator in validators)
-            {
-                validator.Validate(blockType, document.RootElement);
-            }
-
-            if (retiredTypes.Contains(blockType))
-            {
-                throw new CmsBlockRetiredException(blockType);
-            }
-        }
+        await this.ValidateBlocksAsync(blocks, cancellationToken);
 
         var hasVersions = await ctx.PageVersions.AnyAsync(version => version.PageId == pageId, cancellationToken);
         var pageVersion = new PageVersionEntity
@@ -331,5 +299,81 @@ internal class PageVersionServices(
         }
 
         return normalized;
+    }
+
+    // Refuses blocks of a retired type, new blocks that don't match their type's schema, and blocks a host's validator
+    // rejects. Reused blocks matched their schema when first saved, and a type's schema never changes.
+    private async Task ValidateBlocksAsync(IReadOnlyList<PageBlock> blocks, CancellationToken cancellationToken)
+    {
+        var typeIds = blocks.Where(block => block.IsNew && !block.IsExisting).Select(block => block.BlockTypeId!.Value).ToArray();
+        var existingIds = blocks.Where(block => block.IsExisting).Select(block => block.BlockId!.Value).ToArray();
+        var types = await ctx.BlockTypes.Where(type => typeIds.Contains(type.Id))
+            .Select(type => new { type.Id, type.Name, type.JsonSchema })
+            .ToDictionaryAsync(type => type.Id, cancellationToken);
+        var reused = await ctx.PageBlocks.Where(block => existingIds.Contains(block.Id))
+            .Select(block => new { block.Id, block.BlockType.Name, block.BlockData })
+            .ToDictionaryAsync(block => block.Id, cancellationToken);
+        var retiredTypes = options.Value.RetiredBlockTypes;
+        if (types.Values.Select(type => type.Name).Concat(reused.Values.Select(block => block.Name)).FirstOrDefault(retiredTypes.Contains) is { } retired)
+        {
+            throw new CmsBlockRetiredException(retired);
+        }
+
+        var validators = blockValidators.ToArray();
+        for (var index = 0; index < blocks.Count; index++)
+        {
+            var block = blocks[index];
+            string name;
+            string data;
+            if (block.IsExisting)
+            {
+                // The write reports a reused block that doesn't exist.
+                if (!reused.TryGetValue(block.BlockId!.Value, out var existing))
+                {
+                    continue;
+                }
+
+                (name, data) = (existing.Name, existing.BlockData);
+            }
+            else if (block.IsNew)
+            {
+                if (!types.TryGetValue(block.BlockTypeId!.Value, out var type))
+                {
+                    throw new CmsBlockValidationException($"Block {index + 1} has a block type that doesn't exist.");
+                }
+
+                var errors = schemas.Check(type.Name, type.JsonSchema, block.BlockData!);
+                if (errors.Count > 0)
+                {
+                    throw new CmsBlockValidationException(
+                        $"Block {index + 1} ({type.Name}) doesn't match its schema: {string.Join("; ", errors.Select(error => error.Path is null ? error.Kind : $"{error.Path} {error.Kind}"))}.");
+                }
+
+                (name, data) = (type.Name, block.BlockData!);
+            }
+            else
+            {
+                // The write reports a block that is neither new nor reused.
+                continue;
+            }
+
+            using var document = JsonDocument.Parse(data);
+            if (block.IsNew && !block.IsExisting &&
+                document.RootElement.ValueKind == JsonValueKind.Object &&
+                document.RootElement.TryGetProperty("__typename", out var typename) &&
+                typename.ValueKind == JsonValueKind.String &&
+                typename.GetString() is { } named &&
+                named != name)
+            {
+                throw retiredTypes.Contains(named)
+                    ? new CmsBlockRetiredException(named)
+                    : new CmsBlockValidationException($"Block {index + 1} is a {name} block but its data names {named}.");
+            }
+
+            foreach (var validator in validators)
+            {
+                validator.Validate(name, document.RootElement);
+            }
+        }
     }
 }

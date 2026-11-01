@@ -1,0 +1,136 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dotnet:
+    name: .NET (${{ matrix.postgres-image }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        postgres-image:
+          - postgres:14
+          - postgres:16
+          - postgres:18
+    env:
+      C4M_POSTGRES_IMAGE: ${{ matrix.postgres-image }}
+    defaults:
+      run:
+        working-directory: dotnet
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: dotnet/global.json
+
+      - name: Restore
+        run: dotnet restore ConradSix.C4M.slnx && dotnet tool restore
+
+      - name: Verify format
+        run: dotnet format ConradSix.C4M.slnx --verify-no-changes --verbosity minimal --no-restore
+
+      - name: Build
+        run: dotnet build ConradSix.C4M.slnx --configuration Release --no-restore
+
+      - name: Check the migrations match the model
+        run: >-
+          dotnet ef migrations has-pending-model-changes
+          --project src/ConradSix.C4M
+          --startup-project samples/ConradSix.C4M.SampleHost
+          --configuration Release
+          --no-build
+
+      - name: Test
+        run: dotnet test --solution ConradSix.C4M.slnx --configuration Release --no-build
+
+  typescript:
+    name: TypeScript
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: typescript
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: typescript/.nvmrc
+          package-manager-cache: false
+
+      - name: Install Corepack
+        run: npm install --global corepack@0.36.0 && corepack enable
+
+      # Yarn must exist before setup-node can restore its cache.
+      - name: Restore Yarn cache
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: typescript/.nvmrc
+          cache: yarn
+          cache-dependency-path: typescript/yarn.lock
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Check
+        run: yarn check:all
+
+      - name: Pack
+        run: |
+          ./pack.sh 0.0.0-ci "${RUNNER_TEMP}/npm"
+          for tarball in "${RUNNER_TEMP}"/npm/*.tgz; do
+            echo "${tarball##*/}"
+            tar -tzf "${tarball}" | sort | sed 's/^/  /'
+          done
+
+  client:
+    name: Generated client
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: dotnet/global.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: typescript/.nvmrc
+          package-manager-cache: false
+
+      - name: Install Corepack
+        run: npm install --global corepack@0.36.0 && corepack enable
+
+      - name: Install
+        working-directory: typescript
+        run: yarn install --immutable
+
+      - name: Generate
+        working-directory: typescript
+        run: yarn workspace @conradsix/c4m-client run generate
+
+      - name: Check the committed client is current
+        run: |
+          if ! git diff --exit-code -- typescript/packages/c4m-client/src; then
+            echo "::error::The client is out of date. Run 'yarn workspace @conradsix/c4m-client run generate' and commit the result."
+            exit 1
+          fi

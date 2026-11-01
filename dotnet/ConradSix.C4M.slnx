@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ConradSix.C4M.Testing/ConradSix.C4M.Testing.csproj" />
+    <Project Path="src/ConradSix.C4M/ConradSix.C4M.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/ConradSix.C4M.Tests/ConradSix.C4M.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/ConradSix.C4M.SampleHost/ConradSix.C4M.SampleHost.csproj" />
+  </Folder>
+</Solution>

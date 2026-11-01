@@ -1,9 +1,9 @@
-import type { RegisteredSchema, SchemaRegistry } from "./syncSchemas";
+import type { RegisteredSchema, SchemaRegistry } from "./syncSchemas.js";
 
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 
-import { syncSchemas } from "./syncSchemas";
+import { syncSchemas } from "./syncSchemas.js";
 
 const NoteV1 = z.object({
   __typename: z.literal("note"),

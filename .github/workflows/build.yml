@@ -1,0 +1,252 @@
+name: Build
+
+# Releases every package at the tag's version. nuget.org and npm trust this workflow by its file name, build.yml, so
+# renaming it breaks publishing.
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  version:
+    name: Validate tag
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      npm-tag: ${{ steps.version.outputs.npm-tag }}
+
+    steps:
+      - name: Validate tag
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          tag="${GITHUB_REF_NAME}"
+          version_pattern='^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z][0-9A-Za-z-]*(\.[0-9A-Za-z][0-9A-Za-z-]*)*)?$'
+
+          if [[ "${GITHUB_REF_TYPE}" != "tag" || ! "${tag}" =~ ${version_pattern} ]]; then
+            echo "::error::Release tags must look like v0.1.0 or v0.1.0-preview.1."
+            exit 1
+          fi
+
+          version="${tag#v}"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+
+          # Prereleases go to npm's next tag, so installing without a tag never picks one.
+          if [[ "${version}" == *-* ]]; then
+            echo "npm-tag=next" >> "${GITHUB_OUTPUT}"
+          else
+            echo "npm-tag=latest" >> "${GITHUB_OUTPUT}"
+          fi
+
+  dotnet:
+    name: Build and pack .NET
+    needs: version
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.version.outputs.version }}
+    defaults:
+      run:
+        working-directory: dotnet
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: dotnet/global.json
+
+      - name: Restore
+        run: dotnet restore ConradSix.C4M.slnx
+
+      - name: Verify format
+        run: dotnet format ConradSix.C4M.slnx --verify-no-changes --verbosity minimal --no-restore
+
+      # The version goes to the build as well as the pack, so the assemblies carry it.
+      - name: Build
+        run: dotnet build ConradSix.C4M.slnx --configuration Release --no-restore -p:Version="${VERSION}"
+
+      - name: Test
+        run: dotnet test --solution ConradSix.C4M.slnx --configuration Release --no-build
+
+      - name: Pack
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          projects=(
+            "src/ConradSix.C4M/ConradSix.C4M.csproj"
+            "src/ConradSix.C4M.Testing/ConradSix.C4M.Testing.csproj"
+          )
+
+          for project in "${projects[@]}"; do
+            dotnet pack "${project}" \
+              --configuration Release \
+              --no-build \
+              --output "${GITHUB_WORKSPACE}/artifacts/nuget" \
+              -p:Version="${VERSION}"
+          done
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: nuget
+          path: |
+            artifacts/nuget/*.nupkg
+            artifacts/nuget/*.snupkg
+          if-no-files-found: error
+
+  typescript:
+    name: Build and pack npm
+    needs: version
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: typescript
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: typescript/.nvmrc
+          package-manager-cache: false
+
+      - name: Install Corepack
+        run: npm install --global corepack@0.36.0 && corepack enable
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Check
+        run: yarn check:all
+
+      - name: Pack
+        run: ./pack.sh "${{ needs.version.outputs.version }}" ../artifacts/npm
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm
+          path: artifacts/npm/*.tgz
+          if-no-files-found: error
+
+  publish:
+    name: Publish packages
+    needs: [version, dotnet, typescript]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      VERSION: ${{ needs.version.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Download packages
+        uses: actions/download-artifact@v8
+        with:
+          path: artifacts
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: dotnet/global.json
+
+      - name: NuGet login
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Publish to nuget.org
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for package in artifacts/nuget/*.nupkg; do
+            dotnet nuget push "${package}" \
+              --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
+          done
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: typescript/.nvmrc
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      # npm uses the trusted publisher when the package has one. Until then, the first release of a package needs an
+      # NPM_TOKEN secret: npm can't trust a workflow for a package that doesn't exist yet.
+      - name: Publish to npm
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # Dependencies first.
+          for package in c4m-schema c4m-client c4m-preview; do
+            name="@conradsix/${package}"
+            if npm view "${name}@${VERSION}" version > /dev/null 2>&1; then
+              echo "${name}@${VERSION} is already published."
+              continue
+            fi
+
+            npm publish "artifacts/npm/conradsix-${package}-${VERSION}.tgz" \
+              --access public \
+              --provenance \
+              --tag "${{ needs.version.outputs.npm-tag }}"
+          done
+
+  release:
+    name: Create GitHub release
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Create release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          tag="${GITHUB_REF_NAME}"
+
+          if gh release view "${tag}" > /dev/null 2>&1; then
+            echo "Release ${tag} already exists."
+            exit 0
+          fi
+
+          args=(--verify-tag --title "${tag}" --generate-notes)
+
+          # Stable releases collect everything since the previous stable release, previews included.
+          if [[ "${tag}" == *-* ]]; then
+            args+=(--prerelease)
+            previous="$(git describe --tags --abbrev=0 --match 'v*.*.*' "${tag}^" 2> /dev/null || true)"
+          else
+            previous="$(git describe --tags --abbrev=0 --match 'v*.*.*' --exclude 'v*-*' "${tag}^" 2> /dev/null || true)"
+          fi
+
+          if [[ -n "${previous}" ]]; then
+            args+=(--notes-start-tag "${previous}")
+          fi
+
+          gh release create "${tag}" "${args[@]}"

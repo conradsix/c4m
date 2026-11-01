@@ -1,16 +1,41 @@
 {
   "name": "@conradsix/c4m-client",
   "version": "0.0.0",
-  "type": "module",
-  "private": true,
-  "exports": {
-    ".": "./src/index.ts"
+  "description": "A typed fetch client for the C4M engine's endpoints, generated from its OpenAPI document.",
+  "keywords": [
+    "c4m",
+    "cms",
+    "client",
+    "openapi"
+  ],
+  "license": "MIT",
+  "author": "Brian Tyler",
+  "homepage": "https://github.com/conradsix/c4m#readme",
+  "bugs": "https://github.com/conradsix/c4m/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conradsix/c4m.git",
+    "directory": "typescript/packages/c4m-client"
   },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src/index.ts"
+  ],
   "scripts": {
-    "swagger": "sh ./swagger.sh"
+    "build": "tsc -p tsconfig.build.json",
+    "generate": "./generate.sh",
+    "check:types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@repo/tsconfig": "workspace:^",
+    "swagger-typescript-api": "13.2.7",
     "typescript": "7.0.2"
   }
 }

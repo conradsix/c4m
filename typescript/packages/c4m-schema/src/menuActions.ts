@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { defineBlock } from "./defineBlock";
+import { defineBlock } from "./defineBlock.js";
 
 // Menu action types version and upgrade as blocks do.
 const defineMenuAction = defineBlock;

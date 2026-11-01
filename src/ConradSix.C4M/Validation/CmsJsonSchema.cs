@@ -4,17 +4,27 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
 // A JSON Schema 2020-12 validator for the keywords zod 4's toJSONSchema emits. Compiling refuses every other
 // validation keyword, so data is never accepted because a keyword went unchecked. Unknown keywords are annotations, as
 // the specification says. So are formats other than uri: zod emits a pattern beside every other format it uses.
+//
+// Stored data is zod's output, and hosts read it back with zod, so numbers and patterns mean what they mean in
+// JavaScript: a number is the double JSON.parse makes of it, and a pattern is an ECMA-262 regular expression.
 internal sealed partial class CmsJsonSchema
 {
     private const string Dialect = "https://json-schema.org/draft/2020-12/schema";
 
     private const int MaxDepth = 512;
+
+    // JavaScript's \s: its WhiteSpace and LineTerminator characters. .NET's ECMAScript option makes \s ASCII only.
+    private const string JsWhitespace = @"\t\n\v\f\r\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff";
+
+    // JavaScript's ., which matches anything but a line terminator. .NET's . excludes only \n.
+    private const string JsDot = @"[^\n\r\u2028\u2029]";
 
     private static readonly TimeSpan PatternTimeout = TimeSpan.FromSeconds(1);
 
@@ -306,8 +316,8 @@ internal sealed partial class CmsJsonSchema
     private static bool HasType(JsonElement instance, string type) => type switch
     {
         "string" => instance.ValueKind == JsonValueKind.String,
-        "number" => instance.ValueKind == JsonValueKind.Number,
-        "integer" => instance.ValueKind == JsonValueKind.Number && IsInteger(instance),
+        "number" => instance.ValueKind == JsonValueKind.Number && double.IsFinite(instance.GetDouble()),
+        "integer" => instance.ValueKind == JsonValueKind.Number && IsInteger(instance.GetDouble()),
         "boolean" => instance.ValueKind is JsonValueKind.True or JsonValueKind.False,
         "object" => instance.ValueKind == JsonValueKind.Object,
         "array" => instance.ValueKind == JsonValueKind.Array,
@@ -315,34 +325,40 @@ internal sealed partial class CmsJsonSchema
         _ => false,
     };
 
-    private static bool IsInteger(JsonElement number) => number.TryGetDecimal(out var value)
-        ? value == decimal.Truncate(value)
-        : double.IsFinite(number.GetDouble()) && Math.Floor(number.GetDouble()) == number.GetDouble();
+    // As Number.isInteger: 2.0 is an integer, and so is 1e300, but 1e-29 isn't.
+    private static bool IsInteger(double number) => double.IsFinite(number) && Math.Floor(number) == number;
 
-    // Numbers compare as decimals when both fit, which keeps 0.1 and 0.3 exact, and as doubles otherwise.
-    private static int Compare(JsonElement number, Bound bound) =>
-        bound.Decimal is { } exact && number.TryGetDecimal(out var value)
-            ? value.CompareTo(exact)
-            : number.GetDouble().CompareTo(bound.Double);
+    // Numbers compare as the doubles JavaScript reads. A decimal would keep digits a double drops, and so disagree with
+    // zod about 0.10000000000000000001 > 0.1, which is false there.
+    private static int Compare(JsonElement number, Bound bound) => number.GetDouble().CompareTo(bound.Number);
 
+    // Remainders are exact on the decimal digits JavaScript prints, as zod's multipleOf is, and approximate when a
+    // decimal can't hold them.
     private static bool IsMultipleOf(JsonElement number, Bound divisor)
     {
-        if (divisor.Decimal is { } exact && number.TryGetDecimal(out var value))
+        var value = number.GetDouble();
+        if (divisor.Exact is { } step && ExactDecimal(value) is { } exact)
         {
-            return value % exact == 0;
+            return exact % step == 0;
         }
 
-        var quotient = number.GetDouble() / divisor.Double;
+        var quotient = value / divisor.Number;
         return double.IsFinite(quotient) && Math.Abs(quotient - Math.Round(quotient)) < 1e-9;
     }
+
+    // The shortest decimal that round-trips the double, which is how JavaScript prints it, when a decimal holds it
+    // exactly. 1e-29 is too small for a decimal, which would round it to 0.
+    private static decimal? ExactDecimal(double value) =>
+        decimal.TryParse(value.ToString("R", CultureInfo.InvariantCulture), NumberStyles.Float, CultureInfo.InvariantCulture, out var exact) &&
+        (double)exact == value
+            ? exact
+            : null;
 
     private static bool JsonEquals(JsonElement left, JsonElement right)
     {
         if (left.ValueKind == JsonValueKind.Number && right.ValueKind == JsonValueKind.Number)
         {
-            return left.TryGetDecimal(out var a) && right.TryGetDecimal(out var b)
-                ? a == b
-                : left.GetDouble().Equals(right.GetDouble());
+            return left.GetDouble() == right.GetDouble();
         }
 
         if (left.ValueKind != right.ValueKind)
@@ -420,8 +436,8 @@ internal sealed partial class CmsJsonSchema
     private static string Child(string path, string segment) =>
         $"{path}/{segment.Replace("~", "~0", StringComparison.Ordinal).Replace("/", "~1", StringComparison.Ordinal)}";
 
-    // A number bound: exact when it fits a decimal.
-    private readonly record struct Bound(decimal? Decimal, double Double);
+    // A number bound, with its exact decimal for remainders when it has one.
+    private readonly record struct Bound(double Number, decimal? Exact);
 
     private sealed class Node
     {
@@ -504,31 +520,179 @@ internal sealed partial class CmsJsonSchema
                     : this.CompileAt(this.Resolve(reference, path), reference);
             }
 
+            this.RefuseEndlessReferences();
             return root;
         }
 
         // A count. 2.0 is an integer as much as 2 is.
         private static int NonNegativeInteger(JsonElement value, string keyword, string path) =>
-            value.ValueKind == JsonValueKind.Number && value.TryGetDecimal(out var number) && number >= 0 && number <= int.MaxValue && number == decimal.Truncate(number)
+            value.ValueKind == JsonValueKind.Number && value.GetDouble() is var number && IsInteger(number) && number >= 0 && number <= int.MaxValue
                 ? (int)number
                 : throw new UnsupportedSchemaException($"{keyword} at {path} must be a non-negative integer.");
 
         private static Bound Number(JsonElement value, string keyword, string path) =>
-            value.ValueKind == JsonValueKind.Number
-                ? new Bound(value.TryGetDecimal(out var exact) ? exact : null, value.GetDouble())
-                : throw new UnsupportedSchemaException($"{keyword} at {path} must be a number.");
+            value.ValueKind == JsonValueKind.Number && value.GetDouble() is var number && double.IsFinite(number)
+                ? new Bound(number, ExactDecimal(number))
+                : throw new UnsupportedSchemaException($"{keyword} at {path} must be a finite number.");
 
         private static Regex Pattern(string pattern, string path)
         {
             try
             {
-                return new Regex(pattern, RegexOptions.ECMAScript, PatternTimeout);
+                return new Regex(FromJavaScript(pattern, path), RegexOptions.ECMAScript, PatternTimeout);
             }
             catch (ArgumentException ex)
             {
                 throw new UnsupportedSchemaException($"The pattern at {path} isn't a supported regular expression: {ex.Message}");
             }
         }
+
+        // Rewrites a JavaScript pattern, as zod emits it without its flags, into a .NET one that means the same. .NET's
+        // ECMAScript option already makes \d, \w and \b ASCII; this also gives \s, \S, . and $ their JavaScript meaning.
+        // Anything else .NET would read differently is refused rather than guessed at.
+        private static string FromJavaScript(string pattern, string path)
+        {
+            var result = new StringBuilder(pattern.Length + 32);
+            var inClass = false;
+            for (var index = 0; index < pattern.Length; index++)
+            {
+                var character = pattern[index];
+                if (character == '\\')
+                {
+                    if (++index == pattern.Length)
+                    {
+                        throw Refused(path, "it ends with a backslash");
+                    }
+
+                    index = Escape(pattern, index, inClass, result, path);
+                    continue;
+                }
+
+                if (inClass)
+                {
+                    // A [ is a literal in a JavaScript class, but .NET reads -[...] as class subtraction.
+                    if (character == '[')
+                    {
+                        result.Append(@"\[");
+                    }
+                    else
+                    {
+                        result.Append(character);
+                    }
+
+                    inClass = character != ']';
+                    continue;
+                }
+
+                switch (character)
+                {
+                    case '[':
+                        var negated = index + 1 < pattern.Length && pattern[index + 1] == '^';
+                        var first = index + (negated ? 2 : 1);
+                        if (first < pattern.Length && pattern[first] == ']')
+                        {
+                            throw Refused(path, "an empty class, [] or [^], means something else in .NET");
+                        }
+
+                        result.Append(negated ? "[^" : "[");
+                        index = first - 1;
+                        inClass = true;
+                        break;
+                    case '.':
+                        result.Append(JsDot);
+                        break;
+                    case '$':
+                        // The end of the input. .NET's $ also matches before a final newline.
+                        result.Append(@"\z");
+                        break;
+                    case '(' when index + 1 < pattern.Length && pattern[index + 1] == '?':
+                        var group = pattern.AsSpan(index + 2);
+                        if (!(group.StartsWith(":") || group.StartsWith("=") || group.StartsWith("!") || group.StartsWith("<=") || group.StartsWith("<!") ||
+                            (group.Length > 1 && group[0] == '<' && char.IsAsciiLetter(group[1]))))
+                        {
+                            throw Refused(path, "JavaScript's groups are (?:, lookarounds and (?<name>; .NET's others aren't");
+                        }
+
+                        result.Append(character);
+                        break;
+                    default:
+                        result.Append(character);
+                        break;
+                }
+            }
+
+            return result.ToString();
+        }
+
+        // Writes the escape whose letter is at index, and returns the index of its last character.
+        private static int Escape(string pattern, int index, bool inClass, StringBuilder result, string path)
+        {
+            var letter = pattern[index];
+            switch (letter)
+            {
+                case 's':
+                    result.Append(inClass ? JsWhitespace : $"[{JsWhitespace}]");
+                    return index;
+                case 'S' when inClass:
+                    throw Refused(path, @"\S inside a class has no .NET equivalent");
+                case 'S':
+                    result.Append($"[^{JsWhitespace}]");
+                    return index;
+                case 'd' or 'D' or 'w' or 'W' or 'b' or 'B' or 't' or 'n' or 'v' or 'f' or 'r' or (>= '1' and <= '9'):
+                case 'k' when !inClass && index + 1 < pattern.Length && pattern[index + 1] == '<':
+                    result.Append('\\').Append(letter);
+                    return index;
+                case '0' when index + 1 == pattern.Length || !char.IsAsciiDigit(pattern[index + 1]):
+                    result.Append(@"\0");
+                    return index;
+                case 'c' when index + 1 < pattern.Length && char.IsAsciiLetter(pattern[index + 1]):
+                    result.Append('\\').Append(pattern, index, 2);
+                    return index + 1;
+                case 'x' when IsHex(pattern, index + 1, 2):
+                    result.Append('\\').Append(pattern, index, 3);
+                    return index + 2;
+                case 'u' when IsHex(pattern, index + 1, 4):
+                    result.Append('\\').Append(pattern, index, 5);
+                    return index + 4;
+                case var other when char.IsAsciiLetterOrDigit(other):
+                    // Without flags, JavaScript reads \p{L} or \A as plain letters; .NET reads them as escapes.
+                    throw Refused(path, $"\\{other} doesn't mean the same in JavaScript and .NET");
+                default:
+                    // An escaped punctuation character, which both read as itself.
+                    result.Append('\\').Append(letter);
+                    return index;
+            }
+        }
+
+        private static bool IsHex(string pattern, int start, int length) =>
+            start + length <= pattern.Length && pattern.Substring(start, length).All(char.IsAsciiHexDigit);
+
+        private static UnsupportedSchemaException Refused(string path, string reason) =>
+            new($"The pattern at {path} isn't a supported regular expression: {reason}.");
+
+        // Keywords that check the same value again rather than a part of it.
+        private static IEnumerable<Node> InPlace(Node node)
+        {
+            if (node.Ref is { } target)
+            {
+                yield return target;
+            }
+
+            foreach (var schema in (node.AllOf ?? []).Concat(node.AnyOf ?? []).Concat(node.OneOf ?? []))
+            {
+                yield return schema;
+            }
+
+            if (node.Not is { } not)
+            {
+                yield return not;
+            }
+        }
+
+        private static JsonElement.ObjectEnumerator Members(JsonElement value, string keyword, string path) =>
+            value.ValueKind == JsonValueKind.Object
+                ? value.EnumerateObject()
+                : throw new UnsupportedSchemaException($"{keyword} at {path} must be an object.");
 
         private static string Text(JsonElement value, string keyword, string path) =>
             value.ValueKind == JsonValueKind.String
@@ -584,7 +748,7 @@ internal sealed partial class CmsJsonSchema
                     this._references.Add((node, Uri.UnescapeDataString(reference), path));
                     break;
                 case "$defs":
-                    foreach (var definition in value.EnumerateObject())
+                    foreach (var definition in Members(value, keyword.Name, path))
                     {
                         this.CompileAt(definition.Value, Child(path, definition.Name));
                     }
@@ -639,7 +803,7 @@ internal sealed partial class CmsJsonSchema
                     break;
                 case "multipleOf":
                     node.MultipleOf = Number(value, keyword.Name, path);
-                    if (node.MultipleOf.Value.Double <= 0)
+                    if (node.MultipleOf.Value.Number <= 0)
                     {
                         throw new UnsupportedSchemaException($"multipleOf at {path} must be greater than zero.");
                     }
@@ -649,13 +813,13 @@ internal sealed partial class CmsJsonSchema
                     node.Required = Strings(value, keyword.Name, path);
                     break;
                 case "properties":
-                    node.Properties = value.EnumerateObject().ToDictionary(
+                    node.Properties = Members(value, keyword.Name, path).ToDictionary(
                         property => property.Name,
                         property => this.CompileAt(property.Value, Child(path, property.Name)),
                         StringComparer.Ordinal);
                     break;
                 case "patternProperties":
-                    node.PatternProperties = [.. value.EnumerateObject().Select(property => (
+                    node.PatternProperties = [.. Members(value, keyword.Name, path).Select(property => (
                         Pattern(property.Name, path),
                         this.CompileAt(property.Value, Child(path, property.Name)))),];
                     break;
@@ -696,6 +860,40 @@ internal sealed partial class CmsJsonSchema
                 default:
                     // Annotations, and keywords JSON Schema doesn't define, which it treats as annotations.
                     break;
+            }
+        }
+
+        // A schema that comes back to itself without moving into the data, as {"$ref": "#"} does, would never finish
+        // checking anything.
+        private void RefuseEndlessReferences()
+        {
+            var paths = this._compiled.ToDictionary(entry => entry.Value, entry => entry.Key);
+            var visiting = new HashSet<Node>();
+            var finished = new HashSet<Node>();
+            foreach (var node in this._compiled.Values)
+            {
+                visit(node);
+            }
+
+            void visit(Node node)
+            {
+                if (finished.Contains(node))
+                {
+                    return;
+                }
+
+                if (!visiting.Add(node))
+                {
+                    throw new UnsupportedSchemaException($"The schema at {paths[node]} comes back to itself without moving into the data.");
+                }
+
+                foreach (var next in InPlace(node))
+                {
+                    visit(next);
+                }
+
+                visiting.Remove(node);
+                finished.Add(node);
             }
         }
 

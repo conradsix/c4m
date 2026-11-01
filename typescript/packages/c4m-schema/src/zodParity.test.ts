@@ -186,6 +186,38 @@ const cases: ReadonlyArray<{ name: string; schema: z.ZodType; samples: readonly 
     ],
   },
   {
+    name: "numbers as JavaScript reads them",
+    schema: z.object({
+      sort: z.enum({ Relevance: 0, Newest: 1 }),
+      count: z.int(),
+      share: z.number().gt(0.1),
+    }),
+    samples: [
+      { sort: 0, count: 1, share: 0.2 },
+      { sort: 1, count: 9007199254740991, share: 0.10000000000000002 },
+      { sort: 1e-29, count: 1, share: 0.2 },
+      { sort: 0, count: 1e-29, share: 0.2 },
+      { sort: 0, count: 1, share: 0.1 },
+    ],
+  },
+  {
+    name: "patterns as JavaScript runs them",
+    schema: z.object({
+      condition: z.string().regex(/^(?!\s*$)(?!\s*(?:none|standard)\s*$).+$/),
+      word: z.string().regex(/^\S+$/),
+      slug: z.string().regex(/^[a-z]+$/),
+    }),
+    samples: [
+      { condition: "premium", word: "a", slug: "abc" },
+      { condition: "a\u00a0b", word: "a", slug: "abc" },
+      { condition: "\u00a0", word: "a", slug: "abc" },
+      { condition: "\u3000\u2028", word: "a", slug: "abc" },
+      { condition: "a\rb", word: "a", slug: "abc" },
+      { condition: "premium", word: "a\u00a0b", slug: "abc" },
+      { condition: "premium", word: "a", slug: "abc\n" },
+    ],
+  },
+  {
     name: "intersections",
     schema: z.intersection(z.object({ a: z.string() }), z.object({ b: z.number() })),
     samples: [{ a: "x", b: 1 }, { a: "x" }, { b: 1 }, { a: 1, b: 1 }],

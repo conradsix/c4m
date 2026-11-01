@@ -739,6 +739,164 @@
     ]
   },
   {
+    "name": "numbers as JavaScript reads them",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "sort": {
+          "type": "number",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        "share": {
+          "type": "number",
+          "exclusiveMinimum": 0.1
+        }
+      },
+      "required": [
+        "sort",
+        "count",
+        "share"
+      ],
+      "additionalProperties": false
+    },
+    "samples": [
+      {
+        "data": {
+          "sort": 0,
+          "count": 1,
+          "share": 0.2
+        },
+        "valid": true
+      },
+      {
+        "data": {
+          "sort": 1,
+          "count": 9007199254740991,
+          "share": 0.10000000000000002
+        },
+        "valid": true
+      },
+      {
+        "data": {
+          "sort": 1e-29,
+          "count": 1,
+          "share": 0.2
+        },
+        "valid": false
+      },
+      {
+        "data": {
+          "sort": 0,
+          "count": 1e-29,
+          "share": 0.2
+        },
+        "valid": false
+      },
+      {
+        "data": {
+          "sort": 0,
+          "count": 1,
+          "share": 0.1
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
+    "name": "patterns as JavaScript runs them",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string",
+          "pattern": "^(?!\\s*$)(?!\\s*(?:none|standard)\\s*$).+$"
+        },
+        "word": {
+          "type": "string",
+          "pattern": "^\\S+$"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z]+$"
+        }
+      },
+      "required": [
+        "condition",
+        "word",
+        "slug"
+      ],
+      "additionalProperties": false
+    },
+    "samples": [
+      {
+        "data": {
+          "condition": "premium",
+          "word": "a",
+          "slug": "abc"
+        },
+        "valid": true
+      },
+      {
+        "data": {
+          "condition": "a b",
+          "word": "a",
+          "slug": "abc"
+        },
+        "valid": true
+      },
+      {
+        "data": {
+          "condition": " ",
+          "word": "a",
+          "slug": "abc"
+        },
+        "valid": false
+      },
+      {
+        "data": {
+          "condition": "　 ",
+          "word": "a",
+          "slug": "abc"
+        },
+        "valid": false
+      },
+      {
+        "data": {
+          "condition": "a\rb",
+          "word": "a",
+          "slug": "abc"
+        },
+        "valid": false
+      },
+      {
+        "data": {
+          "condition": "premium",
+          "word": "a b",
+          "slug": "abc"
+        },
+        "valid": false
+      },
+      {
+        "data": {
+          "condition": "premium",
+          "word": "a",
+          "slug": "abc\n"
+        },
+        "valid": false
+      }
+    ]
+  },
+  {
     "name": "intersections",
     "schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",

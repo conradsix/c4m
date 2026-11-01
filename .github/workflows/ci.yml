@@ -23,6 +23,9 @@ jobs:
           - postgres:18
     env:
       C4M_POSTGRES_IMAGE: ${{ matrix.postgres-image }}
+    defaults:
+      run:
+        working-directory: dotnet
 
     steps:
       - name: Checkout
@@ -31,7 +34,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          global-json-file: global.json
+          global-json-file: dotnet/global.json
 
       - name: Restore
         run: dotnet restore ConradSix.C4M.slnx && dotnet tool restore
@@ -106,7 +109,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          global-json-file: global.json
+          global-json-file: dotnet/global.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

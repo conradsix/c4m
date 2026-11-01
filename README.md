@@ -83,7 +83,7 @@ await app.RunAsync();
 - `MigrateC4MAsync` brings the `cms` schema up to date.
 - `ReservedRootSegments` are top-level paths the engine refuses for pages, because your site routes them itself.
 
-[`samples/ConradSix.C4M.SampleHost`](samples/ConradSix.C4M.SampleHost) is the smallest working host.
+[`dotnet/samples/ConradSix.C4M.SampleHost`](dotnet/samples/ConradSix.C4M.SampleHost) is the smallest working host.
 
 ### Endpoints
 
@@ -208,14 +208,15 @@ services.AddC4MTesting();
 
 ## Develop
 
-The .NET solution is `ConradSix.C4M.slnx`, and the npm workspace is in `typescript/`. The tests start PostgreSQL with
+The .NET solution is in `dotnet/`, and the npm workspace is in `typescript/`. The tests start PostgreSQL with
 Testcontainers, so they need Docker.
 
 ```bash
+cd dotnet
 dotnet build ConradSix.C4M.slnx -c Release
 dotnet test --solution ConradSix.C4M.slnx -c Release
 
-cd typescript
+cd ../typescript
 yarn install --immutable
 yarn check:all
 ```
@@ -224,6 +225,7 @@ To run the sample host against the repo's database:
 
 ```bash
 docker compose up -d postgres
+cd dotnet
 dotnet run --project samples/ConradSix.C4M.SampleHost --urls http://localhost:5000
 ```
 

@@ -35,7 +35,7 @@ mkdir -p "$nuget_feed" "$npm_dir"
   printf '  Configuration: %s\n' "$configuration"
 } >&2
 
-cd "$repo_root"
+cd "$repo_root/dotnet"
 
 for project in "${projects[@]}"; do
   printf 'Packing %s\n' "$project" >&2
@@ -46,6 +46,6 @@ for project in "${projects[@]}"; do
 done
 
 printf 'Packing the npm packages\n' >&2
-typescript/pack.sh "$version" "$npm_dir" >&2
+"$repo_root/typescript/pack.sh" "$version" "$npm_dir" >&2
 
 printf '%s\n' "$version"

@@ -2,24 +2,24 @@
 
 ## Project Structure
 
-C4M is a CMS engine shipped as NuGet and npm packages. The .NET solution is `ConradSix.C4M.slnx`; the npm workspace is
-`typescript/`.
+C4M is a CMS engine shipped as NuGet and npm packages. The .NET solution is `dotnet/ConradSix.C4M.slnx`; the npm
+workspace is `typescript/`.
 
-- `src/ConradSix.C4M/` is the engine: services and hooks at the root and in `Services/`, the internal
+- `dotnet/src/ConradSix.C4M/` is the engine: services and hooks at the root and in `Services/`, the internal
   `CmsEngineDbContext` and its migrations in `Data/`, FastEndpoints endpoints in `Endpoints/`, and the JSON Schema
   validator in `Validation/`.
-- `src/ConradSix.C4M.Testing/` has fakes for hosts' tests. The engine gives it `InternalsVisibleTo`.
-- `test/ConradSix.C4M.Tests/` tests the engine on a slim `TestServer` host, over a PostgreSQL database built by the
-  engine's migrations alone. Testcontainers starts the database, so the tests need Docker.
-- `samples/ConradSix.C4M.SampleHost/` is the smallest host. `@conradsix/c4m-client` is generated from its OpenAPI
+- `dotnet/src/ConradSix.C4M.Testing/` has fakes for hosts' tests. The engine gives it `InternalsVisibleTo`.
+- `dotnet/test/ConradSix.C4M.Tests/` tests the engine on a slim `TestServer` host, over a PostgreSQL database built by
+  the engine's migrations alone. Testcontainers starts the database, so the tests need Docker.
+- `dotnet/samples/ConradSix.C4M.SampleHost/` is the smallest host. `@conradsix/c4m-client` is generated from its OpenAPI
   document, and the EF tools use it as the startup project.
 - `typescript/packages/` has `c4m-schema` (zod block schemas and their sync), `c4m-client` (generated) and
   `c4m-preview` (the preview protocol and tokens).
-- `docs/` has the fixed identifiers and how to add a migration.
+- `docs/` has the validator's dialect, the fixed identifiers and how to add a migration.
 
 ## Commands
 
-From the repository root:
+From `dotnet/`, where `global.json` pins the SDK and opts `dotnet test` into Microsoft Testing Platform:
 
 ```bash
 dotnet build ConradSix.C4M.slnx --configuration Release
@@ -44,7 +44,7 @@ The packages depend on each other's `dist`, so build before type-checking or tes
   the committed client differs from what the sample host produces.
 - After changing zod or the parity cases, rewrite the validator's fixture: `UPDATE_ZOD_PARITY=1 yarn workspace
   @conradsix/c4m-schema run test`, then run the .NET tests.
-- Add a migration with `./migration.sh add -n Name`; see [docs/migrations.md](docs/migrations.md).
+- Add a migration with `./migration.sh add -n Name` from `dotnet/`; see [docs/migrations.md](docs/migrations.md).
 
 ## Rules
 

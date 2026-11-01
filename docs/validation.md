@@ -61,7 +61,7 @@ Endpoint errors are keyed `blocks[i].{type}.#/{JSON Pointer}`, with a kind such 
 ## How it's tested
 
 - The JSON Schema Test Suite's 2020-12 cases for every supported keyword, in
-  `test/ConradSix.C4M.Tests/assets/json-schema-test-suite`.
+  `dotnet/test/ConradSix.C4M.Tests/assets/json-schema-test-suite`.
 - A parity fixture that `@conradsix/c4m-schema` writes from zod itself: the schemas zod emits, and which samples zod
   accepts as stored data. Stored data is zod's output, so a sample is valid only if zod parses it and returns it
   unchanged. The .NET tests must agree with every verdict, so a zod release that changes either shows up in both.

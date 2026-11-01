@@ -11,7 +11,7 @@ import { ImageRefSchema, PageRefSchema } from "./references.js";
 // zod's output, so a sample is valid when zod parses it and gives it back unchanged. The engine's tests read the
 // fixture this writes; run with UPDATE_ZOD_PARITY=1 to rewrite it after changing the cases or zod.
 const fixture = new URL(
-  "../../../../test/ConradSix.C4M.Tests/assets/zod-parity.json",
+  "../../../../dotnet/test/ConradSix.C4M.Tests/assets/zod-parity.json",
   import.meta.url,
 );
 

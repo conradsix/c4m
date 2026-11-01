@@ -46,6 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.version.outputs.version }}
+    defaults:
+      run:
+        working-directory: dotnet
 
     steps:
       - name: Checkout
@@ -54,7 +57,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          global-json-file: global.json
+          global-json-file: dotnet/global.json
 
       - name: Restore
         run: dotnet restore ConradSix.C4M.slnx
@@ -83,7 +86,7 @@ jobs:
             dotnet pack "${project}" \
               --configuration Release \
               --no-build \
-              --output artifacts/nuget \
+              --output "${GITHUB_WORKSPACE}/artifacts/nuget" \
               -p:Version="${VERSION}"
           done
 
@@ -155,7 +158,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          global-json-file: global.json
+          global-json-file: dotnet/global.json
 
       - name: NuGet login
         id: login

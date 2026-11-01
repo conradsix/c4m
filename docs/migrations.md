@@ -1,11 +1,12 @@
 # Migrations
 
-The engine's schema is built by its own EF Core migrations in `src/ConradSix.C4M/Data/Migrations`, which hosts apply
-with `MigrateC4MAsync`. A host's own migrations never touch the `cms` schema.
+The engine's schema is built by its own EF Core migrations in `dotnet/src/ConradSix.C4M/Data/Migrations`, which hosts
+apply with `MigrateC4MAsync`. A host's own migrations never touch the `cms` schema.
 
 ## Adding one
 
 ```bash
+cd dotnet
 ./migration.sh add -n AddPageSummary
 ```
 
@@ -27,6 +28,7 @@ The script restores the EF tools, uses the sample host as the startup project, w
 - **Check the model and migrations agree** before committing:
 
   ```bash
+  cd dotnet
   dotnet ef migrations has-pending-model-changes --project src/ConradSix.C4M --startup-project samples/ConradSix.C4M.SampleHost
   ```
 

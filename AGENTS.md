@@ -82,4 +82,8 @@ A `vX.Y.Z` or `vX.Y.Z-preview.N` tag releases every package at that version: `bu
 nuget.org and npm through trusted publishing, then creates the GitHub release. Prereleases go to npm's `next` tag.
 `./pack-local.sh` packs everything locally for a host to try first.
 
+`scripts/check-dotnet-packages.sh VERSION net10.0|net11.0 [FEED]` and
+`scripts/check-npm-packages.sh VERSION [TARBALL_DIR]` test installed artifacts outside the repo. Without the optional
+directory they verify public registry installs. Both CI and the release workflow run the consumer checks.
+
 Do not commit `bin/`, `obj/`, `TestResults/`, `node_modules/` or `dist/`.

@@ -99,6 +99,39 @@ jobs:
             artifacts/nuget/*.snupkg
           if-no-files-found: error
 
+  consumers:
+    name: Test release packages
+    needs: [version, dotnet, typescript]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Download packages
+        uses: actions/download-artifact@v8
+        with:
+          path: artifacts
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: dotnet/global.json
+          dotnet-version: 11.0.100
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: typescript/.nvmrc
+          package-manager-cache: false
+
+      - name: Test installed packages
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          ./scripts/check-dotnet-packages.sh "$VERSION" net10.0 artifacts/nuget
+          ./scripts/check-dotnet-packages.sh "$VERSION" net11.0 artifacts/nuget
+          ./scripts/check-npm-packages.sh "$VERSION" artifacts/npm
+
   typescript:
     name: Build and pack npm
     needs: version
@@ -138,7 +171,7 @@ jobs:
 
   publish:
     name: Publish packages
-    needs: [version, dotnet, typescript]
+    needs: [version, dotnet, typescript, consumers]
     runs-on: ubuntu-latest
     permissions:
       contents: read

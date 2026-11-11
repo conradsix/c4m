@@ -98,6 +98,36 @@ jobs:
             tar -tzf "${tarball}" | sort | sed 's/^/  /'
           done
 
+      - name: Test installed npm packages
+        working-directory: .
+        run: ./scripts/check-npm-packages.sh 0.0.0-ci "${RUNNER_TEMP}/npm"
+
+  packages:
+    name: Installed NuGet packages (${{ matrix.framework }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: [net10.0, net11.0]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: dotnet/global.json
+          dotnet-version: 11.0.100
+
+      - name: Pack
+        working-directory: dotnet
+        run: |
+          dotnet pack src/ConradSix.C4M -c Release -p:Version=0.0.0-ci --output "${RUNNER_TEMP}/nuget"
+          dotnet pack src/ConradSix.C4M.Testing -c Release -p:Version=0.0.0-ci --output "${RUNNER_TEMP}/nuget"
+
+      - name: Test installed NuGet packages
+        run: ./scripts/check-dotnet-packages.sh 0.0.0-ci "${{ matrix.framework }}" "${RUNNER_TEMP}/nuget"
+
   client:
     name: Generated client
     runs-on: ubuntu-latest

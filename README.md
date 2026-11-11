@@ -12,13 +12,13 @@ between them.
 
 ## Packages
 
-| Package                  | Registry                                         | Use it for                                                                             |
-| ------------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| `ConradSix.C4M`          | [![NuGet][nuget-c4m-badge]][nuget-c4m]           | The engine: services, PostgreSQL storage and migrations, and its FastEndpoints endpoints. |
-| `ConradSix.C4M.Testing`  | [![NuGet][nuget-testing-badge]][nuget-testing]   | Fakes for the engine's hooks, and seeding and clearing its tables in your tests.        |
-| `@conradsix/c4m-schema`  | [![npm][npm-schema-badge]][npm-schema]           | Versioned block and menu action schemas with zod, and syncing them to the engine.      |
-| `@conradsix/c4m-client`  | [![npm][npm-client-badge]][npm-client]           | A typed fetch client for the engine's endpoints.                                       |
-| `@conradsix/c4m-preview` | [![npm][npm-preview-badge]][npm-preview]         | Live preview: the editor-to-site postMessage protocol and signed preview tokens.       |
+| Package                  | Registry                                       | Use it for                                                                                |
+| ------------------------ | ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `ConradSix.C4M`          | [![NuGet][nuget-c4m-badge]][nuget-c4m]         | The engine: services, PostgreSQL storage and migrations, and its FastEndpoints endpoints. |
+| `ConradSix.C4M.Testing`  | [![NuGet][nuget-testing-badge]][nuget-testing] | Fakes for the engine's hooks, and seeding and clearing its tables in your tests.          |
+| `@conradsix/c4m-schema`  | [![npm][npm-schema-badge]][npm-schema]         | Versioned block and menu action schemas with zod, and syncing them to the engine.         |
+| `@conradsix/c4m-client`  | [![npm][npm-client-badge]][npm-client]         | A typed fetch client for the engine's endpoints.                                          |
+| `@conradsix/c4m-preview` | [![npm][npm-preview-badge]][npm-preview]       | Live preview: the editor-to-site postMessage protocol and signed preview tokens.          |
 
 [nuget-c4m-badge]: https://img.shields.io/nuget/vpre/ConradSix.C4M
 [nuget-c4m]: https://www.nuget.org/packages/ConradSix.C4M/
@@ -45,6 +45,14 @@ npm install @conradsix/c4m-schema @conradsix/c4m-client @conradsix/c4m-preview z
 ```
 
 Previews are published under npm's `next` tag; add `@next` to install one.
+
+```bash
+dotnet add package ConradSix.C4M --prerelease
+dotnet add package ConradSix.C4M.Testing --prerelease
+npm install @conradsix/c4m-schema@next @conradsix/c4m-client@next @conradsix/c4m-preview@next zod
+```
+
+Pin the same explicit version of every C4M package in an application.
 
 ## Host the engine
 
@@ -87,29 +95,29 @@ await app.RunAsync();
 
 ### Endpoints
 
-| Area               | Routes                                                                                                   | Kind     |
-| ------------------ | -------------------------------------------------------------------------------------------------------- | -------- |
-| Pages              | `/pages`, `/pages/{id}`, `/pages/{id}/details`, `/pages/{id}/path`, `/pages/path-availability`           | editor   |
-| Page versions      | `/pages/by-version/{id}`, `/pages/{id}/history`                                                          | editor   |
-| Page lifecycle     | `/pages/{id}/publish`, `/pages/{id}/unpublish`, `/pages/{id}/archive`, `/pages/{id}/reparent-children`   | editor   |
-| Block types        | `/block-types`, `/block-types/{id}`, `/block-types/by-name/{name}`                                       | editor   |
-| Menu action types  | `/menu-action-types`, `/menu-action-types/{id}`, `/menu-action-types/by-name/{name}`                     | editor   |
-| Menus              | `/menus`, `/menus/{id}`, `/navigation-settings`                                                          | editor   |
-| Published content  | `/pages/by-path`, `/menus/default`, `/menus/footer`, `GET /menus/{id}`                                   | delivery |
+| Area              | Routes                                                                                                 | Kind     |
+| ----------------- | ------------------------------------------------------------------------------------------------------ | -------- |
+| Pages             | `/pages`, `/pages/{id}`, `/pages/{id}/details`, `/pages/{id}/path`, `/pages/path-availability`         | editor   |
+| Page versions     | `/pages/by-version/{id}`, `/pages/{id}/history`                                                        | editor   |
+| Page lifecycle    | `/pages/{id}/publish`, `/pages/{id}/unpublish`, `/pages/{id}/archive`, `/pages/{id}/reparent-children` | editor   |
+| Block types       | `/block-types`, `/block-types/{id}`, `/block-types/by-name/{name}`                                     | editor   |
+| Menu action types | `/menu-action-types`, `/menu-action-types/{id}`, `/menu-action-types/by-name/{name}`                   | editor   |
+| Menus             | `/menus`, `/menus/{id}`, `/navigation-settings`                                                        | editor   |
+| Published content | `/pages/by-path`, `/menus/default`, `/menus/footer`, `GET /menus/{id}`                                 | delivery |
 
 ### Hooks
 
 Everything but the database has a default. Replace or add hooks on the builder:
 
-| Hook                        | Builder method                   | Default                       | What it does                                                         |
-| --------------------------- | -------------------------------- | ----------------------------- | -------------------------------------------------------------------- |
-| `IAssetResolver`            | `UseAssetResolver<T>()`          | no images                     | Turns the `image-ref` ids in blocks into image details for readers.  |
-| `ICmsChangeHandler`         | `UseChangeHandler<T>()`          | nothing                       | Hears about published changes, for example to purge a site's cache.  |
-| `IBlockChangeDescriber`     | `UseBlockChangeDescriber<T>()`   | generic wording               | Words the change summaries in a page's history.                     |
-| `ILinkedPageImageSelector`  | `UseLinkedPageImageSelector<T>()`| none                          | Picks the image shown for a page another page links to.             |
-| `IBlockValidator`           | `AddBlockValidator<T>()`         | —                             | Rules a block's schema can't express.                                |
-| `IReferenceExtractor`       | `AddReferenceExtractor<T>()`     | typed references              | Finds references in blocks, for `IBlockReferenceQuery`. The default finds `{ __typename, id }` objects and `page-ref:` links. |
-| `IPublicationRule`          | `AddPublicationRule<T>()`        | —                             | Refuses to publish a page that breaks one of your rules.             |
+| Hook                       | Builder method                    | Default          | What it does                                                                                                                  |
+| -------------------------- | --------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `IAssetResolver`           | `UseAssetResolver<T>()`           | no images        | Turns the `image-ref` ids in blocks into image details for readers.                                                           |
+| `ICmsChangeHandler`        | `UseChangeHandler<T>()`           | nothing          | Hears about published changes, for example to purge a site's cache.                                                           |
+| `IBlockChangeDescriber`    | `UseBlockChangeDescriber<T>()`    | generic wording  | Words the change summaries in a page's history.                                                                               |
+| `ILinkedPageImageSelector` | `UseLinkedPageImageSelector<T>()` | none             | Picks the image shown for a page another page links to.                                                                       |
+| `IBlockValidator`          | `AddBlockValidator<T>()`          | —                | Rules a block's schema can't express.                                                                                         |
+| `IReferenceExtractor`      | `AddReferenceExtractor<T>()`      | typed references | Finds references in blocks, for `IBlockReferenceQuery`. The default finds `{ __typename, id }` objects and `page-ref:` links. |
+| `IPublicationRule`         | `AddPublicationRule<T>()`         | —                | Refuses to publish a page that breaks one of your rules.                                                                      |
 
 ### Reading and writing from your service
 
@@ -233,6 +241,33 @@ Its OpenAPI UI is at `http://localhost:5000/swagger`.
 
 `./pack-local.sh` packs every package at a local version that sorts above the last release: the NuGet packages into
 `~/.nuget/local-c4m` and the npm tarballs into `~/.npm-local/c4m`. It prints the version.
+
+The package consumer checks copy small hosts outside the repo and install the packed artifacts. They check .NET 10
+and 11 against PostgreSQL, and Node ESM imports and TypeScript's `nodenext` and `bundler` resolution:
+
+```bash
+./scripts/check-dotnet-packages.sh VERSION net10.0 ~/.nuget/local-c4m
+./scripts/check-dotnet-packages.sh VERSION net11.0 ~/.nuget/local-c4m
+./scripts/check-npm-packages.sh VERSION ~/.npm-local/c4m
+```
+
+Omit the final directory to verify that exact version from the public registry instead. CI runs these checks before
+merging, and the release workflow runs them on the actual release artifacts before publishing.
+
+## Release
+
+Merge after CI passes, then push a signed, immutable `vX.Y.Z-preview.N` tag for a preview or `vX.Y.Z` for a stable
+release. `build.yml` tests and publishes all five packages at that version. Previews use npm's `next` tag.
+
+Before the first release, check that the NuGet trusted publishing policy covers both package names and names
+`conradsix/c4m` and `build.yml`. Reactivate a temporary policy if its seven-day window has expired. `NUGET_USER` is
+the NuGet profile name. The initial npm publish uses the `NPM_TOKEN` bootstrap secret with permission to create the
+three public packages in the `@conradsix` scope.
+
+After `0.1.0-preview.1`, configure a trusted publisher for each npm package: owner `conradsix`, repository `c4m`,
+workflow `build.yml`, and permission for direct `npm publish`. Remove the bootstrap token from the workflow and
+publish `0.1.0-preview.2` within two days of creating those configurations to prove OIDC publishing. Revoke and delete
+the bootstrap token after that succeeds. Verify every release with fresh installs before a host consumes it.
 
 [AGENTS.md](AGENTS.md) has the conventions. [docs/](docs) covers the validator's dialect, the schema's fixed
 identifiers, and how to add a migration.

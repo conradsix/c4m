@@ -1,9 +1,9 @@
-import type { BlockDefinition, VersionedSchema } from "./defineBlock";
-import type { CmsSchemaDescriptor } from "./descriptor";
+import type { BlockDefinition, VersionedSchema } from "./defineBlock.js";
+import type { CmsSchemaDescriptor } from "./descriptor.js";
 
 import { z } from "zod";
 
-import { versionOf } from "./defineBlock";
+import { versionOf } from "./defineBlock.js";
 
 type AnyBlock = BlockDefinition<string, readonly VersionedSchema[], VersionedSchema>;
 

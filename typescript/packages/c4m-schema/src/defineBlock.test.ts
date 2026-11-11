@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { z } from "zod";
 
-import { defineBlock } from "./defineBlock";
-import { defineCatalogue } from "./defineCatalogue";
+import { defineBlock } from "./defineBlock.js";
+import { defineCatalogue } from "./defineCatalogue.js";
 
 const NoteV1 = z.object({
   __typename: z.literal("note"),

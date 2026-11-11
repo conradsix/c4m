@@ -1,8 +1,8 @@
-import type { CmsSchemaDescriptor } from "./descriptor";
+import type { CmsSchemaDescriptor } from "./descriptor.js";
 
 import { z } from "zod";
 
-import { isJsonEqual } from "./isJsonEqual";
+import { isJsonEqual } from "./isJsonEqual.js";
 
 type RegisteredSchema = {
   readonly name: string;

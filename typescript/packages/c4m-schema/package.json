@@ -1,31 +1,47 @@
 {
   "name": "@conradsix/c4m-schema",
   "version": "0.0.0",
-  "type": "module",
-  "private": true,
-  "exports": {
-    ".": "./src/index.ts"
+  "description": "Versioned block and menu action schemas for C4M, defined with zod, and their sync with the engine.",
+  "keywords": [
+    "c4m",
+    "cms",
+    "zod",
+    "json-schema"
+  ],
+  "license": "MIT",
+  "author": "Brian Tyler",
+  "homepage": "https://github.com/conradsix/c4m#readme",
+  "bugs": "https://github.com/conradsix/c4m/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conradsix/c4m.git",
+    "directory": "typescript/packages/c4m-schema"
   },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.ts"
+  ],
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
-    "check:lint": "oxlint --type-aware .",
-    "check:circular": "oxlint --config ../../packages/oxlint-config/circular.json --disable-nested-config src",
-    "check:format": "oxfmt --check .",
-    "check:types": "tsc --noEmit",
-    "fix:lint": "oxlint --type-aware --fix .",
-    "fix:format": "oxfmt --write ."
+    "check:types": "tsc --noEmit"
   },
   "peerDependencies": {
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@repo/oxlint-config": "workspace:^",
-    "@repo/tsconfig": "workspace:^",
     "@types/node": "26.6.5",
-    "oxfmt": "0.75.0",
-    "oxlint": "1.90.0",
-    "oxlint-tsgolint": "7.0.2005",
     "typescript": "7.0.2",
+    "vite": "8.3.5",
     "vitest": "5.0.5",
     "zod": "4.6.7"
   }

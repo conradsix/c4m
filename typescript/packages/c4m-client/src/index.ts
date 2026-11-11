@@ -502,7 +502,7 @@ export interface CreateMenuResponse {
   id: string;
 }
 
-/** @example {"name":"main-navigation","rootItems":[{"title":"Home","actionTypeId":"466963d3-ffe3-4f9d-8368-5c0436f8ffe2","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":null}]} */
+/** @example {"name":"main-navigation","rootItems":[{"title":"Home","actionTypeId":"0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":null}]} */
 export interface CreateMenuRequest {
   /**
    * @minLength 1
@@ -510,7 +510,7 @@ export interface CreateMenuRequest {
    * @example "main-navigation"
    */
   name: string;
-  /** @example [{"title":"Home","actionTypeId":"466963d3-ffe3-4f9d-8368-5c0436f8ffe2","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":null}] */
+  /** @example [{"title":"Home","actionTypeId":"0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":null}] */
   rootItems?: MenuItem[] | null;
 }
 
@@ -585,11 +585,11 @@ export interface ListMenusMenuItem {
 
 export type ListMenusRequest = object;
 
-/** @example {"version":1,"rootItems":[{"title":"Home","actionTypeId":"eab13195-20eb-48f2-a121-74d2901f0af7","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":[{"title":"About","actionTypeId":"93886a29-3ee6-4c74-b9e0-94d9074ca68a","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000001\"}","children":null}]}]} */
+/** @example {"version":1,"rootItems":[{"title":"Home","actionTypeId":"0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":[{"title":"About","actionTypeId":"0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000001\"}","children":null}]}]} */
 export interface UpdateMenuRequest {
   /** @example 1 */
   version: number;
-  /** @example [{"title":"Home","actionTypeId":"eab13195-20eb-48f2-a121-74d2901f0af7","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":[{"title":"About","actionTypeId":"93886a29-3ee6-4c74-b9e0-94d9074ca68a","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000001\"}","children":null}]}] */
+  /** @example [{"title":"Home","actionTypeId":"0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000000\"}","children":[{"title":"About","actionTypeId":"0e1d6f2a-3b4c-4d5e-8f60-718293a4b5c6","actionData":"{\"pageId\": \"00000000-0000-0000-0000-000000000001\"}","children":null}]}] */
   rootItems?: MenuItem[] | null;
 }
 
@@ -662,7 +662,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = "http://localhost:5100";
+  public baseUrl: string = "";
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
   private abortControllers = new Map<CancelToken, AbortController>();
@@ -861,9 +861,8 @@ export class HttpClient<SecurityDataType = unknown> {
 /**
  * @title C4M
  * @version v1
- * @baseUrl http://localhost:5100
  *
- * API for managing content-related operations in the Parapet system.
+ * The C4M engine's endpoints: pages and their versions, block and menu action types, and menus.
  */
 export class Api<
   SecurityDataType extends unknown,

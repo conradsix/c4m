@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Test helpers for C4M hosts: fakes for the engine's hooks, and seeding and clearing its tables.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConradSix.C4M\ConradSix.C4M.csproj" />
+  </ItemGroup>
+
+</Project>

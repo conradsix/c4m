@@ -218,12 +218,9 @@ jobs:
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
 
-      # npm uses the trusted publisher when the package has one. Until then, the first release of a package needs an
-      # NPM_TOKEN secret: npm can't trust a workflow for a package that doesn't exist yet.
+      # Each package trusts this repository and workflow through its npm trusted publisher.
       - name: Publish to npm
         shell: bash
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           set -euo pipefail
 

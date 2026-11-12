@@ -110,6 +110,15 @@ internal static partial class CmsEngineLoggerMessages
         "Page details saved for {PageId} in {ElapsedMs:D} ms")]
     public static partial void UpdatePageDetailsEnd(this ILogger logger, Guid pageId, long elapsedMs);
 
+    [LoggerMessage(
+        EventIdStart + 13,
+        LogLevel.Information,
+        "ListPublishedPages completed in {ElapsedTime}ms: {Count} pages returned")]
+    public static partial void ListPublishedPagesCompleted(
+        this ILogger logger,
+        long elapsedTime,
+        int count);
+
     // Block types and menu action types (11020-11029)
     [LoggerMessage(
         EventIdStart + 20,

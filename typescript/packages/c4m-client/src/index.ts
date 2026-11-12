@@ -331,6 +331,22 @@ export interface ListPagesResponseItem {
 
 export type ListPagesRequest = object;
 
+export interface ListPublishedPagesResponse {
+  pages: PublishedPageItem[];
+}
+
+export interface PublishedPageItem {
+  /** @format uuid */
+  pageId: string;
+  /** @format uuid */
+  parentPageId?: string | null;
+  path: string;
+  seoTitle?: string | null;
+  robotsIndex: boolean;
+  /** @format date-time */
+  updatedAt: string;
+}
+
 export interface PagePublicationRequest {
   /** @format uuid */
   expectedCurrentPageVersionId?: string | null;
@@ -1137,6 +1153,22 @@ export class Api<
         path: `/pages/path-availability`,
         method: "GET",
         query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description Retrieves the path, SEO title and robots index setting of every published page's current version in path order, for sitemaps and page directories.
+     *
+     * @tags Pages
+     * @name ListPublishedPages
+     * @summary Lists every published page.
+     * @request GET:/pages/published
+     */
+    listPublishedPages: (params: RequestParams = {}) =>
+      this.request<ListPublishedPagesResponse, any>({
+        path: `/pages/published`,
+        method: "GET",
         format: "json",
         ...params,
       }),

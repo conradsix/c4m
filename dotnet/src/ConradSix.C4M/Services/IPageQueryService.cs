@@ -16,6 +16,8 @@ internal interface IPageQueryService
 
     Task<ListPagesResponse> ListPagesAsync(ListPagesRequest request, CancellationToken ct);
 
+    Task<ListPublishedPagesResponse> ListPublishedPagesAsync(CancellationToken ct);
+
     Task<GetPageHistoryResponse?> GetPageHistoryAsync(Guid pageId, CancellationToken ct, bool includeArchived = false);
 
     Task<IReadOnlyList<PageBreadcrumbItem>> GetPageBreadcrumbsAsync(Guid pageId, CancellationToken ct, bool includeArchived = false);

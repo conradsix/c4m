@@ -561,6 +561,13 @@ ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.Contains = 0 -> ConradSix
 ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.EndsWith = 2 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
 ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.Regex = 3 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
 ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType.StartsWith = 1 -> ConradSix.C4M.Endpoints.Page.ListPagesStringFilterType
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse!
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.Deconstruct(out System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PublishedPageItem!>! Pages) -> void
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.Equals(ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse? other) -> bool
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.ListPublishedPagesResponse(System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PublishedPageItem!>! Pages) -> void
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.Pages.get -> System.Collections.Generic.IReadOnlyList<ConradSix.C4M.Endpoints.Page.PublishedPageItem!>!
+ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.Pages.init -> void
 ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem
 ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem!
 ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Deconstruct(out System.Guid PageId, out string! Slug, out string! Path) -> void
@@ -680,6 +687,23 @@ ConradSix.C4M.Endpoints.Page.PageSeoResponse.SocialImage.get -> ConradSix.C4M.En
 ConradSix.C4M.Endpoints.Page.PageSeoResponse.SocialImage.init -> void
 ConradSix.C4M.Endpoints.Page.PageSeoResponse.Title.get -> string?
 ConradSix.C4M.Endpoints.Page.PageSeoResponse.Title.init -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.<Clone>$() -> ConradSix.C4M.Endpoints.Page.PublishedPageItem!
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.Deconstruct(out System.Guid PageId, out System.Guid? ParentPageId, out string! Path, out string? SeoTitle, out bool RobotsIndex, out System.DateTimeOffset UpdatedAt) -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.Equals(ConradSix.C4M.Endpoints.Page.PublishedPageItem? other) -> bool
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.PageId.get -> System.Guid
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.PageId.init -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.ParentPageId.get -> System.Guid?
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.ParentPageId.init -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.Path.get -> string!
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.Path.init -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.PublishedPageItem(System.Guid PageId, System.Guid? ParentPageId, string! Path, string? SeoTitle, bool RobotsIndex, System.DateTimeOffset UpdatedAt) -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.RobotsIndex.get -> bool
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.RobotsIndex.init -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.SeoTitle.get -> string?
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.SeoTitle.init -> void
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.UpdatedAt.get -> System.DateTimeOffset
+ConradSix.C4M.Endpoints.Page.PublishedPageItem.UpdatedAt.init -> void
 ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest
 ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.<Clone>$() -> ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest!
 ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.Deconstruct(out System.Guid? ParentId) -> void
@@ -1337,6 +1361,9 @@ override ConradSix.C4M.Endpoints.Page.ListPagesResponse.ToString() -> string!
 override ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.Equals(object? obj) -> bool
 override ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.GetHashCode() -> int
 override ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.ToString() -> string!
 override ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.Equals(object? obj) -> bool
 override ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.GetHashCode() -> int
 override ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.ToString() -> string!
@@ -1364,6 +1391,9 @@ override ConradSix.C4M.Endpoints.Page.PageSeoRequest.ToString() -> string!
 override ConradSix.C4M.Endpoints.Page.PageSeoResponse.Equals(object? obj) -> bool
 override ConradSix.C4M.Endpoints.Page.PageSeoResponse.GetHashCode() -> int
 override ConradSix.C4M.Endpoints.Page.PageSeoResponse.ToString() -> string!
+override ConradSix.C4M.Endpoints.Page.PublishedPageItem.Equals(object? obj) -> bool
+override ConradSix.C4M.Endpoints.Page.PublishedPageItem.GetHashCode() -> int
+override ConradSix.C4M.Endpoints.Page.PublishedPageItem.ToString() -> string!
 override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.Equals(object? obj) -> bool
 override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.GetHashCode() -> int
 override ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.ToString() -> string!
@@ -1603,6 +1633,8 @@ static ConradSix.C4M.Endpoints.Page.ListPagesResponse.operator !=(ConradSix.C4M.
 static ConradSix.C4M.Endpoints.Page.ListPagesResponse.operator ==(ConradSix.C4M.Endpoints.Page.ListPagesResponse? left, ConradSix.C4M.Endpoints.Page.ListPagesResponse? right) -> bool
 static ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.operator !=(ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? left, ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? right) -> bool
 static ConradSix.C4M.Endpoints.Page.ListPagesResponseItem.operator ==(ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? left, ConradSix.C4M.Endpoints.Page.ListPagesResponseItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.operator !=(ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse? left, ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse.operator ==(ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse? left, ConradSix.C4M.Endpoints.Page.ListPublishedPagesResponse? right) -> bool
 static ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.operator !=(ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? left, ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? right) -> bool
 static ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem.operator ==(ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? left, ConradSix.C4M.Endpoints.Page.PageBreadcrumbItem? right) -> bool
 static ConradSix.C4M.Endpoints.Page.PageDraftConflict.operator !=(ConradSix.C4M.Endpoints.Page.PageDraftConflict? left, ConradSix.C4M.Endpoints.Page.PageDraftConflict? right) -> bool
@@ -1621,6 +1653,8 @@ static ConradSix.C4M.Endpoints.Page.PageSeoRequest.operator !=(ConradSix.C4M.End
 static ConradSix.C4M.Endpoints.Page.PageSeoRequest.operator ==(ConradSix.C4M.Endpoints.Page.PageSeoRequest? left, ConradSix.C4M.Endpoints.Page.PageSeoRequest? right) -> bool
 static ConradSix.C4M.Endpoints.Page.PageSeoResponse.operator !=(ConradSix.C4M.Endpoints.Page.PageSeoResponse? left, ConradSix.C4M.Endpoints.Page.PageSeoResponse? right) -> bool
 static ConradSix.C4M.Endpoints.Page.PageSeoResponse.operator ==(ConradSix.C4M.Endpoints.Page.PageSeoResponse? left, ConradSix.C4M.Endpoints.Page.PageSeoResponse? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PublishedPageItem.operator !=(ConradSix.C4M.Endpoints.Page.PublishedPageItem? left, ConradSix.C4M.Endpoints.Page.PublishedPageItem? right) -> bool
+static ConradSix.C4M.Endpoints.Page.PublishedPageItem.operator ==(ConradSix.C4M.Endpoints.Page.PublishedPageItem? left, ConradSix.C4M.Endpoints.Page.PublishedPageItem? right) -> bool
 static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.operator !=(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? right) -> bool
 static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest.operator ==(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenRequest? right) -> bool
 static ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse.operator !=(ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? left, ConradSix.C4M.Endpoints.Page.ReparentPageChildrenResponse? right) -> bool

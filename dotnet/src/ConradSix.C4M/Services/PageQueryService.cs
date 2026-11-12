@@ -60,6 +60,21 @@ internal class PageQueryService(
         .Select(p => p.Path)
         .SingleOrDefaultAsync(ct);
 
+    // The pages GetPageByPathAsync serves: published, with a current version.
+    public async Task<ListPublishedPagesResponse> ListPublishedPagesAsync(CancellationToken ct) =>
+        new(await ctx.PageVersions
+            .AsNoTracking()
+            .Where(version => version.IsCurrent == true && version.Page.IsPublished)
+            .OrderBy(version => version.Page.Path)
+            .Select(version => new PublishedPageItem(
+                version.PageId,
+                version.Page.ParentId,
+                version.Page.Path,
+                version.SeoTitle,
+                version.RobotsIndex,
+                version.CreatedAt))
+            .ToListAsync(ct));
+
     public async Task<ListPagesResponse> ListPagesAsync(ListPagesRequest request, CancellationToken ct)
     {
         var query = request.Status switch

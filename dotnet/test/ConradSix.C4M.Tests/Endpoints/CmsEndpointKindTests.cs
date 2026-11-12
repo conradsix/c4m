@@ -24,7 +24,7 @@ public sealed class CmsEndpointKindTests
     public void DeliveryEndpoints_ShouldBeThePublishedPageAndMenuReads() =>
         EngineEndpoints.Where(type => type.GetCustomAttribute<CmsEndpointAttribute>()?.Kind == CmsEndpointKind.Delivery)
             .Select(type => type.Name)
-            .Should().BeEquivalentTo("GetPageByPath", "GetMenu", "GetDefaultMenu", "GetFooterMenu");
+            .Should().BeEquivalentTo("GetPageByPath", "ListPublishedPages", "GetMenu", "GetDefaultMenu", "GetFooterMenu");
 
     [Theory]
     [InlineData(typeof(UpdatePage), "editor")]

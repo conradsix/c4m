@@ -103,7 +103,7 @@ await app.RunAsync();
 | Block types       | `/block-types`, `/block-types/{id}`, `/block-types/by-name/{name}`                                     | editor   |
 | Menu action types | `/menu-action-types`, `/menu-action-types/{id}`, `/menu-action-types/by-name/{name}`                   | editor   |
 | Menus             | `/menus`, `/menus/{id}`, `/navigation-settings`                                                        | editor   |
-| Published content | `/pages/by-path`, `/menus/default`, `/menus/footer`, `GET /menus/{id}`                                 | delivery |
+| Published content | `/pages/by-path`, `/pages/published`, `/menus/default`, `/menus/footer`, `GET /menus/{id}`             | delivery |
 
 ### Hooks
 

@@ -709,6 +709,28 @@
         }
       }
     },
+    "/pages/published": {
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Lists every published page.",
+        "description": "Retrieves the path, SEO title and robots index setting of every published page's current version in path order, for sitemaps and page directories.",
+        "operationId": "ListPublishedPages",
+        "responses": {
+          "200": {
+            "description": "Published pages were successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPublishedPagesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/pages/{id}/publish": {
       "post": {
         "tags": [
@@ -2518,6 +2540,56 @@
           3,
           4
         ]
+      },
+      "ListPublishedPagesResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pages"
+        ],
+        "properties": {
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublishedPageItem"
+            }
+          }
+        }
+      },
+      "PublishedPageItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pageId",
+          "path",
+          "robotsIndex",
+          "updatedAt"
+        ],
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentPageId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "path": {
+            "type": "string"
+          },
+          "seoTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "robotsIndex": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
       },
       "PagePublicationRequest": {
         "type": "object",

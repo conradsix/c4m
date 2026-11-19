@@ -21,10 +21,18 @@ public sealed class CmsEndpointKindTests
             .Should().BeEmpty();
 
     [Fact]
-    public void DeliveryEndpoints_ShouldBeThePublishedPageAndMenuReads() =>
+    public void DeliveryEndpoints_ShouldExposePublishedContentAndMenus() =>
         EngineEndpoints.Where(type => type.GetCustomAttribute<CmsEndpointAttribute>()?.Kind == CmsEndpointKind.Delivery)
             .Select(type => type.Name)
-            .Should().BeEquivalentTo("GetPageByPath", "ListPublishedPages", "GetMenu", "GetDefaultMenu", "GetFooterMenu");
+            .Should().BeEquivalentTo(
+                "GetPageByPath",
+                "ListPublishedPages",
+                "ListPublishedBlocks",
+                "GetMenu",
+                "GetDefaultMenu",
+                "GetFooterMenu",
+                "GetPublishedContent",
+                "ListPublishedContent");
 
     [Theory]
     [InlineData(typeof(UpdatePage), "editor")]

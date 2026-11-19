@@ -89,7 +89,10 @@ await app.RunAsync();
 - `ConfigureCmsEndpoint` lets you authorize the editor's endpoints apart from the ones a public site reads. It returns
   false for endpoints that aren't the engine's, so you can configure your own in the same configurator.
 - `MigrateC4MAsync` brings the `cms` schema up to date.
-- `ReservedRootSegments` are top-level paths the engine refuses for pages, because your site routes them itself.
+- `ReservedRootSegments` are top-level paths the engine refuses for pages that your site routes itself.
+- `RequirePublishedAncestors` defaults to true. A site can set it to false when a page can be published independently of
+  the publication state of its ancestors. Explicit page and menu references still require published targets.
+- `MaxMenuItems` defaults to 20 and applies to the whole menu tree.
 
 [`dotnet/samples/ConradSix.C4M.SampleHost`](dotnet/samples/ConradSix.C4M.SampleHost) is the smallest working host.
 
@@ -104,6 +107,19 @@ await app.RunAsync();
 | Menu action types | `/menu-action-types`, `/menu-action-types/{id}`, `/menu-action-types/by-name/{name}`                   | editor   |
 | Menus             | `/menus`, `/menus/{id}`, `/navigation-settings`                                                        | editor   |
 | Published content | `/pages/by-path`, `/pages/published`, `/menus/default`, `/menus/footer`, `GET /menus/{id}`             | delivery |
+
+### Shared records
+
+Register an immutable schema at `PUT /content-types/{type}/schemas/{schemaVersion}`. Set `singleton` for a type
+with one record at the key `default`. Collections accept separate slug keys and can list their records with pagination.
+
+Save a draft at `PUT /content/{type}/{key}` with the schema version, JSON data, and the latest revision you expect.
+An optional idempotency key identifies a draft on retry. Read revisions at `GET /content/{type}/{key}/history`.
+Update the published pointer at `PUT /content/{type}/{key}/publication` with the target revision and the publication
+you expect. A null target unpublishes the record. The delivery routes under `/published-content/{type}` read published revisions.
+
+`GET /published-blocks/{blockType}` reads a batch of blocks of a named type from the current versions of published
+pages. It includes the page identity and SEO fields so sites can build page-list summaries.
 
 ### Hooks
 
@@ -185,6 +201,9 @@ const { data: page } = await c4m.pages.getPageByPath({ path: "/about-us" });
 ```
 
 The client is generated from the sample host's OpenAPI document, so its types follow the engine's endpoints exactly.
+
+Pass `blockTypeRegistry(c4m)` or `menuActionTypeRegistry(c4m)` from
+`@conradsix/c4m-client/schema-registry` to `syncSchemas` to register a site's schema catalogue.
 
 ## Preview
 

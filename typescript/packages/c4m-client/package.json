@@ -23,6 +23,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./schema-registry": {
+      "types": "./dist/schema-registry.d.ts",
+      "import": "./dist/schema-registry.js"
     }
   },
   "files": [

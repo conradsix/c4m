@@ -69,7 +69,7 @@ await using var history = new NpgsqlCommand(
     """
     SELECT string_agg(migration_id, ',' ORDER BY migration_id) FROM cms."__EFMigrationsHistory"
     """, connection);
-Require((string?)await history.ExecuteScalarAsync() == "20261029180539_InitialCreate", "The packaged migration history changed.");
+Require((string?)await history.ExecuteScalarAsync() == "20261029180539_InitialCreate,20261119173236_SharedContent", "The packaged migration history changed.");
 Console.WriteLine($"Installed C4M packages passed on {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}.");
 
 WebApplication CreateHost()

@@ -12,9 +12,10 @@ using FastEndpoints;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
-internal sealed class ReparentPageChildren(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, CmsPathPolicy pathPolicy, ILogger<ReparentPageChildren> logger)
+internal sealed class ReparentPageChildren(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, CmsPathPolicy pathPolicy, ILogger<ReparentPageChildren> logger, IOptions<C4MOptions> options)
     : Endpoint<ReparentPageChildrenRequest, ReparentPageChildrenResponse>
 {
     public override void Configure()
@@ -96,7 +97,7 @@ internal sealed class ReparentPageChildren(CmsEngineDbContext ctx, ICmsChangeHan
             return;
         }
 
-        if (activeSubtree.Any(page => page.IsPublished))
+        if (options.Value.RequirePublishedAncestors && activeSubtree.Any(page => page.IsPublished))
         {
             var unpublished = await PagePublicationGuard.GetUnpublishedAncestorsAsync(ctx, req.ParentId, ct);
             if (unpublished.Count > 0)

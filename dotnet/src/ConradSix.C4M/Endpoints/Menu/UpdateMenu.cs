@@ -18,6 +18,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
 internal class UpdateMenu(
@@ -152,8 +153,8 @@ internal class UpdateMenuRequestValidator : Validator<UpdateMenuRequest>
             .NotNull()
             .WithMessage("Version is required for concurrency checking");
         this.RuleFor(r => r.RootItems)
-            .Must(items => CountMenuItems(items) <= MenuConstants.MaxMenuItems)
-            .WithMessage($"Menu cannot contain more than {MenuConstants.MaxMenuItems} items total")
+            .Must(items => CountMenuItems(items) <= this.Resolve<IOptions<C4MOptions>>().Value.MaxMenuItems)
+            .WithMessage(_ => $"Menu cannot contain more than {this.Resolve<IOptions<C4MOptions>>().Value.MaxMenuItems} items total")
             .When(r => r.RootItems != null && r.RootItems.Count > 0);
 
         this.RuleForEach(r => r.RootItems)

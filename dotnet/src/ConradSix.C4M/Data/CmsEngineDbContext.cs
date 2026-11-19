@@ -2,6 +2,7 @@
 
 namespace ConradSix.C4M.Data;
 
+using ConradSix.C4M.Content;
 using ConradSix.C4M.Data.Model;
 
 using Microsoft.EntityFrameworkCore;
@@ -63,6 +64,7 @@ internal sealed class CmsEngineDbContext(DbContextOptions<CmsEngineDbContext> op
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.HasDefaultSchema(Schema);
+        ContentModel.Configure(modelBuilder);
 
         modelBuilder.Entity<BlockTypeEntity>(e =>
         {

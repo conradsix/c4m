@@ -1629,6 +1629,436 @@
           }
         }
       }
+    },
+    "/content-types/{type}/schemas/{schemaVersion}": {
+      "put": {
+        "tags": [
+          "Content-Types"
+        ],
+        "operationId": "RegisterContentSchema",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "x-name": "RegisterContentSchemaRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterContentSchemaRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentSchemaResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content-types/{type}/schemas": {
+      "get": {
+        "tags": [
+          "Content-Types"
+        ],
+        "operationId": "ListContentSchemas",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentListResponseOfContentSchemaResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/{type}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "operationId": "ListContentRecords",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": false
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50,
+              "nullable": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentListResponseOfContentRecordResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/{type}/{key}/history": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "operationId": "GetContentHistory",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": false
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50,
+              "nullable": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentListResponseOfContentRevisionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/{type}/{key}": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "operationId": "SaveContentRecord",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "x-name": "SaveContentRecordRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveContentRecordRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentRevisionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content/{type}/{key}/publication": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "operationId": "SetContentPublication",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "x-name": "SetContentPublicationRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetContentPublicationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentRecordResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/published-content/{type}/{key}": {
+      "get": {
+        "tags": [
+          "Published-Content"
+        ],
+        "operationId": "GetPublishedContent",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentRevisionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/published-content/{type}": {
+      "get": {
+        "tags": [
+          "Published-Content"
+        ],
+        "operationId": "ListPublishedContent",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": false
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50,
+              "nullable": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentListResponseOfContentRevisionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/published-blocks/{blockType}": {
+      "get": {
+        "tags": [
+          "Published-Blocks"
+        ],
+        "operationId": "ListPublishedBlocks",
+        "parameters": [
+          {
+            "name": "blockType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0,
+              "nullable": false
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100,
+              "nullable": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentListResponseOfPublishedBlockItem"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3373,6 +3803,284 @@
         }
       },
       "ListBlockTypesRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ContentSchemaResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "singleton",
+          "schemaVersion",
+          "jsonSchema"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "singleton": {
+            "type": "boolean"
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jsonSchema": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterContentSchemaRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "singleton",
+          "jsonSchema"
+        ],
+        "properties": {
+          "singleton": {
+            "type": "boolean"
+          },
+          "jsonSchema": {
+            "type": "string"
+          }
+        }
+      },
+      "ContentListResponseOfContentSchemaResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentSchemaResponse"
+            }
+          }
+        }
+      },
+      "ContentTypeRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ContentListResponseOfContentRecordResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentRecordResponse"
+            }
+          }
+        }
+      },
+      "ContentRecordResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "latestRevisionId"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "latestRevisionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "publishedRevisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        }
+      },
+      "ListContentRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ContentListResponseOfContentRevisionResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentRevisionResponse"
+            }
+          }
+        }
+      },
+      "ContentRevisionResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "key",
+          "id",
+          "schemaVersion",
+          "data",
+          "createdAt"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ContentHistoryRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "SaveContentRecordRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schemaVersion",
+          "data"
+        ],
+        "properties": {
+          "schemaVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string"
+          },
+          "expectedLatestRevisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SetContentPublicationRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "revisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "expectedPublishedRevisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        }
+      },
+      "ContentRecordRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ContentListResponseOfPublishedBlockItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublishedBlockItem"
+            }
+          }
+        }
+      },
+      "PublishedBlockItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pageId",
+          "path",
+          "pageVersionId",
+          "robotsIndex",
+          "updatedAt",
+          "version",
+          "data"
+        ],
+        "properties": {
+          "pageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "path": {
+            "type": "string"
+          },
+          "pageVersionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "seoTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "seoDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "seoImageId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "robotsIndex": {
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string"
+          }
+        }
+      },
+      "ListPublishedBlocksRequest": {
         "type": "object",
         "additionalProperties": false
       }

@@ -12,9 +12,10 @@ using FastEndpoints;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
-internal sealed class UnpublishPage(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, ILogger<UnpublishPage> logger)
+internal sealed class UnpublishPage(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, ILogger<UnpublishPage> logger, IOptions<C4MOptions> options)
     : Endpoint<PagePublicationRequest>
 {
     public override void Configure()
@@ -60,8 +61,9 @@ internal sealed class UnpublishPage(CmsEngineDbContext ctx, ICmsChangeHandler ch
 
             var path = page.Path;
             var descendantsPrefix = path + "/";
+            var requirePublishedAncestors = options.Value.RequirePublishedAncestors;
             var referencingVersions = ctx.PageVersions.Where(version => version.IsCurrent == true && version.Page.IsPublished && version.PageId != pageId &&
-                (version.Page.Path.StartsWith(descendantsPrefix) || version.VersionBlocks.Any(block =>
+                ((requirePublishedAncestors && version.Page.Path.StartsWith(descendantsPrefix)) || version.VersionBlocks.Any(block =>
                     block.PageBlock.References.Any(reference => reference.Kind == CmsReferenceKinds.Page && reference.TargetId == pageId))));
             var pageCount = await referencingVersions.CountAsync(ct);
             var pages = await referencingVersions.OrderBy(version => version.Page.Path).ThenBy(version => version.PageId)
@@ -70,7 +72,7 @@ internal sealed class UnpublishPage(CmsEngineDbContext ctx, ICmsChangeHandler ch
                     version.PageId,
                     version.Id,
                     version.Page.Path,
-                    version.Page.Path.StartsWith(descendantsPrefix)
+                    requirePublishedAncestors && version.Page.Path.StartsWith(descendantsPrefix)
                         ? "Published descendant (breadcrumb link)"
                         : "Link in " + version.VersionBlocks
                             .Where(block => block.PageBlock.References.Any(reference => reference.Kind == CmsReferenceKinds.Page && reference.TargetId == pageId))

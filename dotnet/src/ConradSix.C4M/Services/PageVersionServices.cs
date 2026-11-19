@@ -103,10 +103,13 @@ internal class PageVersionServices(
             errors.Add("SEO description is required before publishing.");
         }
 
-        var unpublishedAncestors = await PagePublicationGuard.GetUnpublishedAncestorsAsync(ctx, metadata.ParentId, cancellationToken);
-        foreach (var path in unpublishedAncestors)
+        if (options.Value.RequirePublishedAncestors)
         {
-            errors.Add($"Ancestor page '{path}' must be published first.");
+            var unpublishedAncestors = await PagePublicationGuard.GetUnpublishedAncestorsAsync(ctx, metadata.ParentId, cancellationToken);
+            foreach (var path in unpublishedAncestors)
+            {
+                errors.Add($"Ancestor page '{path}' must be published first.");
+            }
         }
 
         var linkedPageIds = ctx.PageBlockReferences

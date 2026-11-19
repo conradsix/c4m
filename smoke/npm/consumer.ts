@@ -6,6 +6,7 @@ import { resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { Api } from "@conradsix/c4m-client";
+import { blockTypeRegistry, menuActionTypeRegistry } from "@conradsix/c4m-client/schema-registry";
 import { createPreviewProtocol, PREVIEW_PROTOCOL_VERSION } from "@conradsix/c4m-preview";
 import { signPreviewToken, verifyPreviewToken } from "@conradsix/c4m-preview/server";
 import { defineBlock, defineCatalogue, EmptyActionV1Schema } from "@conradsix/c4m-schema";
@@ -67,4 +68,21 @@ const client = new Api({
   },
 });
 assert.equal((await client.pages.getPageByPath({ path: "/consumer" })).data.pageId, sessionId);
+const registryClient = new Api({
+  baseUrl: "https://cms.example.test",
+  customFetch: async (input): Promise<Response> => {
+    const request = new URL(String(input));
+    const offset = Number(request.searchParams.get("offset"));
+    const data =
+      request.pathname === "/block-types"
+        ? { items: [{ name: `note-${offset}` }], nextOffset: offset === 0 ? 50 : null }
+        : { items: [{ name: "empty" }] };
+    return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json" } });
+  },
+});
+assert.deepEqual(
+  (await blockTypeRegistry(registryClient).list()).map((item) => item.name),
+  ["note-0", "note-50"],
+);
+assert.equal((await menuActionTypeRegistry(registryClient).list())[0]?.name, "empty");
 console.log(`Installed C4M npm packages ${process.env.C4M_PACKAGE_VERSION} passed.`);

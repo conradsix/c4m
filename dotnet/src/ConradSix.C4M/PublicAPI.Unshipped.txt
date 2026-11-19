@@ -1,1 +1,5 @@
 #nullable enable
+ConradSix.C4M.C4MOptions.RequirePublishedAncestors.get -> bool
+ConradSix.C4M.C4MOptions.RequirePublishedAncestors.set -> void
+ConradSix.C4M.C4MOptions.MaxMenuItems.get -> int
+ConradSix.C4M.C4MOptions.MaxMenuItems.set -> void

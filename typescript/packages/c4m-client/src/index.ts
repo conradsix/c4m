@@ -625,6 +625,101 @@ export interface ListBlockTypesResponse {
 
 export type ListBlockTypesRequest = object;
 
+export interface ContentSchemaResponse {
+  type: string;
+  singleton: boolean;
+  /** @format int32 */
+  schemaVersion: number;
+  jsonSchema: string;
+}
+
+export interface RegisterContentSchemaRequest {
+  singleton: boolean;
+  jsonSchema: string;
+}
+
+export interface ContentListResponseOfContentSchemaResponse {
+  items: ContentSchemaResponse[];
+}
+
+export type ContentTypeRequest = object;
+
+export interface ContentListResponseOfContentRecordResponse {
+  items: ContentRecordResponse[];
+}
+
+export interface ContentRecordResponse {
+  key: string;
+  /** @format uuid */
+  latestRevisionId: string;
+  /** @format uuid */
+  publishedRevisionId?: string | null;
+}
+
+export type ListContentRequest = object;
+
+export interface ContentListResponseOfContentRevisionResponse {
+  items: ContentRevisionResponse[];
+}
+
+export interface ContentRevisionResponse {
+  type: string;
+  key: string;
+  /** @format uuid */
+  id: string;
+  /** @format int32 */
+  schemaVersion: number;
+  data: string;
+  /** @format date-time */
+  createdAt: string;
+}
+
+export type ContentHistoryRequest = object;
+
+export interface SaveContentRecordRequest {
+  /** @format int32 */
+  schemaVersion: number;
+  data: string;
+  /** @format uuid */
+  expectedLatestRevisionId?: string | null;
+  idempotencyKey?: string | null;
+}
+
+export interface SetContentPublicationRequest {
+  /** @format uuid */
+  revisionId?: string | null;
+  /** @format uuid */
+  expectedPublishedRevisionId?: string | null;
+}
+
+export type ContentRecordRequest = object;
+
+export interface ContentListResponseOfPublishedBlockItem {
+  items: PublishedBlockItem[];
+}
+
+export interface PublishedBlockItem {
+  /** @format uuid */
+  pageId: string;
+  /** @format uuid */
+  parentId?: string | null;
+  path: string;
+  /** @format uuid */
+  pageVersionId: string;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  /** @format uuid */
+  seoImageId?: string | null;
+  robotsIndex: boolean;
+  /** @format date-time */
+  updatedAt: string;
+  /** @format int32 */
+  version: number;
+  data: string;
+}
+
+export type ListPublishedBlocksRequest = object;
+
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
 
@@ -1584,6 +1679,235 @@ export class Api<
     ) =>
       this.request<CmsTypeDescriptor, void>({
         path: `/block-types/by-name/${name}`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
+  contentTypes = {
+    /**
+     * No description
+     *
+     * @tags Content-Types
+     * @name RegisterContentSchema
+     * @request PUT:/content-types/{type}/schemas/{schemaVersion}
+     */
+    registerContentSchema: (
+      type: string,
+      schemaVersion: number,
+      data: RegisterContentSchemaRequest,
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentSchemaResponse, any>({
+        path: `/content-types/${type}/schemas/${schemaVersion}`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Content-Types
+     * @name ListContentSchemas
+     * @request GET:/content-types/{type}/schemas
+     */
+    listContentSchemas: (type: string, params: RequestParams = {}) =>
+      this.request<ContentListResponseOfContentSchemaResponse, any>({
+        path: `/content-types/${type}/schemas`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+  };
+  content = {
+    /**
+     * No description
+     *
+     * @tags Content
+     * @name ListContentRecords
+     * @request GET:/content/{type}
+     */
+    listContentRecords: (
+      type: string,
+      query?: {
+        /**
+         * @format int32
+         * @default 0
+         */
+        offset?: number;
+        /**
+         * @format int32
+         * @default 50
+         */
+        limit?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentListResponseOfContentRecordResponse, any>({
+        path: `/content/${type}`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Content
+     * @name GetContentHistory
+     * @request GET:/content/{type}/{key}/history
+     */
+    getContentHistory: (
+      type: string,
+      key: string,
+      query?: {
+        /**
+         * @format int32
+         * @default 0
+         */
+        offset?: number;
+        /**
+         * @format int32
+         * @default 50
+         */
+        limit?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentListResponseOfContentRevisionResponse, any>({
+        path: `/content/${type}/${key}/history`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Content
+     * @name SaveContentRecord
+     * @request PUT:/content/{type}/{key}
+     */
+    saveContentRecord: (
+      type: string,
+      key: string,
+      data: SaveContentRecordRequest,
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentRevisionResponse, any>({
+        path: `/content/${type}/${key}`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Content
+     * @name SetContentPublication
+     * @request PUT:/content/{type}/{key}/publication
+     */
+    setContentPublication: (
+      type: string,
+      key: string,
+      data: SetContentPublicationRequest,
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentRecordResponse, any>({
+        path: `/content/${type}/${key}/publication`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  publishedContent = {
+    /**
+     * No description
+     *
+     * @tags Published-Content
+     * @name GetPublishedContent
+     * @request GET:/published-content/{type}/{key}
+     */
+    getPublishedContent: (
+      type: string,
+      key: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentRevisionResponse, any>({
+        path: `/published-content/${type}/${key}`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Published-Content
+     * @name ListPublishedContent
+     * @request GET:/published-content/{type}
+     */
+    listPublishedContent: (
+      type: string,
+      query?: {
+        /**
+         * @format int32
+         * @default 0
+         */
+        offset?: number;
+        /**
+         * @format int32
+         * @default 50
+         */
+        limit?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentListResponseOfContentRevisionResponse, any>({
+        path: `/published-content/${type}`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
+  publishedBlocks = {
+    /**
+     * No description
+     *
+     * @tags Published-Blocks
+     * @name ListPublishedBlocks
+     * @request GET:/published-blocks/{blockType}
+     */
+    listPublishedBlocks: (
+      blockType: string,
+      query?: {
+        /**
+         * @format int32
+         * @default 0
+         */
+        offset?: number;
+        /**
+         * @format int32
+         * @default 100
+         */
+        limit?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentListResponseOfPublishedBlockItem, any>({
+        path: `/published-blocks/${blockType}`,
         method: "GET",
         query: query,
         format: "json",

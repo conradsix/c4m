@@ -2,6 +2,7 @@
 namespace Microsoft.Extensions.DependencyInjection;
 
 using ConradSix.C4M;
+using ConradSix.C4M.Content;
 using ConradSix.C4M.Data;
 using ConradSix.C4M.Services;
 using ConradSix.C4M.Validation;
@@ -35,6 +36,7 @@ public static class C4MServiceCollectionExtensions
         services.TryAddScoped<ICmsPageReader, CmsPageReader>();
         services.TryAddScoped<IPageQueryService, PageQueryService>();
         services.TryAddScoped<IMenuService, MenuService>();
+        services.TryAddScoped<ContentRecords>();
 
         configure?.Invoke(new C4MBuilder(services));
         return services;

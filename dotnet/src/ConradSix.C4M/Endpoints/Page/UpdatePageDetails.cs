@@ -15,9 +15,10 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 [CmsEndpoint(CmsEndpointKind.Editor)]
-internal class UpdatePageDetails(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, CmsPathPolicy pathPolicy, IPageQueryService pageQueryService, ILogger<UpdatePageDetails> logger)
+internal class UpdatePageDetails(CmsEngineDbContext ctx, ICmsChangeHandler changeHandler, CmsPathPolicy pathPolicy, IPageQueryService pageQueryService, ILogger<UpdatePageDetails> logger, IOptions<C4MOptions> options)
     : Endpoint<UpdatePageDetailsRequest, GetPageResponse>
 {
     public override void Configure()
@@ -67,7 +68,7 @@ internal class UpdatePageDetails(CmsEngineDbContext ctx, ICmsChangeHandler chang
             if (page.ParentId != req.ParentId)
             {
                 var descendantPrefix = page.Path + "/";
-                var hasLivePages = await ctx.PageVersions.AnyAsync(
+                var hasLivePages = options.Value.RequirePublishedAncestors && await ctx.PageVersions.AnyAsync(
                     version => version.IsCurrent == true && version.Page.IsPublished &&
                         (version.PageId == pageId || version.Page.Path.StartsWith(descendantPrefix)),
                     ct);
